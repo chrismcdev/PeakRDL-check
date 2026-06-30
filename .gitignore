@@ -1,0 +1,10 @@
+.venv/
+build/
+benchmarks/out/
+fixtures/generated/
+__pycache__/
+*.pyc
+node_modules/
+.pytest_cache/
+*.egg-info/
+.DS_Store

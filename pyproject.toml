@@ -1,0 +1,24 @@
+[project]
+name = "regreview"
+version = "0.1.0"
+description = "Local-first semantic review and large-scale browsing for hardware register specifications"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "systemrdl-compiler==1.32.2",
+]
+
+[project.optional-dependencies]
+baseline = ["peakrdl==1.5.0", "peakrdl-html==2.12.2"]
+dev = ["pytest==9.1.1"]
+
+[project.scripts]
+regreview = "regreview.cli:main"
+regreview-fixture = "regreview.fixture_gen:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["regreview*"]
