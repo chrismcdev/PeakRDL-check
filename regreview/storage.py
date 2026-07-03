@@ -326,7 +326,7 @@ class RegIndex:
 
     # ---- hierarchy ----
 
-    def children(self, parent_id: Optional[int], cursor: int = 0,
+    def children(self, parent_id: Optional[int], cursor: int = -1,
                  limit: int = 200) -> dict:
         limit = max(1, min(int(limit), 1000))
         if parent_id is None:

@@ -59,6 +59,18 @@ def cmd_build(args) -> int:
     return EXIT_OK
 
 
+def cmd_serve(args) -> int:
+    from .server import serve
+
+    p = Path(args.index)
+    db = p / "register-map.sqlite" if p.is_dir() else p
+    changes = Path(args.changes) if args.changes else (
+        db.parent / "changes.json" if (db.parent / "changes.json").is_file() else None)
+    serve(db, host=args.host, port=args.port, changes_path=changes,
+          verbose=args.verbose)
+    return EXIT_OK
+
+
 def cmd_inspect(args) -> int:
     from .storage import RegIndex
 
@@ -105,6 +117,15 @@ def main(argv=None) -> int:
                    default="registers")
     b.add_argument("--mode", choices=("server", "static"), default="server")
     b.set_defaults(func=cmd_build)
+
+    s = sub.add_parser("serve", help="serve an index locally")
+    s.add_argument("index")
+    s.add_argument("--host", default="127.0.0.1")
+    s.add_argument("--port", type=int, default=0)
+    s.add_argument("--changes", default=None,
+                   help="changes.json from `regreview diff` to display")
+    s.add_argument("--verbose", action="store_true")
+    s.set_defaults(func=cmd_serve)
 
     i = sub.add_parser("inspect", help="show index metadata")
     i.add_argument("index")
