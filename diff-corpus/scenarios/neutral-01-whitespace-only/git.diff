@@ -1,0 +1,22 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-01-whitespace-only/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-01-whitespace-only/after.rdl
+index dbe5351..f7c3b33 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-01-whitespace-only/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-01-whitespace-only/after.rdl
+@@ -1,4 +1,15 @@
+ addrmap soc {
+-    reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+-    reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x4;
++
++    reg {
++        field {
++            sw = rw;
++            hw = r;
++            reset = 0x0;
++        } en[0:0];
++    } ctrl @ 0x0;
++
++    reg {
++        field { sw = r; hw = w; } busy[0:0];
++    } status @ 0x4;
++
+ };

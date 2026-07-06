@@ -1,0 +1,32 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "compatible": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "REG-ADDED-UNUSED-SPACE",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "reg",
+      "entityKey": "fifo_level",
+      "message": "reg 'fifo_level' added at 0x100 in previously unused address space.",
+      "before": null,
+      "after": "0x100",
+      "baseLocation": null,
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-01-register-added-unused/after.rdl",
+        "line": 3,
+        "column": 56
+      },
+      "confidence": "certain"
+    }
+  ]
+}

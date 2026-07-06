@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "clkdiv.div",
+      "message": "Field 'div' reset value changed from 0xff to 0x80.",
+      "before": "0xff",
+      "after": "0x80",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-01-reset-value-changed/before.rdl",
+        "line": 2,
+        "column": 64
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-01-reset-value-changed/after.rdl",
+        "line": 2,
+        "column": 64
+      },
+      "confidence": "certain"
+    }
+  ]
+}

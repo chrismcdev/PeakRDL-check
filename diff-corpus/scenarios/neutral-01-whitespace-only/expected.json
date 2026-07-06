@@ -1,0 +1,6 @@
+{
+  "title": "Whitespace-only reformat",
+  "category": "neutral",
+  "expect": [],
+  "maxChanges": 0
+}

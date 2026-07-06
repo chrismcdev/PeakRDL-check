@@ -1,0 +1,9 @@
+{
+  "title": "Register added in unused address space",
+  "category": "compatible",
+  "expect": [
+    {"ruleId": "REG-ADDED-UNUSED-SPACE", "entityKey": "fifo_level", "classification": "compatible"}
+  ],
+  "forbid": ["REG-ADDED-OVERLAPPING"],
+  "maxChanges": 1
+}

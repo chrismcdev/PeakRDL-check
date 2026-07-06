@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "REG-RENAMED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "reg",
+      "entityKey": "clkdiv",
+      "message": "reg 'clkdiv' renamed to 'clock_divider' (address 0x4 and content unchanged). Software symbols change; hardware layout does not.",
+      "before": "clkdiv",
+      "after": "clock_divider",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-01-register-renamed/before.rdl",
+        "line": 3,
+        "column": 64
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-01-register-renamed/after.rdl",
+        "line": 3,
+        "column": 64
+      },
+      "confidence": "likely"
+    }
+  ]
+}

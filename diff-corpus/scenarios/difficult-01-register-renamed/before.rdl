@@ -1,0 +1,4 @@
+addrmap soc {
+    reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+    reg { field { sw = rw; hw = r; reset = 0xff; } div[7:0]; } clkdiv @ 0x4;
+};

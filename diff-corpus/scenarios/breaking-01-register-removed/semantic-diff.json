@@ -1,0 +1,32 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "REG-REMOVED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "timer",
+      "message": "reg 'timer' at 0x8 was removed.",
+      "before": "0x8",
+      "after": null,
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-01-register-removed/before.rdl",
+        "line": 4,
+        "column": 64
+      },
+      "headLocation": null,
+      "confidence": "certain"
+    }
+  ]
+}

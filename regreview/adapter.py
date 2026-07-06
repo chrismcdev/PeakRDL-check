@@ -128,6 +128,14 @@ class _Extractor:
         }
         if encode is not None:
             d["encode"] = _enum_to_canonical(encode)
+        # Behavioural properties (only stored when set, to keep bodies small)
+        if get("intr"):
+            d["intr"] = True
+        if get("counter"):
+            d["counter"] = True
+        display = f.inst.properties.get("name")
+        if display and display != f.inst_name:
+            d["display_name"] = display
         return d
 
     def reg_def(self, node) -> str:
@@ -139,6 +147,9 @@ class _Extractor:
             "desc": node.get_property("desc") or "",
             "fields": fields,
         }
+        display = node.inst.properties.get("name")
+        if display and display != node.inst_name:
+            body["display_name"] = display
         h = content_hash({"kind": "reg", "body": body})
         if h not in self.defs:
             self.defs[h] = Definition(kind="reg", type_name=node.inst.type_name,
@@ -228,6 +239,8 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
                          src_file=src_path, src_offset=src_off,
                          src_line=src_line, src_col=src_col,
                          sort_key=my_id)
+                if child.inst.is_alias:
+                    d.is_alias = True
                 decls.append(d)
                 subtree_regs += regs_here
             else:

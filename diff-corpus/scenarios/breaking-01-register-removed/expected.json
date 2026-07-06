@@ -1,0 +1,9 @@
+{
+  "title": "Register removed",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "REG-REMOVED", "entityKey": "timer", "classification": "breaking"}
+  ],
+  "forbid": ["REG-RENAMED", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

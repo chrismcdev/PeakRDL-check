@@ -93,6 +93,7 @@ class Decl:
     src_line: Optional[int] = None
     src_col: Optional[int] = None
     sort_key: int = 0                  # declaration order within parent
+    is_alias: bool = False             # alias register (shares primary's storage)
 
     @property
     def total_elements(self) -> int:

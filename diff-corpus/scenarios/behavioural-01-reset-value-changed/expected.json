@@ -1,0 +1,9 @@
+{
+  "title": "Reset value changed",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "RESET-VALUE-CHANGED", "entityKey": "clkdiv.div", "classification": "behavioural"}
+  ],
+  "forbid": ["REG-ADDRESS-CHANGED"],
+  "maxChanges": 1
+}

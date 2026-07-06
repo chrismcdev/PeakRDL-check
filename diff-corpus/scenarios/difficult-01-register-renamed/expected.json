@@ -1,0 +1,9 @@
+{
+  "title": "Register renamed but otherwise unchanged",
+  "category": "difficult",
+  "expect": [
+    {"ruleId": "REG-RENAMED", "entityKey": "clkdiv", "classification": "behavioural", "confidence": "likely"}
+  ],
+  "forbid": ["REG-REMOVED", "REG-ADDED-UNUSED-SPACE", "REG-ADDED-OVERLAPPING"],
+  "maxChanges": 1
+}

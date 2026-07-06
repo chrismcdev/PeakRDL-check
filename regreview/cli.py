@@ -81,6 +81,70 @@ def cmd_inspect(args) -> int:
     return EXIT_OK
 
 
+def _diff_result(args):
+    """Compile base and head, run the semantic diff. Shared by diff/check."""
+    from .adapter import build_canonical
+    from .diff import compile_failed_result, diff_models
+    from .policy import load_policy
+    from systemrdl import RDLCompileError
+
+    policy = load_policy(getattr(args, "policy", None))
+    try:
+        base = build_canonical([args.base], top=getattr(args, "base_top", None),
+                               source_mode="all")
+    except RDLCompileError as e:
+        return compile_failed_result("base", str(e)), None
+    try:
+        head = build_canonical([args.head], top=getattr(args, "head_top", None),
+                               source_mode="all")
+    except RDLCompileError as e:
+        return compile_failed_result("head", str(e)), None
+    return diff_models(base, head, policy=policy,
+                       rename_detection=not getattr(args, "no_rename_detection", False)), (base, head)
+
+
+def cmd_diff(args) -> int:
+    from .report import FORMATTERS
+
+    result, _ = _diff_result(args)
+    text = FORMATTERS[args.format](result)
+    if args.output:
+        Path(args.output).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.output).write_text(text)
+        print(f"wrote {args.output} ({result['totalChanges']} changes)")
+    else:
+        sys.stdout.write(text)
+    if args.fail_on:
+        return _severity_exit(result, args.fail_on)
+    return EXIT_OK
+
+
+def _severity_exit(result, threshold) -> int:
+    fail_sets = {
+        "breaking": {"breaking"},
+        "behavioural": {"breaking", "behavioural", "uncertain"},
+        "validation-error": {"breaking"},
+    }
+    trigger = fail_sets.get(threshold, {"breaking"})
+    summary = result.get("summary", {})
+    hits = sum(summary.get(c, 0) for c in trigger)
+    if threshold == "validation-error":
+        hits = 1 if result.get("compileError") else 0
+    return EXIT_FINDINGS if hits else EXIT_OK
+
+
+def cmd_check(args) -> int:
+    from .report import format_text
+
+    result, _ = _diff_result(args)
+    sys.stdout.write(format_text(result))
+    code = _severity_exit(result, args.fail_on)
+    if code != EXIT_OK:
+        print(f"check failed: changes at or above '{args.fail_on}' present",
+              file=sys.stderr)
+    return code
+
+
 def cmd_query(args) -> int:
     """Ad-hoc query helper used by tests and benchmarks."""
     from .storage import RegIndex
@@ -130,6 +194,32 @@ def main(argv=None) -> int:
     i = sub.add_parser("inspect", help="show index metadata")
     i.add_argument("index")
     i.set_defaults(func=cmd_inspect)
+
+    d = sub.add_parser("diff", help="semantic diff between two specifications")
+    d.add_argument("--base", required=True)
+    d.add_argument("--head", required=True)
+    d.add_argument("--base-top", default=None)
+    d.add_argument("--head-top", default=None)
+    d.add_argument("--format", choices=("text", "json", "markdown", "sarif"),
+                   default="text")
+    d.add_argument("--output", "-o", default=None)
+    d.add_argument("--policy", default=None)
+    d.add_argument("--no-rename-detection", action="store_true")
+    d.add_argument("--fail-on", choices=("breaking", "behavioural",
+                                         "validation-error"), default=None)
+    d.set_defaults(func=cmd_diff)
+
+    c = sub.add_parser("check", help="CI gate: fail when changes exceed threshold")
+    c.add_argument("--base", required=True)
+    c.add_argument("--head", required=True)
+    c.add_argument("--base-top", default=None)
+    c.add_argument("--head-top", default=None)
+    c.add_argument("--policy", default=None)
+    c.add_argument("--no-rename-detection", action="store_true")
+    c.add_argument("--fail-on", choices=("breaking", "behavioural",
+                                         "validation-error"),
+                   default="breaking")
+    c.set_defaults(func=cmd_check)
 
     q = sub.add_parser("query", help="ad-hoc index queries (testing)")
     q.add_argument("index")

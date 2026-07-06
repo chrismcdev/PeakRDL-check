@@ -1,0 +1,70 @@
+{
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "records": [
+    {
+      "scenario": "behavioural-01-reset-value-changed",
+      "title": "Reset value changed",
+      "category": "behavioural",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.042,
+      "totalChanges": 1,
+      "summary": {
+        "behavioural": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-01-register-removed",
+      "title": "Register removed",
+      "category": "breaking",
+      "gitDiffLines": 10,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "compatible-01-register-added-unused",
+      "title": "Register added in unused address space",
+      "category": "compatible",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.001,
+      "totalChanges": 1,
+      "summary": {
+        "compatible": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-01-register-renamed",
+      "title": "Register renamed but otherwise unchanged",
+      "category": "difficult",
+      "gitDiffLines": 10,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "behavioural": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-01-whitespace-only",
+      "title": "Whitespace-only reformat",
+      "category": "neutral",
+      "gitDiffLines": 22,
+      "diffSeconds": 0.002,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    }
+  ]
+}
