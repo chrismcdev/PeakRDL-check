@@ -1,0 +1,8 @@
+addrmap soc {
+    reg {
+        field {
+            name = "Enable";
+            sw = rw; hw = r; reset = 0x0;
+        } en[0:0];
+    } ctrl @ 0x0;
+};

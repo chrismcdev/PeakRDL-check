@@ -1,0 +1,12 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-11-field-overlap-new/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-11-field-overlap-new/after.rdl
+index a631350..24c8716 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-11-field-overlap-new/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-11-field-overlap-new/after.rdl
+@@ -2,6 +2,7 @@ addrmap soc {
+     reg {
+         field { sw = rw; hw = r; reset = 0x0; } en[0:0];
+         field { sw = rw; hw = r; reset = 0x0; } mode[3:1];
++        field { sw = rw; hw = r; reset = 0x0; } dbg[2:0];
+     } ctrl @ 0x0;
+     reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x4;
+ };

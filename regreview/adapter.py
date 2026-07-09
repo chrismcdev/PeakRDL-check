@@ -199,8 +199,23 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
     kind_of = {AddrmapNode: "addrmap", RegfileNode: "regfile",
                RegNode: "reg", MemNode: "mem"}
 
-    def walk(node, parent_id: Optional[int], parent_path: str) -> tuple:
-        """Emit decls for node's children; return (reg_count, child_ids)."""
+    # Incremental-build units: a "block root" is the topmost instance whose
+    # defining source file differs from the top component's file. Everything
+    # beneath it shares its block_id and can be spliced independently.
+    def _def_file(node) -> Optional[str]:
+        """Source file DEFINING a component's type (not its instantiation)."""
+        try:
+            od = node.inst.original_def
+            sr = od.def_src_ref if od is not None else None
+            return sr.path if sr is not None else None
+        except Exception:
+            return None
+
+    top_src_file = _def_file(root.top)
+
+    def walk(node, parent_id: Optional[int], parent_path: str,
+             block_id: Optional[int] = None) -> tuple:
+        """Emit decls for node's children; return subtree register count."""
         nonlocal next_id
         subtree_regs = 0
         for child in node.children(unroll=False):
@@ -228,6 +243,15 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
 
             src_path, src_off, src_line, src_col = ex.src_of(child)
 
+            my_block = block_id
+            is_block_root = False
+            if my_block is None and not isinstance(child, RegNode):
+                def_file = _def_file(child)
+                if (def_file is not None and top_src_file is not None
+                        and def_file != top_src_file):
+                    my_block = my_id
+                    is_block_root = True
+
             if isinstance(child, RegNode):
                 def_hash = ex.reg_def(child)
                 regs_here = elements
@@ -241,6 +265,7 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
                          sort_key=my_id)
                 if child.inst.is_alias:
                     d.is_alias = True
+                d.block_id = my_block
                 decls.append(d)
                 subtree_regs += regs_here
             else:
@@ -253,8 +278,12 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
                          src_file=src_path, src_offset=src_off,
                          src_line=src_line, src_col=src_col,
                          sort_key=my_id)
+                d.block_id = my_block
+                if is_block_root:
+                    d.type_name = child.inst.type_name
+                    d.def_file = _def_file(child)
                 decls.append(d)
-                inner_regs = walk(child, my_id, path)
+                inner_regs = walk(child, my_id, path, my_block)
                 d.reg_count = inner_regs * elements
                 subtree_regs += d.reg_count
         return subtree_regs
@@ -278,4 +307,8 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
     # Stash cache stats for benchmarking visibility
     model.def_cache_stats = {"hits": ex._cache_hits, "misses": ex._cache_misses}
     model.total_regs = total
+    # Standalone-elaboration metadata used by the incremental splicer
+    model.top_size = int(top_node.size)
+    model.top_def_hash = ex.container_def(top_node, "addrmap")
+    model.top_src_file = top_src_file
     return model

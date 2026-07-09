@@ -1,0 +1,9 @@
+{
+  "title": "Field width reduced from 8 to 4 bits",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "FIELD-WIDTH-REDUCED", "entityKey": "clkdiv.div", "classification": "breaking"}
+  ],
+  "forbid": ["FIELD-OFFSET-CHANGED", "FIELD-REMOVED", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

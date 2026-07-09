@@ -1,0 +1,8 @@
+addrmap soc {
+    reg {
+        field {
+            sw = rw; hw = r; reset = 0x0;
+            desc = "Watchdog timeout in milliseconds.";
+        } timeout[7:0];
+    } wdt @ 0x0;
+};

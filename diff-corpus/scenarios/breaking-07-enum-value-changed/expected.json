@@ -1,0 +1,9 @@
+{
+  "title": "Existing enum member changes encoding value",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "ENUM-VALUE-CHANGED", "entityKey": "speed.sel", "classification": "breaking"}
+  ],
+  "forbid": ["ENUM-VALUE-REMOVED", "ENUM-VALUE-ADDED", "ENUM-VALUE-RENAMED", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

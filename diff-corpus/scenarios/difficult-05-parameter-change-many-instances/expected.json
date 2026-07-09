@@ -1,0 +1,12 @@
+{
+  "title": "One parameter value change fans out to ten reset changes",
+  "category": "difficult",
+  "top": "soc",
+  "expect": [
+    {"ruleId": "RESET-VALUE-CHANGED", "entityKey": "blk_a.r0.val", "classification": "behavioural"},
+    {"ruleId": "RESET-VALUE-CHANGED", "entityKey": "blk_a.r9.val", "classification": "behavioural"}
+  ],
+  "forbid": ["REG-REMOVED", "REG-ADDED-UNUSED-SPACE", "REG-ADDRESS-CHANGED"],
+  "minChanges": 10,
+  "maxChanges": 10
+}

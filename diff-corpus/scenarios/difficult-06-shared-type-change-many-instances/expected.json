@@ -1,0 +1,11 @@
+{
+  "title": "One edit to a shared type touches twenty instances",
+  "category": "difficult",
+  "expect": [
+    {"ruleId": "RESET-VALUE-CHANGED", "entityKey": "cfg00.v", "classification": "behavioural"},
+    {"ruleId": "RESET-VALUE-CHANGED", "entityKey": "cfg19.v", "classification": "behavioural"}
+  ],
+  "forbid": ["REG-REMOVED", "REG-ADDED-UNUSED-SPACE"],
+  "minChanges": 20,
+  "maxChanges": 20
+}

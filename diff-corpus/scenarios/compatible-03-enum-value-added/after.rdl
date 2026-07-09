@@ -1,0 +1,8 @@
+addrmap soc {
+    enum mode_e {
+        off = 2'd0;
+        on = 2'd1;
+        auto_mode = 2'd2;
+    };
+    reg { field { sw = rw; hw = r; reset = 0x0; encode = mode_e; } mode[1:0]; } cfg @ 0x0;
+};

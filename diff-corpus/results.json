@@ -1,6 +1,6 @@
 {
-  "total": 5,
-  "passed": 5,
+  "total": 29,
+  "passed": 29,
   "failed": 0,
   "records": [
     {
@@ -8,7 +8,111 @@
       "title": "Reset value changed",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.042,
+      "diffSeconds": 0.037,
+      "totalChanges": 1,
+      "summary": {
+        "behavioural": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "behavioural-02-field-width-increased",
+      "title": "Field width increased into unused bits",
+      "category": "behavioural",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.001,
+      "totalChanges": 1,
+      "summary": {
+        "behavioural": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "behavioural-03-register-width-increased",
+      "title": "Register width increased",
+      "category": "behavioural",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "behavioural": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "behavioural-04-volatility-changed",
+      "title": "Field volatility changed (hw write access dropped)",
+      "category": "behavioural",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.001,
+      "totalChanges": 2,
+      "summary": {
+        "behavioural": 2
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "behavioural-05-write-side-effect-changed",
+      "title": "Write side effect added (onwrite = woclr)",
+      "category": "behavioural",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.001,
+      "totalChanges": 1,
+      "summary": {
+        "behavioural": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "behavioural-06-read-side-effect-changed",
+      "title": "Read side effect added (onread = rclr)",
+      "category": "behavioural",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.001,
+      "totalChanges": 1,
+      "summary": {
+        "behavioural": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "behavioural-07-access-ambiguous",
+      "title": "Software access changed ambiguously (w to r)",
+      "category": "behavioural",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.001,
+      "totalChanges": 1,
+      "summary": {
+        "uncertain": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "behavioural-08-interrupt-changed",
+      "title": "Interrupt behaviour enabled on a field",
+      "category": "behavioural",
+      "gitDiffLines": 9,
+      "diffSeconds": 0.001,
+      "totalChanges": 1,
+      "summary": {
+        "behavioural": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "behavioural-09-reset-mask-changed",
+      "title": "Reset removed from a field, shrinking the register's defined reset mask",
+      "category": "behavioural",
+      "gitDiffLines": 12,
+      "diffSeconds": 0.001,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -30,11 +134,219 @@
       "pass": true
     },
     {
+      "scenario": "breaking-02-register-address-changed",
+      "title": "Register address changed",
+      "category": "breaking",
+      "gitDiffLines": 11,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-03-register-width-reduced",
+      "title": "Register width reduced from 64 to 32 bits",
+      "category": "breaking",
+      "gitDiffLines": 13,
+      "diffSeconds": 0.003,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-04-field-removed",
+      "title": "Field removed, sibling fields untouched",
+      "category": "breaking",
+      "gitDiffLines": 12,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-05-field-bit-offset-changed",
+      "title": "Field bit offset moved from [3:1] to [7:5]",
+      "category": "breaking",
+      "gitDiffLines": 13,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-06-field-width-reduced",
+      "title": "Field width reduced from 8 to 4 bits",
+      "category": "breaking",
+      "gitDiffLines": 11,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-07-enum-value-changed",
+      "title": "Existing enum member changes encoding value",
+      "category": "breaking",
+      "gitDiffLines": 13,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-08-access-rw-to-ro",
+      "title": "Field software access narrowed from rw to read-only",
+      "category": "breaking",
+      "gitDiffLines": 13,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-09-access-readable-to-wo",
+      "title": "Field software access changed from rw to write-only",
+      "category": "breaking",
+      "gitDiffLines": 13,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-10-address-overlap-new",
+      "title": "New register overlaps existing address space (systemrdl-compiler refuses to elaborate overlapping instances, so the head spec fails to compile and the engine emits SPEC-COMPILE-FAILED rather than REG-ADDED-OVERLAPPING/ADDR-OVERLAP-NEW)",
+      "category": "breaking",
+      "gitDiffLines": 10,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-11-field-overlap-new",
+      "title": "New field overlaps bits of existing fields (systemrdl-compiler refuses to elaborate overlapping fields, so the head spec fails to compile and the engine emits SPEC-COMPILE-FAILED rather than FIELD-ADDED-OVERLAPPING/FIELD-OVERLAP-NEW)",
+      "category": "breaking",
+      "gitDiffLines": 12,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "breaking-12-reference-unresolved",
+      "title": "Enum type deleted while still referenced; head spec no longer compiles (SPEC-COMPILE-FAILED)",
+      "category": "breaking",
+      "gitDiffLines": 14,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
       "scenario": "compatible-01-register-added-unused",
       "title": "Register added in unused address space",
       "category": "compatible",
       "gitDiffLines": 9,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "compatible": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "compatible-02-field-added-unused-bits",
+      "title": "Field added in previously unused bits",
+      "category": "compatible",
+      "gitDiffLines": 12,
       "diffSeconds": 0.001,
+      "totalChanges": 1,
+      "summary": {
+        "compatible": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "compatible-03-enum-value-added",
+      "title": "Enum member added without touching existing members",
+      "category": "compatible",
+      "gitDiffLines": 12,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "compatible": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "compatible-04-description-added",
+      "title": "Description added to a previously undocumented field",
+      "category": "compatible",
+      "gitDiffLines": 14,
+      "diffSeconds": 0.001,
+      "totalChanges": 1,
+      "summary": {
+        "compatible": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "compatible-05-alias-added",
+      "title": "Alias register added over an existing register",
+      "category": "compatible",
+      "gitDiffLines": 10,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "compatible": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "compatible-06-metadata-added",
+      "title": "Display-name metadata added to a field",
+      "category": "compatible",
+      "gitDiffLines": 14,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "compatible": 1

@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "FIELD-WIDTH-INCREASED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg.mode",
+      "message": "Field 'mode' width changed from 4 to 6 bits.",
+      "before": "4 bits",
+      "after": "6 bits",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-02-field-width-increased/before.rdl",
+        "line": 2,
+        "column": 64
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-02-field-width-increased/after.rdl",
+        "line": 2,
+        "column": 64
+      },
+      "confidence": "certain"
+    }
+  ]
+}

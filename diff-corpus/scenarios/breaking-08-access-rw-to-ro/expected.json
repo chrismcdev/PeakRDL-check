@@ -1,0 +1,9 @@
+{
+  "title": "Field software access narrowed from rw to read-only",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "ACCESS-RW-TO-RO", "entityKey": "cfg.threshold", "classification": "breaking"}
+  ],
+  "forbid": ["ACCESS-READABLE-TO-WO", "ACCESS-WIDENED", "ACCESS-CHANGED-AMBIGUOUS", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

@@ -1,0 +1,3 @@
+addrmap soc {
+    reg { field { sw = r; hw = w; reset = 0x0; intr; } pending[0:0]; } irq_status @ 0x0;
+};

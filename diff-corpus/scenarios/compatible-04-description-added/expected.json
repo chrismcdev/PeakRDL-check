@@ -1,0 +1,9 @@
+{
+  "title": "Description added to a previously undocumented field",
+  "category": "compatible",
+  "expect": [
+    {"ruleId": "DESC-ADDED", "entityKey": "wdt.timeout", "classification": "compatible"}
+  ],
+  "forbid": ["DESC-CHANGED", "DESC-REMOVED"],
+  "maxChanges": 1
+}

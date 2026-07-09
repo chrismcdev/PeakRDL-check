@@ -1,0 +1,4 @@
+addrmap soc {
+    reg { field { sw = rw; hw = r; reset = 0xff; } thresh[7:0]; } lim_lo @ 0x0;
+    reg { field { sw = rw; hw = r; reset = 0xff; } thresh[7:0]; } lim_hi @ 0x4;
+};

@@ -1,0 +1,6 @@
+{
+  "title": "Numeric literals reformatted (identical values)",
+  "category": "neutral",
+  "expect": [],
+  "maxChanges": 0
+}

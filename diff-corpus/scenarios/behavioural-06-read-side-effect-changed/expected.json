@@ -1,0 +1,9 @@
+{
+  "title": "Read side effect added (onread = rclr)",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "ONREAD-CHANGED", "entityKey": "rxbuf.data", "classification": "behavioural"}
+  ],
+  "forbid": ["ONWRITE-CHANGED", "ACCESS-CHANGED-AMBIGUOUS"],
+  "maxChanges": 1
+}

@@ -1,0 +1,7 @@
+addrmap soc {
+    reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+    reg {
+        field { sw = w; hw = r; reset = 0x0; } code[7:0];
+    } cmd @ 0x4;
+    reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x8;
+};

@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "uncertain": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "ACCESS-CHANGED-AMBIGUOUS",
+      "policyVersion": "1.0.0",
+      "classification": "uncertain",
+      "entityType": "field",
+      "entityKey": "doorbell.cmd",
+      "message": "Field 'cmd' software access changed from w to r.",
+      "before": "w",
+      "after": "r",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-07-access-ambiguous/before.rdl",
+        "line": 2,
+        "column": 63
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-07-access-ambiguous/after.rdl",
+        "line": 2,
+        "column": 63
+      },
+      "confidence": "uncertain"
+    }
+  ]
+}

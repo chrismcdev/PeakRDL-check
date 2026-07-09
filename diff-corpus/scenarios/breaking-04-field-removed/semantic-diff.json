@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "FIELD-REMOVED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "field",
+      "entityKey": "ctrl.irq_en",
+      "message": "Field 'irq_en' [3:3] was removed.",
+      "before": "[3:3] sw=rw",
+      "after": null,
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-04-field-removed/before.rdl",
+        "line": 6,
+        "column": 7
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-04-field-removed/after.rdl",
+        "line": 5,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

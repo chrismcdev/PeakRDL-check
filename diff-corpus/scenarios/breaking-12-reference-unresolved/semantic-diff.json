@@ -1,0 +1,26 @@
+{
+  "policyVersion": "1.0.0",
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "SPEC-COMPILE-FAILED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "specification",
+      "entityKey": "head",
+      "message": "The head specification failed to compile/elaborate: Type 'mode_e' is not defined",
+      "before": null,
+      "after": "Type 'mode_e' is not defined",
+      "baseLocation": null,
+      "headLocation": null,
+      "confidence": "certain"
+    }
+  ],
+  "compileError": {
+    "stage": "head",
+    "message": "Type 'mode_e' is not defined"
+  }
+}

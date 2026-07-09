@@ -1,0 +1,9 @@
+{
+  "title": "Field volatility changed (hw write access dropped)",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "VOLATILITY-CHANGED", "entityKey": "status.busy", "classification": "behavioural"}
+  ],
+  "forbid": ["ACCESS-CHANGED-AMBIGUOUS", "FIELD-REMOVED"],
+  "maxChanges": 2
+}

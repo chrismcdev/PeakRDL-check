@@ -1,0 +1,9 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-07-access-ambiguous/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-07-access-ambiguous/after.rdl
+index 9af829e..24bdf12 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-07-access-ambiguous/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-07-access-ambiguous/after.rdl
+@@ -1,3 +1,3 @@
+ addrmap soc {
+-    reg { field { sw = w; hw = rw; reset = 0x0; } cmd[7:0]; } doorbell @ 0x0;
++    reg { field { sw = r; hw = rw; reset = 0x0; } cmd[7:0]; } doorbell @ 0x0;
+ };

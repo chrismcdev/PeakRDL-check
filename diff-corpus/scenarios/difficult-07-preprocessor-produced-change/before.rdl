@@ -1,0 +1,6 @@
+`define BASE_OFF 0x10
+
+addrmap soc {
+    reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x0;
+    reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ `BASE_OFF;
+};

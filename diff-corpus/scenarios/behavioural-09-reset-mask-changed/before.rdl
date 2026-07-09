@@ -1,0 +1,6 @@
+addrmap soc {
+    reg {
+        field { sw = rw; hw = r; reset = 0x0; } seed[7:0];
+        field { sw = rw; hw = r; reset = 0x1; } en[8:8];
+    } prng @ 0x0;
+};

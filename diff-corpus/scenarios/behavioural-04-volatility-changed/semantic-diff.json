@@ -1,0 +1,57 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 2
+  },
+  "totalChanges": 2,
+  "changes": [
+    {
+      "ruleId": "HW-ACCESS-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "status.busy",
+      "message": "Field 'busy' hardware access changed from w to r.",
+      "before": "w",
+      "after": "r",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-04-volatility-changed/before.rdl",
+        "line": 2,
+        "column": 63
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-04-volatility-changed/after.rdl",
+        "line": 2,
+        "column": 63
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "VOLATILITY-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "status.busy",
+      "message": "Field 'busy' volatility changed from True to False; read-back guarantees differ.",
+      "before": "True",
+      "after": "False",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-04-volatility-changed/before.rdl",
+        "line": 2,
+        "column": 63
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-04-volatility-changed/after.rdl",
+        "line": 2,
+        "column": 63
+      },
+      "confidence": "certain"
+    }
+  ]
+}

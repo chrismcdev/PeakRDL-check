@@ -1,0 +1,5 @@
+addrmap soc {
+    reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 16;
+    reg { field { sw = rw; hw = r; reset = 255; } div[7:0]; } clkdiv @ 0x14;
+    reg { field { sw = rw; hw = r; reset = 0x000c; } tune[7:0]; } trim @ 24;
+};

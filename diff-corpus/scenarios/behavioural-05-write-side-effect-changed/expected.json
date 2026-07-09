@@ -1,0 +1,9 @@
+{
+  "title": "Write side effect added (onwrite = woclr)",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "ONWRITE-CHANGED", "entityKey": "irq.flags", "classification": "behavioural"}
+  ],
+  "forbid": ["ONREAD-CHANGED", "ACCESS-CHANGED-AMBIGUOUS"],
+  "maxChanges": 1
+}

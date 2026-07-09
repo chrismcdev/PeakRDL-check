@@ -1,0 +1,9 @@
+{
+  "title": "Register address changed",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "REG-ADDRESS-CHANGED", "entityKey": "timer", "classification": "breaking"}
+  ],
+  "forbid": ["MATCH-UNCERTAIN", "REG-REMOVED", "REG-ADDED-UNUSED-SPACE"],
+  "maxChanges": 1
+}

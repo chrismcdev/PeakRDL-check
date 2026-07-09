@@ -1,0 +1,9 @@
+{
+  "title": "New field overlaps bits of existing fields (systemrdl-compiler refuses to elaborate overlapping fields, so the head spec fails to compile and the engine emits SPEC-COMPILE-FAILED rather than FIELD-ADDED-OVERLAPPING/FIELD-OVERLAP-NEW)",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "SPEC-COMPILE-FAILED", "entityKey": "head", "classification": "breaking"}
+  ],
+  "forbid": ["FIELD-ADDED-UNUSED-BITS", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

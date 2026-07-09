@@ -1,0 +1,9 @@
+{
+  "title": "Interrupt behaviour enabled on a field",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "INTERRUPT-CHANGED", "entityKey": "irq_status.pending", "classification": "behavioural"}
+  ],
+  "forbid": ["COUNTER-CHANGED", "FIELD-REMOVED"],
+  "maxChanges": 1
+}

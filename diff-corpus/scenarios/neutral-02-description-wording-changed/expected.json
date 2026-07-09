@@ -1,0 +1,9 @@
+{
+  "title": "Description wording changed (documentation only)",
+  "category": "neutral",
+  "expect": [
+    {"ruleId": "DESC-CHANGED", "entityKey": "ctrl", "classification": "documentation"}
+  ],
+  "forbid": ["REG-REMOVED", "REG-ADDED-UNUSED-SPACE", "RESET-VALUE-CHANGED"],
+  "maxChanges": 1
+}

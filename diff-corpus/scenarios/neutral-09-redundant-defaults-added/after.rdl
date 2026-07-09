@@ -1,0 +1,11 @@
+addrmap soc {
+    reg {
+        regwidth = 32;
+        accesswidth = 32;
+        field { sw = rw; hw = r; reset = 0x0; } en[0:0];
+    } ctrl @ 0x0;
+    reg {
+        regwidth = 32;
+        field { sw = r; hw = w; } busy[0:0];
+    } status @ 0x4;
+};

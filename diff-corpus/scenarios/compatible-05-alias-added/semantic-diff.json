@@ -1,0 +1,32 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "compatible": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "REG-ALIAS-ADDED",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "reg",
+      "entityKey": "ctrl_alias",
+      "message": "alias register 'ctrl_alias' added at 0x100; it augments access to existing storage without changing existing addresses.",
+      "before": null,
+      "after": "0x100",
+      "baseLocation": null,
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-05-alias-added/after.rdl",
+        "line": 4,
+        "column": 23
+      },
+      "confidence": "certain"
+    }
+  ]
+}

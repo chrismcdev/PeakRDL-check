@@ -1,0 +1,9 @@
+{
+  "title": "New register overlaps existing address space (systemrdl-compiler refuses to elaborate overlapping instances, so the head spec fails to compile and the engine emits SPEC-COMPILE-FAILED rather than REG-ADDED-OVERLAPPING/ADDR-OVERLAP-NEW)",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "SPEC-COMPILE-FAILED", "entityKey": "head", "classification": "breaking"}
+  ],
+  "forbid": ["REG-ADDED-UNUSED-SPACE", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

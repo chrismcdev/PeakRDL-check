@@ -1,0 +1,12 @@
+{
+  "title": "Two identical registers removed, two identical added: ambiguous",
+  "category": "difficult",
+  "expect": [
+    {"ruleId": "MATCH-UNCERTAIN", "entityKey": "spare_a", "classification": "uncertain"},
+    {"ruleId": "MATCH-UNCERTAIN", "entityKey": "spare_b", "classification": "uncertain"},
+    {"ruleId": "REG-REMOVED", "entityKey": "spare_a", "classification": "breaking"},
+    {"ruleId": "REG-REMOVED", "entityKey": "spare_b", "classification": "breaking"}
+  ],
+  "forbid": ["REG-RENAMED", "REG-MOVED-AND-RENAMED"],
+  "maxChanges": 6
+}

@@ -1,0 +1,4 @@
+addrmap soc {
+    reg ctrl_t { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; };
+    ctrl_t ctrl @ 0x0;
+};

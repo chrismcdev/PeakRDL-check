@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "ONREAD-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "rxbuf.data",
+      "message": "Field 'data' onread side-effect changed from None to rclr.",
+      "before": "None",
+      "after": "rclr",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-06-read-side-effect-changed/before.rdl",
+        "line": 2,
+        "column": 64
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-06-read-side-effect-changed/after.rdl",
+        "line": 2,
+        "column": 79
+      },
+      "confidence": "certain"
+    }
+  ]
+}

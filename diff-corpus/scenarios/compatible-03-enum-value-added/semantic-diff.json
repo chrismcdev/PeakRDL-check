@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "compatible": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "ENUM-VALUE-ADDED",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "field",
+      "entityKey": "cfg.mode",
+      "message": "Enum member 'auto_mode' (=0x2) added to field 'mode' without modifying existing members.",
+      "before": null,
+      "after": "auto_mode=0x2",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-03-enum-value-added/before.rdl",
+        "line": 6,
+        "column": 81
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-03-enum-value-added/after.rdl",
+        "line": 7,
+        "column": 81
+      },
+      "confidence": "certain"
+    }
+  ]
+}

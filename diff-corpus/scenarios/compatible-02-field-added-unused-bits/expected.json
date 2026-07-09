@@ -1,0 +1,9 @@
+{
+  "title": "Field added in previously unused bits",
+  "category": "compatible",
+  "expect": [
+    {"ruleId": "FIELD-ADDED-UNUSED-BITS", "entityKey": "ctrl.dbg_en", "classification": "compatible"}
+  ],
+  "forbid": ["FIELD-ADDED-OVERLAPPING", "FIELD-REMOVED", "FIELD-WIDTH-INCREASED"],
+  "maxChanges": 1
+}

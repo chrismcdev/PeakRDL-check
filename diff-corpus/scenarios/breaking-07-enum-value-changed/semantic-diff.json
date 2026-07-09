@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "ENUM-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "field",
+      "entityKey": "speed.sel",
+      "message": "Enum member 'TURBO' in field 'sel' changed value from 0x2 to 0x3; existing encodings break.",
+      "before": "0x2",
+      "after": "0x3",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-07-enum-value-changed/before.rdl",
+        "line": 11,
+        "column": 7
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-07-enum-value-changed/after.rdl",
+        "line": 11,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

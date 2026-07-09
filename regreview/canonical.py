@@ -94,6 +94,9 @@ class Decl:
     src_col: Optional[int] = None
     sort_key: int = 0                  # declaration order within parent
     is_alias: bool = False             # alias register (shares primary's storage)
+    block_id: Optional[int] = None     # enclosing incremental unit (block root decl_id)
+    type_name: Optional[str] = None    # component type name (block roots only)
+    def_file: Optional[str] = None     # file defining the type (block roots only)
 
     @property
     def total_elements(self) -> int:

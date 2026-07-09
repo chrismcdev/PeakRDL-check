@@ -1,0 +1,9 @@
+{
+  "title": "Enum type deleted while still referenced; head spec no longer compiles (SPEC-COMPILE-FAILED)",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "SPEC-COMPILE-FAILED", "entityKey": "head", "classification": "breaking"}
+  ],
+  "forbid": ["ENUM-REMOVED", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

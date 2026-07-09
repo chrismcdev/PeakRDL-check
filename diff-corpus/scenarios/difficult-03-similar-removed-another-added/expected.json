@@ -1,0 +1,10 @@
+{
+  "title": "Similar register removed, another added elsewhere (not a rename)",
+  "category": "difficult",
+  "expect": [
+    {"ruleId": "REG-REMOVED", "entityKey": "wm_old", "classification": "breaking"},
+    {"ruleId": "REG-ADDED-UNUSED-SPACE", "entityKey": "wm_new", "classification": "compatible"}
+  ],
+  "forbid": ["REG-RENAMED", "REG-MOVED-AND-RENAMED"],
+  "maxChanges": 2
+}

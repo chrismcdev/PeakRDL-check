@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "compatible": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "METADATA-ADDED",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "field",
+      "entityKey": "ctrl.en",
+      "message": "Display-name metadata on field 'en' added.",
+      "before": null,
+      "after": "Enable",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-06-metadata-added/before.rdl",
+        "line": 2,
+        "column": 62
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-06-metadata-added/after.rdl",
+        "line": 7,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Array dimensions changed on a register array",
+  "category": "difficult",
+  "expect": [
+    {"ruleId": "ARRAY-DIMS-CHANGED", "entityKey": "ch", "classification": "breaking"}
+  ],
+  "forbid": ["REG-REMOVED", "REG-ADDED-UNUSED-SPACE"],
+  "maxChanges": 1
+}

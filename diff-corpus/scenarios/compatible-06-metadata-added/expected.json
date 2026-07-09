@@ -1,0 +1,9 @@
+{
+  "title": "Display-name metadata added to a field",
+  "category": "compatible",
+  "expect": [
+    {"ruleId": "METADATA-ADDED", "entityKey": "ctrl.en", "classification": "compatible"}
+  ],
+  "forbid": ["METADATA-CHANGED", "DESC-ADDED"],
+  "maxChanges": 1
+}

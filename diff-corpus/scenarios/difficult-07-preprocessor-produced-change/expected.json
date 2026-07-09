@@ -1,0 +1,9 @@
+{
+  "title": "Register moved by editing a preprocessor define",
+  "category": "difficult",
+  "expect": [
+    {"ruleId": "REG-ADDRESS-CHANGED", "entityKey": "ctrl", "classification": "breaking"}
+  ],
+  "forbid": ["REG-REMOVED", "REG-ADDED-UNUSED-SPACE"],
+  "maxChanges": 1
+}

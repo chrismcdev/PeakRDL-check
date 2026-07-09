@@ -1,0 +1,9 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-02-field-width-increased/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-02-field-width-increased/after.rdl
+index 7469354..b60566c 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-02-field-width-increased/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-02-field-width-increased/after.rdl
+@@ -1,3 +1,3 @@
+ addrmap soc {
+-    reg { field { sw = rw; hw = r; reset = 0x0; } mode[3:0]; } cfg @ 0x0;
++    reg { field { sw = rw; hw = r; reset = 0x0; } mode[5:0]; } cfg @ 0x0;
+ };

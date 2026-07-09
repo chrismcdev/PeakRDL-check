@@ -1,0 +1,3 @@
+addrmap soc {
+    reg { regwidth = 64; field { sw = r; hw = w; } cnt[7:0]; } stat @ 0x0;
+};

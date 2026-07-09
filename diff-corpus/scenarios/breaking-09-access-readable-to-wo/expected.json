@@ -1,0 +1,9 @@
+{
+  "title": "Field software access changed from rw to write-only",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "ACCESS-READABLE-TO-WO", "entityKey": "cmd.code", "classification": "breaking"}
+  ],
+  "forbid": ["ACCESS-RW-TO-RO", "ACCESS-WIDENED", "ACCESS-CHANGED-AMBIGUOUS", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

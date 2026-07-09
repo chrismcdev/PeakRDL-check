@@ -1,0 +1,9 @@
+{
+  "title": "Software access changed ambiguously (w to r)",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "ACCESS-CHANGED-AMBIGUOUS", "entityKey": "doorbell.cmd", "classification": "uncertain", "confidence": "uncertain"}
+  ],
+  "forbid": ["ACCESS-RW-TO-RO", "ACCESS-READABLE-TO-WO", "ACCESS-WIDENED"],
+  "maxChanges": 1
+}

@@ -1,0 +1,9 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-06-read-side-effect-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-06-read-side-effect-changed/after.rdl
+index 1419b93..ac03ba4 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-06-read-side-effect-changed/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-06-read-side-effect-changed/after.rdl
+@@ -1,3 +1,3 @@
+ addrmap soc {
+-    reg { field { sw = rw; hw = r; reset = 0x0; } data[7:0]; } rxbuf @ 0x0;
++    reg { field { sw = rw; hw = r; reset = 0x0; onread = rclr; } data[7:0]; } rxbuf @ 0x0;
+ };

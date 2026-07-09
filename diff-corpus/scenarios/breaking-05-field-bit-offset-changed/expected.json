@@ -1,0 +1,9 @@
+{
+  "title": "Field bit offset moved from [3:1] to [7:5]",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "FIELD-OFFSET-CHANGED", "entityKey": "ctrl.mode", "classification": "breaking"}
+  ],
+  "forbid": ["FIELD-REMOVED", "FIELD-WIDTH-REDUCED", "FIELD-WIDTH-INCREASED", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

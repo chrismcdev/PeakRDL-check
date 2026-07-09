@@ -1,0 +1,9 @@
+{
+  "title": "Alias register added over an existing register",
+  "category": "compatible",
+  "expect": [
+    {"ruleId": "REG-ALIAS-ADDED", "entityKey": "ctrl_alias", "classification": "compatible"}
+  ],
+  "forbid": ["REG-ADDED-OVERLAPPING", "REG-ADDED-UNUSED-SPACE", "REG-ADDRESS-CHANGED"],
+  "maxChanges": 1
+}

@@ -1,0 +1,24 @@
+addrmap soc {
+    reg cfg_t { field { sw = rw; hw = r; reset = 0x0; } v[7:0]; };
+
+    cfg_t cfg00 @ 0x00;
+    cfg_t cfg01 @ 0x04;
+    cfg_t cfg02 @ 0x08;
+    cfg_t cfg03 @ 0x0c;
+    cfg_t cfg04 @ 0x10;
+    cfg_t cfg05 @ 0x14;
+    cfg_t cfg06 @ 0x18;
+    cfg_t cfg07 @ 0x1c;
+    cfg_t cfg08 @ 0x20;
+    cfg_t cfg09 @ 0x24;
+    cfg_t cfg10 @ 0x28;
+    cfg_t cfg11 @ 0x2c;
+    cfg_t cfg12 @ 0x30;
+    cfg_t cfg13 @ 0x34;
+    cfg_t cfg14 @ 0x38;
+    cfg_t cfg15 @ 0x3c;
+    cfg_t cfg16 @ 0x40;
+    cfg_t cfg17 @ 0x44;
+    cfg_t cfg18 @ 0x48;
+    cfg_t cfg19 @ 0x4c;
+};

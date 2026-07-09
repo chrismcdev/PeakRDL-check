@@ -1,0 +1,9 @@
+{
+  "title": "Field width increased into unused bits",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "FIELD-WIDTH-INCREASED", "entityKey": "cfg.mode", "classification": "behavioural"}
+  ],
+  "forbid": ["FIELD-WIDTH-REDUCED", "FIELD-OFFSET-CHANGED", "FIELD-OVERLAP-NEW"],
+  "maxChanges": 1
+}

@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "compatible": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "DESC-ADDED",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "field",
+      "entityKey": "wdt.timeout",
+      "message": "Description added to field 'timeout'.",
+      "before": null,
+      "after": "Watchdog timeout in milliseconds.",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-04-description-added/before.rdl",
+        "line": 2,
+        "column": 67
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-04-description-added/after.rdl",
+        "line": 7,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

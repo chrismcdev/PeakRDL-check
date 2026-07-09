@@ -1,0 +1,13 @@
+addrmap dma_t {
+    reg chan_t {
+        field { sw = rw; hw = r; reset = 0x0; } src_lo[31:0];
+    };
+    chan_t ch[2000] @ 0x0;
+};
+
+addrmap soc {
+    dma_t eng0 @ 0x00000;
+    dma_t eng1 @ 0x10000;
+    dma_t eng2 @ 0x20000;
+    dma_t eng3 @ 0x30000;
+};

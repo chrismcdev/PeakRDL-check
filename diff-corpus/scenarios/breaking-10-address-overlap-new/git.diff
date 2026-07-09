@@ -1,0 +1,10 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-10-address-overlap-new/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-10-address-overlap-new/after.rdl
+index 9ea64f9..cc18e7b 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-10-address-overlap-new/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-10-address-overlap-new/after.rdl
+@@ -2,4 +2,5 @@ addrmap soc {
+     reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+     reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x4;
+     reg { field { sw = rw; hw = r; reset = 0x0; } val[15:0]; } timer @ 0x8;
++    reg { field { sw = rw; hw = r; reset = 0x0; } data[31:0]; } dbg_mirror @ 0x4;
+ };

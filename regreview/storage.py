@@ -77,8 +77,8 @@ CREATE UNIQUE INDEX idx_src_path ON src_file(path);
 """
 
 _FTS = """
-CREATE VIRTUAL TABLE search USING fts5(name, path, desc, content='');
-CREATE VIRTUAL TABLE def_search USING fts5(type_name, field_names, field_descs, content='');
+CREATE VIRTUAL TABLE search USING fts5(name, path, desc, content='', contentless_delete=1);
+CREATE VIRTUAL TABLE def_search USING fts5(type_name, field_names, field_descs, content='', contentless_delete=1);
 """
 
 _ARRAY_SUFFIX = re.compile(r"^(.*?)((?:\[\d+\])+)$")
@@ -113,17 +113,21 @@ class IndexWriter:
         self.timings: dict[str, float] = {}
         self._rows_written = 0
 
-    def write_model(self, model, block_ids: Optional[dict] = None,
+    def write_model(self, model, build_inputs: Optional[dict] = None,
                     expand_arrays: bool = False) -> dict:
         """Write the whole canonical model. Returns build stats."""
         con = self.con
         t0 = time.perf_counter()
 
-        # Definitions
+        # Definitions (only those actually referenced by a declared instance;
+        # build_canonical also extracts the top component's own definition,
+        # which no decl row references)
+        referenced = {d.def_hash for d in model.decls}
         def_ids: dict[str, int] = {}
         def_rows = []
         def_fts = []
-        for i, (h, d) in enumerate(model.definitions.items(), start=1):
+        items = [(h, d) for h, d in model.definitions.items() if h in referenced]
+        for i, (h, d) in enumerate(items, start=1):
             def_ids[h] = i
             def_rows.append((i, h, d.kind, d.type_name, json.dumps(d.body, sort_keys=True)))
             names, descs = _def_search_row(d.body)
@@ -144,8 +148,15 @@ class IndexWriter:
         n_nodes = 0
         addr_min, addr_max = None, 0
         total_regs = 0
+        block_roots = []
         for d in model.decls:
-            row, fts = self._node_row(d, def_ids, files, desc_by_hash, block_ids)
+            if d.block_id == d.decl_id:
+                block_roots.append({
+                    "id": d.decl_id, "path": d.path, "type": d.type_name,
+                    "file": d.def_file, "addr": addr_to_hex(d.addr),
+                    "size": format(d.size, "x"), "regs": d.reg_count,
+                })
+            row, fts = self._node_row(d, def_ids, files, desc_by_hash)
             batch.append(row)
             fts_batch.append(fts)
             n_nodes += 1
@@ -184,6 +195,9 @@ class IndexWriter:
             "build_timings": json.dumps({**model.timings.to_dict(),
                                          **{k: round(v, 3) for k, v in self.timings.items()}}),
             "created_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
+            "build_inputs": json.dumps(build_inputs or {}),
+            "block_roots": json.dumps(block_roots),
+            "top_src_file": getattr(model, "top_src_file", None) or "",
         }
         con.executemany("INSERT OR REPLACE INTO meta VALUES (?,?)", meta.items())
         con.execute("PRAGMA optimize")
@@ -193,10 +207,10 @@ class IndexWriter:
         return {"nodes": n_nodes, "definitions": len(def_rows),
                 "registers": total_regs, **{k: round(v, 3) for k, v in self.timings.items()}}
 
-    def _node_row(self, d: Decl, def_ids, files, desc_by_hash, block_ids) -> tuple:
+    def _node_row(self, d: Decl, def_ids, files, desc_by_hash) -> tuple:
         dims = json.dumps(d.array_dims) if d.array_dims else None
         stride = format(d.array_stride, "x") if d.array_stride else None
-        block_id = block_ids.get(d.decl_id) if block_ids else None
+        block_id = d.block_id
         row = (
             d.decl_id, d.parent_id, d.kind, d.name, d.path, def_ids[d.def_hash],
             addr_to_hex(d.addr), addr_to_hex(d.addr_span_end),

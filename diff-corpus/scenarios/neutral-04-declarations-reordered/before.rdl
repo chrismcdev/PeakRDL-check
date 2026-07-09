@@ -1,0 +1,9 @@
+addrmap soc {
+    reg ctrl_t { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; };
+    reg stat_t { field { sw = r; hw = w; } busy[0:0]; };
+    reg irq_t  { field { sw = rw; hw = r; reset = 0x0; } mask[7:0]; };
+
+    ctrl_t ctrl   @ 0x0;
+    stat_t status @ 0x4;
+    irq_t  irq_en @ 0x8;
+};

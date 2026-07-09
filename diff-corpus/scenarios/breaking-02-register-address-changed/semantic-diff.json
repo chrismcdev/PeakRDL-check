@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "REG-ADDRESS-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "timer",
+      "message": "reg 'timer' address changed from 0x8 to 0x40.",
+      "before": "0x8",
+      "after": "0x40",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-02-register-address-changed/before.rdl",
+        "line": 4,
+        "column": 64
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-02-register-address-changed/after.rdl",
+        "line": 4,
+        "column": 64
+      },
+      "confidence": "certain"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Single file split into main + include (same content)",
+  "category": "neutral",
+  "expect": [],
+  "maxChanges": 0
+}

@@ -1,0 +1,17 @@
+addrmap blk_t #(longint unsigned SEED = 4) {
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r0 @ 0x00;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r1 @ 0x04;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r2 @ 0x08;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r3 @ 0x0c;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r4 @ 0x10;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r5 @ 0x14;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r6 @ 0x18;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r7 @ 0x1c;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r8 @ 0x20;
+    reg { field { sw = rw; hw = r; reset = SEED; } val[15:0]; } r9 @ 0x24;
+};
+
+addrmap soc {
+    blk_t #(.SEED(4)) blk_a @ 0x000;
+    blk_t #(.SEED(9)) blk_b @ 0x100;
+};

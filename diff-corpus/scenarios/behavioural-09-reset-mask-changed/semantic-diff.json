@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "RESET-REMOVED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "prng.seed",
+      "message": "Field 'seed' no longer has a reset value.",
+      "before": "0x0",
+      "after": null,
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-09-reset-mask-changed/before.rdl",
+        "line": 5,
+        "column": 7
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-09-reset-mask-changed/after.rdl",
+        "line": 5,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

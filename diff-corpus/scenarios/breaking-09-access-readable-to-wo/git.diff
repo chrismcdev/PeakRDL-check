@@ -1,0 +1,13 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-09-access-readable-to-wo/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-09-access-readable-to-wo/after.rdl
+index 1d4caf1..39c3ca3 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-09-access-readable-to-wo/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-09-access-readable-to-wo/after.rdl
+@@ -1,7 +1,7 @@
+ addrmap soc {
+     reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+     reg {
+-        field { sw = rw; hw = r; reset = 0x0; } code[7:0];
++        field { sw = w; hw = r; reset = 0x0; } code[7:0];
+     } cmd @ 0x4;
+     reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x8;
+ };

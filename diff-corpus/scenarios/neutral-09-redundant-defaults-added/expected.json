@@ -1,0 +1,6 @@
+{
+  "title": "Explicit properties added that equal the defaults",
+  "category": "neutral",
+  "expect": [],
+  "maxChanges": 0
+}

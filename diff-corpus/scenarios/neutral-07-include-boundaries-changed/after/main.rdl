@@ -1,0 +1,6 @@
+`include "types.rdl"
+
+addrmap soc {
+    ctrl_t ctrl   @ 0x0;
+    stat_t status @ 0x4;
+};

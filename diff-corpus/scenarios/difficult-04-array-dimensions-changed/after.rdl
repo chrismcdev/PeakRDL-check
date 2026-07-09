@@ -1,0 +1,7 @@
+addrmap soc {
+    reg chan_t {
+        field { sw = rw; hw = r; reset = 0x0; } src[15:0];
+        field { sw = rw; hw = r; reset = 0x0; } dst[31:16];
+    };
+    chan_t ch[16] @ 0x0;
+};

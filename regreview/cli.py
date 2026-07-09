@@ -23,6 +23,20 @@ def _peak_rss_bytes() -> int:
     return v if sys.platform == "darwin" else v * 1024
 
 
+def _hash_inputs(files, model) -> dict:
+    import hashlib
+
+    paths = {str(Path(f).resolve()) for f in files}
+    paths.update(str(Path(p).resolve()) for p in model.src_files)
+    out = {}
+    for p in sorted(paths):
+        try:
+            out[p] = hashlib.sha256(Path(p).read_bytes()).hexdigest()
+        except OSError:
+            pass
+    return out
+
+
 def cmd_build(args) -> int:
     from .adapter import build_canonical
     from .storage import IndexWriter
@@ -31,10 +45,22 @@ def cmd_build(args) -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     db_path = out_dir / "register-map.sqlite"
 
+    if args.incremental:
+        from .incremental import FullRebuildRequired, incremental_build
+        try:
+            report = incremental_build(args.files, out_dir, args.top,
+                                       args.source_locations)
+            report["peakRssBytes"] = _peak_rss_bytes()
+            print(json.dumps(report, indent=2))
+            return EXIT_OK
+        except FullRebuildRequired as e:
+            print(f"incremental: full rebuild required ({e.reason})",
+                  file=sys.stderr)
+
     t_total = time.perf_counter()
     model = build_canonical(args.files, top=args.top, source_mode=args.source_locations)
     writer = IndexWriter(db_path)
-    stats = writer.write_model(model)
+    stats = writer.write_model(model, build_inputs=_hash_inputs(args.files, model))
     total_s = time.perf_counter() - t_total
 
     timings = model.timings.to_dict()
@@ -180,6 +206,8 @@ def main(argv=None) -> int:
     b.add_argument("--source-locations", choices=("none", "registers", "all"),
                    default="registers")
     b.add_argument("--mode", choices=("server", "static"), default="server")
+    b.add_argument("--incremental", action="store_true",
+                   help="reuse an existing index, rebuilding only changed blocks")
     b.set_defaults(func=cmd_build)
 
     s = sub.add_parser("serve", help="serve an index locally")

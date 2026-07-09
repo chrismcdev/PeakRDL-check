@@ -1,0 +1,6 @@
+{
+  "title": "Duplicate inline definitions extracted to a named type",
+  "category": "neutral",
+  "expect": [],
+  "maxChanges": 0
+}

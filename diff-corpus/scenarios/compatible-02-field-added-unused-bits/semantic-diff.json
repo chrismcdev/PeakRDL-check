@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "compatible": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "FIELD-ADDED-UNUSED-BITS",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "field",
+      "entityKey": "ctrl.dbg_en",
+      "message": "Field 'dbg_en' added at [4:4] in previously unused bits.",
+      "before": null,
+      "after": "[4:4] sw=rw",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-02-field-added-unused-bits/before.rdl",
+        "line": 2,
+        "column": 62
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-02-field-added-unused-bits/after.rdl",
+        "line": 5,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

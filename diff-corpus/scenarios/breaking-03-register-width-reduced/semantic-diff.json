@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "REG-WIDTH-REDUCED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "counter",
+      "message": "Register width changed from 64 to 32 bits.",
+      "before": "64",
+      "after": "32",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-03-register-width-reduced/before.rdl",
+        "line": 6,
+        "column": 7
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-03-register-width-reduced/after.rdl",
+        "line": 6,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

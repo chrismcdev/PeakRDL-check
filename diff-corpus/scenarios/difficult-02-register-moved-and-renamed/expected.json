@@ -1,0 +1,9 @@
+{
+  "title": "Register renamed and moved, content identical, single candidate",
+  "category": "difficult",
+  "expect": [
+    {"ruleId": "REG-MOVED-AND-RENAMED", "entityKey": "clkdiv", "classification": "breaking", "confidence": "likely"}
+  ],
+  "forbid": ["REG-REMOVED"],
+  "maxChanges": 1
+}

@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "INTERRUPT-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "irq_status.pending",
+      "message": "Field 'pending' intr behaviour enabled; interrupt semantics of this field changed.",
+      "before": "False",
+      "after": "True",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-08-interrupt-changed/before.rdl",
+        "line": 2,
+        "column": 66
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-08-interrupt-changed/after.rdl",
+        "line": 2,
+        "column": 72
+      },
+      "confidence": "certain"
+    }
+  ]
+}

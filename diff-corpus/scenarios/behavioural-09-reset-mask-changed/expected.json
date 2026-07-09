@@ -1,0 +1,9 @@
+{
+  "title": "Reset removed from a field, shrinking the register's defined reset mask",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "RESET-REMOVED", "entityKey": "prng.seed", "classification": "behavioural"}
+  ],
+  "forbid": ["RESET-VALUE-CHANGED", "RESET-ADDED"],
+  "maxChanges": 1
+}

@@ -1,0 +1,11 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-06-field-width-reduced/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-06-field-width-reduced/after.rdl
+index 7190bf1..1dbce1c 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-06-field-width-reduced/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-06-field-width-reduced/after.rdl
+@@ -1,5 +1,5 @@
+ addrmap soc {
+     reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+-    reg { field { sw = rw; hw = r; reset = 0x0; } div[7:0]; } clkdiv @ 0x4;
++    reg { field { sw = rw; hw = r; reset = 0x0; } div[3:0]; } clkdiv @ 0x4;
+     reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x8;
+ };

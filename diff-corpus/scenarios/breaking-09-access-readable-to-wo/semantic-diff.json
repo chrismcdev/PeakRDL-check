@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "ACCESS-READABLE-TO-WO",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "field",
+      "entityKey": "cmd.code",
+      "message": "Field 'code' software access changed from rw to w.",
+      "before": "rw",
+      "after": "w",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-09-access-readable-to-wo/before.rdl",
+        "line": 5,
+        "column": 7
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-09-access-readable-to-wo/after.rdl",
+        "line": 5,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

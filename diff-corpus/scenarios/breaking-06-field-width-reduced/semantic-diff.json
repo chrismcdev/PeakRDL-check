@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "FIELD-WIDTH-REDUCED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "field",
+      "entityKey": "clkdiv.div",
+      "message": "Field 'div' width changed from 8 to 4 bits.",
+      "before": "8 bits",
+      "after": "4 bits",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-06-field-width-reduced/before.rdl",
+        "line": 3,
+        "column": 63
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-06-field-width-reduced/after.rdl",
+        "line": 3,
+        "column": 63
+      },
+      "confidence": "certain"
+    }
+  ]
+}

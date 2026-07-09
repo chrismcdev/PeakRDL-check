@@ -1,0 +1,9 @@
+{
+  "title": "Field removed, sibling fields untouched",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "FIELD-REMOVED", "entityKey": "ctrl.irq_en", "classification": "breaking"}
+  ],
+  "forbid": ["FIELD-RENAMED", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

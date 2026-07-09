@@ -1,0 +1,9 @@
+{
+  "title": "Register width reduced from 64 to 32 bits",
+  "category": "breaking",
+  "expect": [
+    {"ruleId": "REG-WIDTH-REDUCED", "entityKey": "counter", "classification": "breaking"}
+  ],
+  "forbid": ["REG-WIDTH-INCREASED", "MATCH-UNCERTAIN"],
+  "maxChanges": 1
+}

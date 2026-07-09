@@ -1,0 +1,12 @@
+{
+  "title": "One-line array growth affects thousands of registers",
+  "category": "difficult",
+  "top": "soc",
+  "expect": [
+    {"ruleId": "ARRAY-DIMS-CHANGED", "entityKey": "eng0.ch", "classification": "breaking"},
+    {"ruleId": "ARRAY-DIMS-CHANGED", "entityKey": "eng3.ch", "classification": "breaking"}
+  ],
+  "forbid": ["REG-REMOVED", "REG-ADDED-UNUSED-SPACE"],
+  "minChanges": 1,
+  "maxChanges": 4
+}

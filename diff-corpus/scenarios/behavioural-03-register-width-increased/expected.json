@@ -1,0 +1,9 @@
+{
+  "title": "Register width increased",
+  "category": "behavioural",
+  "expect": [
+    {"ruleId": "REG-WIDTH-INCREASED", "entityKey": "stat", "classification": "behavioural"}
+  ],
+  "forbid": ["REG-WIDTH-REDUCED", "REG-ADDRESS-CHANGED"],
+  "maxChanges": 1
+}

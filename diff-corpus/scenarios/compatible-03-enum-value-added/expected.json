@@ -1,0 +1,9 @@
+{
+  "title": "Enum member added without touching existing members",
+  "category": "compatible",
+  "expect": [
+    {"ruleId": "ENUM-VALUE-ADDED", "entityKey": "cfg.mode", "classification": "compatible"}
+  ],
+  "forbid": ["ENUM-VALUE-CHANGED", "ENUM-VALUE-REMOVED", "ENUM-VALUE-RENAMED", "ENUM-ADDED"],
+  "maxChanges": 1
+}

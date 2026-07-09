@@ -1,0 +1,3 @@
+addrmap soc {
+    reg { field { sw = r; hw = r; reset = 0x0; } busy[0:0]; } status @ 0x0;
+};
