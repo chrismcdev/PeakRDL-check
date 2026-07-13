@@ -1,0 +1,11 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl
+index 04f8df4..928d21e 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl
+@@ -1,5 +1,5 @@
+ addrmap soc {
+-    reg cfg_t { field { sw = rw; hw = r; reset = 0x0; } v[7:0]; };
++    reg cfg_t { field { sw = rw; hw = r; reset = 0x1; } v[7:0]; };
+ 
+     cfg_t cfg00 @ 0x00;
+     cfg_t cfg01 @ 0x04;

@@ -1,0 +1,12 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl
+index a8641e9..6d11b8f 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl
+@@ -12,6 +12,6 @@ addrmap blk_t #(longint unsigned SEED = 4) {
+ };
+ 
+ addrmap soc {
+-    blk_t #(.SEED(4)) blk_a @ 0x000;
++    blk_t #(.SEED(7)) blk_a @ 0x000;
+     blk_t #(.SEED(9)) blk_b @ 0x100;
+ };

@@ -1,0 +1,6 @@
+{
+  "title": "Large textual refactor (split, reorder, reformat, renumber) with zero semantic change",
+  "category": "difficult",
+  "expect": [],
+  "maxChanges": 0
+}

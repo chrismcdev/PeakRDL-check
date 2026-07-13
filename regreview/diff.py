@@ -117,10 +117,14 @@ class ModelDiffer:
             h = hashes.get(d.decl_id)
             if h is not None:
                 return h
-            parts = [d.def_hash, format(d.offset, "x"), format(d.size, "x"),
+            # The node's OWN offset is deliberately excluded: content identity
+            # must survive a move so rename/move detection can work. Children
+            # are encoded with their offsets (internal layout is content).
+            parts = [d.def_hash, format(d.size, "x"),
                      json.dumps(d.array_dims), format(d.array_stride or 0, "x")]
             for c in by_parent.get(d.decl_id, ()):
                 parts.append(c.name)
+                parts.append(format(c.offset, "x"))
                 parts.append(compute(c))
             h = hashlib.sha256("|".join(parts).encode()).hexdigest()
             hashes[d.decl_id] = h

@@ -1,0 +1,103 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 4
+  },
+  "totalChanges": 4,
+  "changes": [
+    {
+      "ruleId": "ARRAY-DIMS-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "eng0.ch",
+      "message": "reg 'eng0.ch' array dimensions changed from [10] to [2000]; element addresses and the overall footprint change.",
+      "before": "[10]",
+      "after": "[2000]",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/before.rdl",
+        "line": 5,
+        "column": 12
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/after.rdl",
+        "line": 5,
+        "column": 12
+      },
+      "confidence": "certain",
+      "affectedRegisters": 1990
+    },
+    {
+      "ruleId": "ARRAY-DIMS-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "eng1.ch",
+      "message": "reg 'eng1.ch' array dimensions changed from [10] to [2000]; element addresses and the overall footprint change.",
+      "before": "[10]",
+      "after": "[2000]",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/before.rdl",
+        "line": 5,
+        "column": 12
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/after.rdl",
+        "line": 5,
+        "column": 12
+      },
+      "confidence": "certain",
+      "affectedRegisters": 1990
+    },
+    {
+      "ruleId": "ARRAY-DIMS-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "eng2.ch",
+      "message": "reg 'eng2.ch' array dimensions changed from [10] to [2000]; element addresses and the overall footprint change.",
+      "before": "[10]",
+      "after": "[2000]",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/before.rdl",
+        "line": 5,
+        "column": 12
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/after.rdl",
+        "line": 5,
+        "column": 12
+      },
+      "confidence": "certain",
+      "affectedRegisters": 1990
+    },
+    {
+      "ruleId": "ARRAY-DIMS-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "eng3.ch",
+      "message": "reg 'eng3.ch' array dimensions changed from [10] to [2000]; element addresses and the overall footprint change.",
+      "before": "[10]",
+      "after": "[2000]",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/before.rdl",
+        "line": 5,
+        "column": 12
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/after.rdl",
+        "line": 5,
+        "column": 12
+      },
+      "confidence": "certain",
+      "affectedRegisters": 1990
+    }
+  ]
+}

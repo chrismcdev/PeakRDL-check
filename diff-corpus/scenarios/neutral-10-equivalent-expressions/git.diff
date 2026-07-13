@@ -1,0 +1,11 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-10-equivalent-expressions/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-10-equivalent-expressions/after.rdl
+index 85cbe87..8e86354 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-10-equivalent-expressions/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-10-equivalent-expressions/after.rdl
+@@ -1,4 +1,4 @@
+ addrmap soc {
+-    reg { field { sw = rw; hw = r; reset = 12; } v[7:0]; } tune @ 0x10;
+-    reg { field { sw = rw; hw = r; reset = 0x30; } g[7:0]; } gain @ 0x14;
++    reg { field { sw = rw; hw = r; reset = 4 + 8; } v[7:0]; } tune @ (0x8 + 0x8);
++    reg { field { sw = rw; hw = r; reset = 0x10 * 3; } g[7:0]; } gain @ (0x10 + 0x4);
+ };

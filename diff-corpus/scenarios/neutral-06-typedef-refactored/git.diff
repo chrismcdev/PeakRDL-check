@@ -1,0 +1,13 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-06-typedef-refactored/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-06-typedef-refactored/after.rdl
+index 4a24076..ea1d6c0 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-06-typedef-refactored/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-06-typedef-refactored/after.rdl
+@@ -1,4 +1,6 @@
+ addrmap soc {
+-    reg { field { sw = rw; hw = r; reset = 0xff; } thresh[7:0]; } lim_lo @ 0x0;
+-    reg { field { sw = rw; hw = r; reset = 0xff; } thresh[7:0]; } lim_hi @ 0x4;
++    reg limit_t { field { sw = rw; hw = r; reset = 0xff; } thresh[7:0]; };
++
++    limit_t lim_lo @ 0x0;
++    limit_t lim_hi @ 0x4;
+ };

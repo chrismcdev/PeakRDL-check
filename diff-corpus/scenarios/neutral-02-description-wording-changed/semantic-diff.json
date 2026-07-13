@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "documentation": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "DESC-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "documentation",
+      "entityType": "reg",
+      "entityKey": "ctrl",
+      "message": "Description wording changed.",
+      "before": "Enables the block.",
+      "after": "Master enable control for the whole block.",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/before.rdl",
+        "line": 5,
+        "column": 7
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/after.rdl",
+        "line": 5,
+        "column": 7
+      },
+      "confidence": "certain"
+    }
+  ]
+}

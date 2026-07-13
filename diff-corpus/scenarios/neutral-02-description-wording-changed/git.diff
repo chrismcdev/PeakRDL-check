@@ -1,0 +1,12 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/after.rdl
+index 65cbd6c..a26b90c 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/after.rdl
+@@ -1,6 +1,6 @@
+ addrmap soc {
+     reg {
+-        desc = "Enables the block.";
++        desc = "Master enable control for the whole block.";
+         field { sw = rw; hw = r; reset = 0x0; } en[0:0];
+     } ctrl @ 0x0;
+     reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x4;

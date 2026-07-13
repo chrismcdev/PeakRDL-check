@@ -1,0 +1,17 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-03-comments-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-03-comments-changed/after.rdl
+index d9a0899..75fab6f 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-03-comments-changed/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-03-comments-changed/after.rdl
+@@ -1,5 +1,11 @@
+ // Control block registers.
++//
++// Revision history:
++//   2026-07-01  jdoe   initial import from legacy spreadsheet
++//   2026-07-10  asmith reviewed against RTL, no functional edits
+ addrmap soc {
+-    reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
++    /* Software-visible enable. Cleared by hardware on fatal error. */
++    reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0; // was "ENABLE" in v1 docs
++    /* Read-only busy flag driven by the datapath FSM. */
+     reg { field { sw = r; hw = w; } busy[0:0]; } status @ 0x4;
+ };

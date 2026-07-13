@@ -1,0 +1,13 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-05-numeric-format-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-05-numeric-format-changed/after.rdl
+index 69031b5..06873ac 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-05-numeric-format-changed/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-05-numeric-format-changed/after.rdl
+@@ -1,5 +1,5 @@
+ addrmap soc {
+-    reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 16;
+-    reg { field { sw = rw; hw = r; reset = 255; } div[7:0]; } clkdiv @ 0x14;
+-    reg { field { sw = rw; hw = r; reset = 0x000c; } tune[7:0]; } trim @ 24;
++    reg { field { sw = rw; hw = r; reset = 0; } en[0:0]; } ctrl @ 0x10;
++    reg { field { sw = rw; hw = r; reset = 0xff; } div[7:0]; } clkdiv @ 20;
++    reg { field { sw = rw; hw = r; reset = 12; } tune[7:0]; } trim @ 0x18;
+ };

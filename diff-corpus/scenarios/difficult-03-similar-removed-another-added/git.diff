@@ -1,0 +1,10 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-03-similar-removed-another-added/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-03-similar-removed-another-added/after.rdl
+index ebd61c9..10e4db1 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-03-similar-removed-another-added/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-03-similar-removed-another-added/after.rdl
+@@ -1,4 +1,4 @@
+ addrmap soc {
+     reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+-    reg { field { sw = rw; hw = r; reset = 0x10; } thresh[7:0]; } wm_old @ 0x8;
++    reg { field { sw = rw; hw = r; reset = 0x20; } thresh[7:0]; } wm_new @ 0x10;
+ };

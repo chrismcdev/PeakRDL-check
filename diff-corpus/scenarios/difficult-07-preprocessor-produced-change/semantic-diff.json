@@ -1,0 +1,36 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "REG-ADDRESS-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "ctrl",
+      "message": "reg 'ctrl' address changed from 0x10 to 0x40.",
+      "before": "0x10",
+      "after": "0x40",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/before.rdl",
+        "line": 5,
+        "column": 62
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/after.rdl",
+        "line": 5,
+        "column": 62
+      },
+      "confidence": "certain"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "total": 29,
-  "passed": 29,
+  "total": 47,
+  "passed": 47,
   "failed": 0,
   "records": [
     {
@@ -8,7 +8,7 @@
       "title": "Reset value changed",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.037,
+      "diffSeconds": 0.051,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -21,7 +21,7 @@
       "title": "Field width increased into unused bits",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -34,7 +34,7 @@
       "title": "Register width increased",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.004,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -47,7 +47,7 @@
       "title": "Field volatility changed (hw write access dropped)",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.003,
       "totalChanges": 2,
       "summary": {
         "behavioural": 2
@@ -60,7 +60,7 @@
       "title": "Write side effect added (onwrite = woclr)",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -86,7 +86,7 @@
       "title": "Software access changed ambiguously (w to r)",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "uncertain": 1
@@ -99,7 +99,7 @@
       "title": "Interrupt behaviour enabled on a field",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -112,7 +112,7 @@
       "title": "Reset removed from a field, shrinking the register's defined reset mask",
       "category": "behavioural",
       "gitDiffLines": 12,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -216,7 +216,7 @@
       "title": "Field software access narrowed from rw to read-only",
       "category": "breaking",
       "gitDiffLines": 13,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.003,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -242,7 +242,7 @@
       "title": "New register overlaps existing address space (systemrdl-compiler refuses to elaborate overlapping instances, so the head spec fails to compile and the engine emits SPEC-COMPILE-FAILED rather than REG-ADDED-OVERLAPPING/ADDR-OVERLAP-NEW)",
       "category": "breaking",
       "gitDiffLines": 10,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.007,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -255,7 +255,7 @@
       "title": "New field overlaps bits of existing fields (systemrdl-compiler refuses to elaborate overlapping fields, so the head spec fails to compile and the engine emits SPEC-COMPILE-FAILED rather than FIELD-ADDED-OVERLAPPING/FIELD-OVERLAP-NEW)",
       "category": "breaking",
       "gitDiffLines": 12,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.003,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -294,7 +294,7 @@
       "title": "Field added in previously unused bits",
       "category": "compatible",
       "gitDiffLines": 12,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "compatible": 1
@@ -320,7 +320,7 @@
       "title": "Description added to a previously undocumented field",
       "category": "compatible",
       "gitDiffLines": 14,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "compatible": 1
@@ -368,11 +368,230 @@
       "pass": true
     },
     {
+      "scenario": "difficult-02-register-moved-and-renamed",
+      "title": "Register renamed and moved, content identical, single candidate",
+      "category": "difficult",
+      "gitDiffLines": 10,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-03-similar-removed-another-added",
+      "title": "Similar register removed, another added elsewhere (not a rename)",
+      "category": "difficult",
+      "gitDiffLines": 10,
+      "diffSeconds": 0.002,
+      "totalChanges": 2,
+      "summary": {
+        "breaking": 1,
+        "compatible": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-04-array-dimensions-changed",
+      "title": "Array dimensions changed on a register array",
+      "category": "difficult",
+      "gitDiffLines": 11,
+      "diffSeconds": 0.003,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-05-parameter-change-many-instances",
+      "title": "One parameter value change fans out to ten reset changes",
+      "category": "difficult",
+      "gitDiffLines": 12,
+      "diffSeconds": 0.006,
+      "totalChanges": 10,
+      "summary": {
+        "behavioural": 10
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-06-shared-type-change-many-instances",
+      "title": "One edit to a shared type touches twenty instances",
+      "category": "difficult",
+      "gitDiffLines": 11,
+      "diffSeconds": 0.004,
+      "totalChanges": 20,
+      "summary": {
+        "behavioural": 20
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-07-preprocessor-produced-change",
+      "title": "Register moved by editing a preprocessor define",
+      "category": "difficult",
+      "gitDiffLines": 10,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "breaking": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-08-ambiguous-rename",
+      "title": "Two identical registers removed, two identical added: ambiguous",
+      "category": "difficult",
+      "gitDiffLines": 12,
+      "diffSeconds": 0.002,
+      "totalChanges": 6,
+      "summary": {
+        "breaking": 2,
+        "uncertain": 2,
+        "compatible": 2
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-09-one-line-thousands",
+      "title": "One-line array growth affects thousands of registers",
+      "category": "difficult",
+      "gitDiffLines": 13,
+      "diffSeconds": 0.002,
+      "totalChanges": 4,
+      "summary": {
+        "breaking": 4
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "difficult-10-large-refactor-no-change",
+      "title": "Large textual refactor (split, reorder, reformat, renumber) with zero semantic change",
+      "category": "difficult",
+      "gitDiffLines": 203,
+      "diffSeconds": 0.014,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
       "scenario": "neutral-01-whitespace-only",
       "title": "Whitespace-only reformat",
       "category": "neutral",
       "gitDiffLines": 22,
       "diffSeconds": 0.002,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-02-description-wording-changed",
+      "title": "Description wording changed (documentation only)",
+      "category": "neutral",
+      "gitDiffLines": 12,
+      "diffSeconds": 0.002,
+      "totalChanges": 1,
+      "summary": {
+        "documentation": 1
+      },
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-03-comments-changed",
+      "title": "Comments added and changed only",
+      "category": "neutral",
+      "gitDiffLines": 17,
+      "diffSeconds": 0.003,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-04-declarations-reordered",
+      "title": "Declarations reordered, addresses explicit and unchanged",
+      "category": "neutral",
+      "gitDiffLines": 17,
+      "diffSeconds": 0.002,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-05-numeric-format-changed",
+      "title": "Numeric literals reformatted (identical values)",
+      "category": "neutral",
+      "gitDiffLines": 13,
+      "diffSeconds": 0.002,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-06-typedef-refactored",
+      "title": "Duplicate inline definitions extracted to a named type",
+      "category": "neutral",
+      "gitDiffLines": 13,
+      "diffSeconds": 0.002,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-07-include-boundaries-changed",
+      "title": "Single file split into main + include (same content)",
+      "category": "neutral",
+      "gitDiffLines": 23,
+      "diffSeconds": 0.002,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-08-source-formatting-changed",
+      "title": "Indentation and line-wrapping restyled",
+      "category": "neutral",
+      "gitDiffLines": 36,
+      "diffSeconds": 0.002,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-09-redundant-defaults-added",
+      "title": "Explicit properties added that equal the defaults",
+      "category": "neutral",
+      "gitDiffLines": 18,
+      "diffSeconds": 0.003,
+      "totalChanges": 0,
+      "summary": {},
+      "failures": [],
+      "pass": true
+    },
+    {
+      "scenario": "neutral-10-equivalent-expressions",
+      "title": "Addresses and resets rewritten as equivalent expressions",
+      "category": "neutral",
+      "gitDiffLines": 11,
+      "diffSeconds": 0.003,
       "totalChanges": 0,
       "summary": {},
       "failures": [],

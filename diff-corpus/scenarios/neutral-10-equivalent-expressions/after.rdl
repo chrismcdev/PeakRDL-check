@@ -1,4 +1,4 @@
 addrmap soc {
     reg { field { sw = rw; hw = r; reset = 4 + 8; } v[7:0]; } tune @ (0x8 + 0x8);
-    reg { field { sw = rw; hw = r; reset = 0x10 * 3; } w[7:0]; } gain @ (0x10 + 0x4);
+    reg { field { sw = rw; hw = r; reset = 0x10 * 3; } g[7:0]; } gain @ (0x10 + 0x4);
 };

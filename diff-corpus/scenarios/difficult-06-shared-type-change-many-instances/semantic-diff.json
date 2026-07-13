@@ -1,0 +1,435 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 20
+  },
+  "totalChanges": 20,
+  "changes": [
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg00.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 4,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 4,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg01.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 5,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 5,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg02.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 6,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 6,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg03.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 7,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 7,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg04.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 8,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 8,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg05.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 9,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 9,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg06.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 10,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 10,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg07.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 11,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 11,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg08.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 12,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 12,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg09.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 13,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 13,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg10.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 14,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 14,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg11.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 15,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 15,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg12.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 16,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 16,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg13.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 17,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 17,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg14.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 18,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 18,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg15.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 19,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 19,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg16.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 20,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 20,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg17.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 21,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 21,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg18.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 22,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 22,
+        "column": 11
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "cfg19.v",
+      "message": "Field 'v' reset value changed from 0x0 to 0x1.",
+      "before": "0x0",
+      "after": "0x1",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "line": 23,
+        "column": 11
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "line": 23,
+        "column": 11
+      },
+      "confidence": "certain"
+    }
+  ]
+}

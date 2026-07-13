@@ -1,0 +1,225 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "behavioural": 10
+  },
+  "totalChanges": 10,
+  "changes": [
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r0.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 2,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 2,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r1.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 3,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 3,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r2.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 4,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 4,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r3.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 5,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 5,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r4.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 6,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 6,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r5.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 7,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 7,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r6.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 8,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 8,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r7.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 9,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 9,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r8.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 10,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 10,
+        "column": 65
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "RESET-VALUE-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "behavioural",
+      "entityType": "field",
+      "entityKey": "blk_a.r9.val",
+      "message": "Field 'val' reset value changed from 0x4 to 0x7.",
+      "before": "0x4",
+      "after": "0x7",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "line": 11,
+        "column": 65
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "line": 11,
+        "column": 65
+      },
+      "confidence": "certain"
+    }
+  ]
+}

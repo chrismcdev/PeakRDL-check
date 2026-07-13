@@ -1,0 +1,127 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 2,
+    "uncertain": 2,
+    "compatible": 2
+  },
+  "totalChanges": 6,
+  "changes": [
+    {
+      "ruleId": "REG-REMOVED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "spare_a",
+      "message": "reg 'spare_a' at 0x10 was removed.",
+      "before": "0x10",
+      "after": null,
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
+        "line": 3,
+        "column": 61
+      },
+      "headLocation": null,
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "REG-REMOVED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "spare_b",
+      "message": "reg 'spare_b' at 0x14 was removed.",
+      "before": "0x14",
+      "after": null,
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
+        "line": 4,
+        "column": 61
+      },
+      "headLocation": null,
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "MATCH-UNCERTAIN",
+      "policyVersion": "1.0.0",
+      "classification": "uncertain",
+      "entityType": "reg",
+      "entityKey": "spare_a",
+      "message": "reg 'spare_a' was removed and 2 added sibling(s) have identical content; possible rename but ambiguous \u2014 reporting both removal and addition.",
+      "before": null,
+      "after": null,
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
+        "line": 3,
+        "column": 61
+      },
+      "headLocation": null,
+      "confidence": "uncertain",
+      "candidates": [
+        "dbg_x",
+        "dbg_y"
+      ]
+    },
+    {
+      "ruleId": "MATCH-UNCERTAIN",
+      "policyVersion": "1.0.0",
+      "classification": "uncertain",
+      "entityType": "reg",
+      "entityKey": "spare_b",
+      "message": "reg 'spare_b' was removed and 2 added sibling(s) have identical content; possible rename but ambiguous \u2014 reporting both removal and addition.",
+      "before": null,
+      "after": null,
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
+        "line": 4,
+        "column": 61
+      },
+      "headLocation": null,
+      "confidence": "uncertain",
+      "candidates": [
+        "dbg_x",
+        "dbg_y"
+      ]
+    },
+    {
+      "ruleId": "REG-ADDED-UNUSED-SPACE",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "reg",
+      "entityKey": "dbg_x",
+      "message": "reg 'dbg_x' added at 0x20 in previously unused address space.",
+      "before": null,
+      "after": "0x20",
+      "baseLocation": null,
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/after.rdl",
+        "line": 3,
+        "column": 61
+      },
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "REG-ADDED-UNUSED-SPACE",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "reg",
+      "entityKey": "dbg_y",
+      "message": "reg 'dbg_y' added at 0x24 in previously unused address space.",
+      "before": null,
+      "after": "0x24",
+      "baseLocation": null,
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/after.rdl",
+        "line": 4,
+        "column": 61
+      },
+      "confidence": "certain"
+    }
+  ]
+}

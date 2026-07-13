@@ -1,0 +1,26 @@
+addrmap soc {
+    reg { desc = "Block enable."; field { sw = rw; hw = r; reset = 0; } en[0:0]; } uart_ctrl @ 0;
+    reg { desc = "Busy flag."; field { sw = r; hw = w; } busy[0:0]; } uart_stat @ 4;
+    reg { desc = "Baud rate divisor."; field { sw = rw; hw = r; reset = 434; } div[15:0]; } uart_baud @ 8;
+    reg { field { sw = r; hw = w; } lvl[7:0]; } uart_fifo @ 12;
+    reg { field { sw = rw; hw = r; reset = 0; } mask[3:0]; } uart_irq_en @ 16;
+    reg { field { sw = r; hw = w; } st[3:0]; } uart_irq_st @ 20;
+    reg { field { sw = w; hw = r; } data[7:0]; } uart_tx @ 24;
+    reg { field { sw = r; hw = w; } data[7:0]; } uart_rx @ 28;
+    reg { desc = "Block enable."; field { sw = rw; hw = r; reset = 0; } en[0:0]; } spi_ctrl @ 256;
+    reg { desc = "Busy flag."; field { sw = r; hw = w; } busy[0:0]; } spi_stat @ 260;
+    reg { desc = "Serial clock divisor."; field { sw = rw; hw = r; reset = 4; } div[15:0]; } spi_clkdiv @ 264;
+    reg { field { sw = rw; hw = r; reset = 0; } mask[3:0]; } spi_irq_en @ 268;
+    reg { field { sw = r; hw = w; } st[3:0]; } spi_irq_st @ 272;
+    reg { field { sw = w; hw = r; } data[7:0]; } spi_tx @ 276;
+    reg { field { sw = r; hw = w; } data[7:0]; } spi_rx @ 280;
+    reg { desc = "Chip-select mask."; field { sw = rw; hw = r; reset = 15; } sel[3:0]; } spi_cs @ 284;
+    reg { desc = "Block enable."; field { sw = rw; hw = r; reset = 0; } en[0:0]; } tmr_ctrl @ 512;
+    reg { desc = "Busy flag."; field { sw = r; hw = w; } busy[0:0]; } tmr_stat @ 516;
+    reg { field { sw = rw; hw = r; reset = 0; } v[31:0]; } tmr_load @ 520;
+    reg { field { sw = r; hw = w; } v[31:0]; } tmr_count @ 524;
+    reg { desc = "Prescaler divisor."; field { sw = rw; hw = r; reset = 1; } div[15:0]; } tmr_presc @ 528;
+    reg { field { sw = rw; hw = r; reset = 0; } mask[3:0]; } tmr_irq_en @ 532;
+    reg { field { sw = r; hw = w; } st[3:0]; } tmr_irq_st @ 536;
+    reg { desc = "Compare threshold."; field { sw = rw; hw = r; reset = 4294967295; } v[31:0]; } tmr_cmp @ 540;
+};

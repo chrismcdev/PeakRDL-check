@@ -1,0 +1,17 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-04-declarations-reordered/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-04-declarations-reordered/after.rdl
+index 4752494..8afd6af 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-04-declarations-reordered/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-04-declarations-reordered/after.rdl
+@@ -1,9 +1,9 @@
+ addrmap soc {
+-    reg ctrl_t { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; };
+-    reg stat_t { field { sw = r; hw = w; } busy[0:0]; };
+     reg irq_t  { field { sw = rw; hw = r; reset = 0x0; } mask[7:0]; };
++    reg stat_t { field { sw = r; hw = w; } busy[0:0]; };
++    reg ctrl_t { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; };
+ 
++    irq_t  irq_en @ 0x8;
+     ctrl_t ctrl   @ 0x0;
+     stat_t status @ 0x4;
+-    irq_t  irq_en @ 0x8;
+ };

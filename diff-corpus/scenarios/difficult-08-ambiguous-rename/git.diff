@@ -1,0 +1,12 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/after.rdl
+index 9ad3d43..4b2749f 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/after.rdl
+@@ -1,5 +1,5 @@
+ addrmap soc {
+     reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+-    reg { field { sw = rw; hw = r; reset = 0x5; } v[3:0]; } spare_a @ 0x10;
+-    reg { field { sw = rw; hw = r; reset = 0x5; } v[3:0]; } spare_b @ 0x14;
++    reg { field { sw = rw; hw = r; reset = 0x5; } v[3:0]; } dbg_x @ 0x20;
++    reg { field { sw = rw; hw = r; reset = 0x5; } v[3:0]; } dbg_y @ 0x24;
+ };

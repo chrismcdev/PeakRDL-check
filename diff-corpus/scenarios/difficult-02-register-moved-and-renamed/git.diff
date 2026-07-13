@@ -1,0 +1,10 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-02-register-moved-and-renamed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-02-register-moved-and-renamed/after.rdl
+index c0273b5..72db6b8 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-02-register-moved-and-renamed/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-02-register-moved-and-renamed/after.rdl
+@@ -1,4 +1,4 @@
+ addrmap soc {
+     reg { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; } ctrl @ 0x0;
+-    reg { field { sw = rw; hw = r; reset = 0xff; } div[7:0]; } clkdiv @ 0x4;
++    reg { field { sw = rw; hw = r; reset = 0xff; } div[7:0]; } clock_divider @ 0x10;
+ };

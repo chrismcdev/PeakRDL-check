@@ -1,0 +1,36 @@
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-08-source-formatting-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-08-source-formatting-changed/after.rdl
+index 7f8ecfd..64be588 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-08-source-formatting-changed/before.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-08-source-formatting-changed/after.rdl
+@@ -1,24 +1,9 @@
+ addrmap soc {
+-    reg {
+-        field {
+-            sw = rw;
+-            hw = r;
+-            reset = 0x0;
+-        } en[0:0];
+-    } ctrl @ 0x0;
+-
+-    reg {
+-        field {
+-            sw = rw;
+-            hw = r;
+-            reset = 0xff;
+-        } div[7:0];
+-    } clkdiv @ 0x4;
+-
+-    reg {
+-        field {
+-            sw = r;
+-            hw = w;
+-        } busy[0:0];
+-    } status @ 0x8;
++  reg { field { sw = rw;
++                hw = r;
++                reset = 0x0; } en[0:0]; } ctrl @ 0x0;
++  reg { field { sw = rw; hw = r; reset = 0xff; } div[7:0]; } clkdiv @ 0x4;
++  reg {
++          field { sw = r; hw = w; } busy[0:0];
++  } status @ 0x8;
+ };

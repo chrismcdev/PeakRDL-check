@@ -1,0 +1,50 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1,
+    "compatible": 1
+  },
+  "totalChanges": 2,
+  "changes": [
+    {
+      "ruleId": "REG-REMOVED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "wm_old",
+      "message": "reg 'wm_old' at 0x8 was removed.",
+      "before": "0x8",
+      "after": null,
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-03-similar-removed-another-added/before.rdl",
+        "line": 3,
+        "column": 67
+      },
+      "headLocation": null,
+      "confidence": "certain"
+    },
+    {
+      "ruleId": "REG-ADDED-UNUSED-SPACE",
+      "policyVersion": "1.0.0",
+      "classification": "compatible",
+      "entityType": "reg",
+      "entityKey": "wm_new",
+      "message": "reg 'wm_new' added at 0x10 in previously unused address space.",
+      "before": null,
+      "after": "0x10",
+      "baseLocation": null,
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-03-similar-removed-another-added/after.rdl",
+        "line": 3,
+        "column": 67
+      },
+      "confidence": "certain"
+    }
+  ]
+}

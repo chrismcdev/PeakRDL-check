@@ -1,0 +1,37 @@
+{
+  "policyVersion": "1.0.0",
+  "base": {
+    "top": "soc"
+  },
+  "head": {
+    "top": "soc"
+  },
+  "summary": {
+    "breaking": 1
+  },
+  "totalChanges": 1,
+  "changes": [
+    {
+      "ruleId": "ARRAY-DIMS-CHANGED",
+      "policyVersion": "1.0.0",
+      "classification": "breaking",
+      "entityType": "reg",
+      "entityKey": "ch",
+      "message": "reg 'ch' array dimensions changed from [8] to [16]; element addresses and the overall footprint change.",
+      "before": "[8]",
+      "after": "[16]",
+      "baseLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-04-array-dimensions-changed/before.rdl",
+        "line": 6,
+        "column": 12
+      },
+      "headLocation": {
+        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-04-array-dimensions-changed/after.rdl",
+        "line": 6,
+        "column": 12
+      },
+      "confidence": "certain",
+      "affectedRegisters": 8
+    }
+  ]
+}

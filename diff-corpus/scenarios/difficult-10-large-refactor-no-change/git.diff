@@ -1,0 +1,203 @@
+ .../{before => after}/main.rdl                     | 136 +++++++++++++++++----
+ .../after/types.rdl}                               |  50 ++++++++
+ 2 files changed, 162 insertions(+), 24 deletions(-)
+
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/before/main.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/main.rdl
+index 9db56b4..8a346df 100644
+--- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/before/main.rdl
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/main.rdl
+@@ -1,26 +1,114 @@
++// -------------------------------------------------------------------------
++// SoC register map.
++//
++// 2026-07 cleanup: extracted shared register shapes into types.rdl,
++// converted all literals to hexadecimal, regrouped the map by block
++// (timer first, then SPI, then UART) and reformatted throughout.
++// Addresses, names, fields, access and reset values are UNCHANGED.
++// -------------------------------------------------------------------------
++
++`include "types.rdl"
++
++// ---- block-specific register shapes -------------------------------------
++
++reg uart_baud_t {
++    desc = "Baud rate divisor.";
++    field {
++        sw = rw;
++        hw = r;
++        reset = 0x1b2;
++    } div[15:0];
++};
++
++reg uart_fifo_t {
++    field {
++        sw = r;
++        hw = w;
++    } lvl[7:0];
++};
++
++reg spi_clkdiv_t {
++    desc = "Serial clock divisor.";
++    field {
++        sw = rw;
++        hw = r;
++        reset = 0x4;
++    } div[15:0];
++};
++
++reg spi_cs_t {
++    desc = "Chip-select mask.";
++    field {
++        sw = rw;
++        hw = r;
++        reset = 0xf;
++    } sel[3:0];
++};
++
++reg tmr_load_t {
++    field {
++        sw = rw;
++        hw = r;
++        reset = 0x0;
++    } v[31:0];
++};
++
++reg tmr_count_t {
++    field {
++        sw = r;
++        hw = w;
++    } v[31:0];
++};
++
++reg tmr_presc_t {
++    desc = "Prescaler divisor.";
++    field {
++        sw = rw;
++        hw = r;
++        reset = 0x1;
++    } div[15:0];
++};
++
++reg tmr_cmp_t {
++    desc = "Compare threshold.";
++    field {
++        sw = rw;
++        hw = r;
++        reset = 0xffffffff;
++    } v[31:0];
++};
++
++// ---- the map itself ------------------------------------------------------
++
+ addrmap soc {
+-    reg { desc = "Block enable."; field { sw = rw; hw = r; reset = 0; } en[0:0]; } uart_ctrl @ 0;
+-    reg { desc = "Busy flag."; field { sw = r; hw = w; } busy[0:0]; } uart_stat @ 4;
+-    reg { desc = "Baud rate divisor."; field { sw = rw; hw = r; reset = 434; } div[15:0]; } uart_baud @ 8;
+-    reg { field { sw = r; hw = w; } lvl[7:0]; } uart_fifo @ 12;
+-    reg { field { sw = rw; hw = r; reset = 0; } mask[3:0]; } uart_irq_en @ 16;
+-    reg { field { sw = r; hw = w; } st[3:0]; } uart_irq_st @ 20;
+-    reg { field { sw = w; hw = r; } data[7:0]; } uart_tx @ 24;
+-    reg { field { sw = r; hw = w; } data[7:0]; } uart_rx @ 28;
+-    reg { desc = "Block enable."; field { sw = rw; hw = r; reset = 0; } en[0:0]; } spi_ctrl @ 256;
+-    reg { desc = "Busy flag."; field { sw = r; hw = w; } busy[0:0]; } spi_stat @ 260;
+-    reg { desc = "Serial clock divisor."; field { sw = rw; hw = r; reset = 4; } div[15:0]; } spi_clkdiv @ 264;
+-    reg { field { sw = rw; hw = r; reset = 0; } mask[3:0]; } spi_irq_en @ 268;
+-    reg { field { sw = r; hw = w; } st[3:0]; } spi_irq_st @ 272;
+-    reg { field { sw = w; hw = r; } data[7:0]; } spi_tx @ 276;
+-    reg { field { sw = r; hw = w; } data[7:0]; } spi_rx @ 280;
+-    reg { desc = "Chip-select mask."; field { sw = rw; hw = r; reset = 15; } sel[3:0]; } spi_cs @ 284;
+-    reg { desc = "Block enable."; field { sw = rw; hw = r; reset = 0; } en[0:0]; } tmr_ctrl @ 512;
+-    reg { desc = "Busy flag."; field { sw = r; hw = w; } busy[0:0]; } tmr_stat @ 516;
+-    reg { field { sw = rw; hw = r; reset = 0; } v[31:0]; } tmr_load @ 520;
+-    reg { field { sw = r; hw = w; } v[31:0]; } tmr_count @ 524;
+-    reg { desc = "Prescaler divisor."; field { sw = rw; hw = r; reset = 1; } div[15:0]; } tmr_presc @ 528;
+-    reg { field { sw = rw; hw = r; reset = 0; } mask[3:0]; } tmr_irq_en @ 532;
+-    reg { field { sw = r; hw = w; } st[3:0]; } tmr_irq_st @ 536;
+-    reg { desc = "Compare threshold."; field { sw = rw; hw = r; reset = 4294967295; } v[31:0]; } tmr_cmp @ 540;
++
++    // ---- timer block @ 0x200 ----
++    ctrl_t      tmr_ctrl   @ 0x200;
++    stat_t      tmr_stat   @ 0x204;
++    tmr_load_t  tmr_load   @ 0x208;
++    tmr_count_t tmr_count  @ 0x20c;
++    tmr_presc_t tmr_presc  @ 0x210;
++    irq_en_t    tmr_irq_en @ 0x214;
++    irq_st_t    tmr_irq_st @ 0x218;
++    tmr_cmp_t   tmr_cmp    @ 0x21c;
++
++    // ---- SPI block @ 0x100 ----
++    ctrl_t       spi_ctrl   @ 0x100;
++    stat_t       spi_stat   @ 0x104;
++    spi_clkdiv_t spi_clkdiv @ 0x108;
++    irq_en_t     spi_irq_en @ 0x10c;
++    irq_st_t     spi_irq_st @ 0x110;
++    tx_t         spi_tx     @ 0x114;
++    rx_t         spi_rx     @ 0x118;
++    spi_cs_t     spi_cs     @ 0x11c;
++
++    // ---- UART block @ 0x0 ----
++    ctrl_t      uart_ctrl   @ 0x0;
++    stat_t      uart_stat   @ 0x4;
++    uart_baud_t uart_baud   @ 0x8;
++    uart_fifo_t uart_fifo   @ 0xc;
++    irq_en_t    uart_irq_en @ 0x10;
++    irq_st_t    uart_irq_st @ 0x14;
++    tx_t        uart_tx     @ 0x18;
++    rx_t        uart_rx     @ 0x1c;
+ };
+diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl
+new file mode 100644
+index 0000000..80085e0
+--- /dev/null
++++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl
+@@ -0,0 +1,50 @@
++// -------------------------------------------------------------------------
++// Shared register shapes used by every peripheral block in the SoC.
++// Extracted during the 2026-07 spec cleanup; no functional change intended.
++// -------------------------------------------------------------------------
++
++reg ctrl_t {
++    desc = "Block enable.";
++    field {
++        sw = rw;
++        hw = r;
++        reset = 0x0;
++    } en[0:0];
++};
++
++reg stat_t {
++    desc = "Busy flag.";
++    field {
++        sw = r;
++        hw = w;
++    } busy[0:0];
++};
++
++reg irq_en_t {
++    field {
++        sw = rw;
++        hw = r;
++        reset = 0x0;
++    } mask[3:0];
++};
++
++reg irq_st_t {
++    field {
++        sw = r;
++        hw = w;
++    } st[3:0];
++};
++
++reg tx_t {
++    field {
++        sw = w;
++        hw = r;
++    } data[7:0];
++};
++
++reg rx_t {
++    field {
++        sw = r;
++        hw = w;
++    } data[7:0];
++};

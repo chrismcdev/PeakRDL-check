@@ -1,0 +1,50 @@
+// -------------------------------------------------------------------------
+// Shared register shapes used by every peripheral block in the SoC.
+// Extracted during the 2026-07 spec cleanup; no functional change intended.
+// -------------------------------------------------------------------------
+
+reg ctrl_t {
+    desc = "Block enable.";
+    field {
+        sw = rw;
+        hw = r;
+        reset = 0x0;
+    } en[0:0];
+};
+
+reg stat_t {
+    desc = "Busy flag.";
+    field {
+        sw = r;
+        hw = w;
+    } busy[0:0];
+};
+
+reg irq_en_t {
+    field {
+        sw = rw;
+        hw = r;
+        reset = 0x0;
+    } mask[3:0];
+};
+
+reg irq_st_t {
+    field {
+        sw = r;
+        hw = w;
+    } st[3:0];
+};
+
+reg tx_t {
+    field {
+        sw = w;
+        hw = r;
+    } data[7:0];
+};
+
+reg rx_t {
+    field {
+        sw = r;
+        hw = w;
+    } data[7:0];
+};
