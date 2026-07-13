@@ -82,6 +82,9 @@ git clone <repo> peakrdl-check && cd peakrdl-check
 # CI gate (exit 1 on breaking changes)
 .venv/bin/peakrdl-check check --base main/design.rdl --head pr/design.rdl \
     --fail-on breaking
+
+# or as a PeakRDL subcommand (registered via the peakrdl.exporters entry point)
+.venv/bin/peakrdl check pr/design.rdl --base main/design.rdl --fail-on breaking
 ```
 
 A reusable GitHub Action lives in [`action/`](action/action.yml); an example

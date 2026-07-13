@@ -16,6 +16,9 @@ dev = ["pytest==9.1.1"]
 peakrdl-check = "peakrdl_check.cli:main"
 peakrdl-check-fixture = "peakrdl_check.fixture_gen:main"
 
+[project.entry-points."peakrdl.exporters"]
+check = "peakrdl_check.__peakrdl__:Exporter"
+
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"

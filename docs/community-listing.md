@@ -49,6 +49,7 @@ after which maintainers add the entry.
 1. Publish the repository and replace the two placeholder URLs above, plus:
    - `examples/.github/workflows/register-review.yml` (`uses:` slug)
    - `peakrdl_check/report.py` (SARIF `informationUri`)
-2. Optionally implement a `__peakrdl__` entry point so `peakrdl check` /
-   `peakrdl build-index` work as PeakRDL subcommands — the community list is
-   plugin-oriented, and the exporter-plugin API makes this a thin wrapper.
+2. ~~Optionally implement a `__peakrdl__` entry point~~ — done:
+   `peakrdl check head.rdl --base main/design.rdl` works via the
+   `peakrdl.exporters` entry point (`peakrdl_check/__peakrdl__.py`), so the
+   project is a true PeakRDL plugin. Mention this in the post.
