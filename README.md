@@ -1,9 +1,5 @@
 # PeakRDL-check
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/chrismcdev/PeakRDL-check/main/.github/assets/systemrdl-logo.svg" alt="SystemRDL" width="329" height="122">
-</p>
-
 **Semantic compatibility analysis and configurable quality gates for SystemRDL
 specifications. Detects firmware-breaking register changes, produces CI
 reports and provides scalable exploration of large register maps.**
