@@ -173,9 +173,6 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
                     incl_search_paths: Optional[list] = None) -> CanonicalModel:
     """Compile SystemRDL sources and produce the canonical model."""
     from systemrdl import RDLCompiler
-    from systemrdl.node import (AddrmapNode, FieldNode, MemNode, RegfileNode,
-                                RegNode, SignalNode)
-    import systemrdl
 
     assert source_mode in ("none", "registers", "all")
 
@@ -190,6 +187,40 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
     t0 = time.perf_counter()
     root = rdlc.elaborate(top_def_name=top)
     timings.elaborate_s = time.perf_counter() - t0
+
+    return canonicalize_root(root, source_mode, timings)
+
+
+def build_canonical_many(rdl_file, tops: list, source_mode: str) -> dict:
+    """Compile ONE file once, then standalone-elaborate several tops.
+
+    Used by the incremental splicer: a changed type file may define many
+    block types; parsing dominates, so it must happen exactly once.
+    Returns {top_name: CanonicalModel}.
+    """
+    from systemrdl import RDLCompiler
+
+    rdlc = RDLCompiler()
+    timings = StageTimings()
+    t0 = time.perf_counter()
+    rdlc.compile_file(str(rdl_file))
+    parse_s = time.perf_counter() - t0
+    out = {}
+    for top in tops:
+        t0 = time.perf_counter()
+        root = rdlc.elaborate(top_def_name=top)
+        timings = StageTimings(parse_s=parse_s,
+                               elaborate_s=time.perf_counter() - t0)
+        out[top] = canonicalize_root(root, source_mode, timings)
+    return out
+
+
+def canonicalize_root(root, source_mode: str,
+                      timings: StageTimings) -> CanonicalModel:
+    """Walk an elaborated root and produce the canonical model."""
+    from systemrdl.node import (AddrmapNode, FieldNode, MemNode, RegfileNode,
+                                RegNode, SignalNode)
+    import systemrdl
 
     t0 = time.perf_counter()
     ex = _Extractor(source_mode)
@@ -280,8 +311,20 @@ def build_canonical(rdl_files: list, top: Optional[str] = None,
                          sort_key=my_id)
                 d.block_id = my_block
                 if is_block_root:
-                    d.type_name = child.inst.type_name
+                    od = child.inst.original_def
+                    d.type_name = (od.type_name if od is not None
+                                   and od.type_name else child.inst.type_name)
                     d.def_file = _def_file(child)
+                    params = {}
+                    supported = True
+                    for p in (child.inst.parameters or ()):
+                        v = p.get_value()
+                        if isinstance(v, (int, str, bool)):
+                            params[p.name] = v
+                        else:
+                            supported = False
+                    d.params = params if params else None
+                    d.params_supported = supported
                 decls.append(d)
                 inner_regs = walk(child, my_id, path, my_block)
                 d.reg_count = inner_regs * elements

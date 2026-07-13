@@ -1,0 +1,67 @@
+name: "RegReview register interface review"
+description: >
+  Semantic diff of SystemRDL register specifications between two revisions.
+  Classifies changes (breaking/behavioural/compatible/documentation), writes
+  a job summary, emits source annotations, uploads a reviewable report, and
+  fails the job according to the configured severity threshold.
+branding:
+  icon: "cpu"
+  color: "blue"
+
+inputs:
+  base-ref:
+    description: "Base git ref/sha to compare from"
+    required: true
+  head-ref:
+    description: "Head git ref/sha to compare to"
+    required: true
+  rdl-glob:
+    description: "Glob for SystemRDL entry files"
+    default: "**/*.rdl"
+  fail-on:
+    description: "Severity threshold: breaking | behavioural | validation-error | none"
+    default: "breaking"
+  policy:
+    description: "Optional path to a severity policy JSON"
+    default: ""
+  python-version:
+    description: "Python version for the toolchain"
+    default: "3.12"
+
+outputs:
+  breaking-count:
+    description: "Number of breaking changes detected"
+    value: ${{ steps.review.outputs.breaking-count }}
+  report-path:
+    description: "Path to the JSON diff report artifact"
+    value: ${{ steps.review.outputs.report-path }}
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install RegReview
+      shell: bash
+      run: pip install "${{ github.action_path }}/.."
+
+    - name: Semantic review
+      id: review
+      shell: bash
+      env:
+        BASE_REF: ${{ inputs.base-ref }}
+        HEAD_REF: ${{ inputs.head-ref }}
+        RDL_GLOB: ${{ inputs.rdl-glob }}
+        FAIL_ON: ${{ inputs.fail-on }}
+        POLICY: ${{ inputs.policy }}
+      run: python "${{ github.action_path }}/review.py"
+
+    - name: Upload review artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: regreview-report
+        path: regreview-out/
+        if-no-files-found: ignore

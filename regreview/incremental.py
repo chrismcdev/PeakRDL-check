@@ -144,32 +144,52 @@ def incremental_build(files: list, output_dir: Path, top: Optional[str],
         raise FullRebuildRequired(
             "changed files are tracked but no block units map to them")
 
-    affected_types: dict[str, dict] = {}
+    affected_types: dict[tuple, dict] = {}   # (type, params_json) -> info
     for r in affected:
         if not r.get("type"):
             con.close()
             raise FullRebuildRequired(f"block root {r['path']} has no type name")
-        prev = affected_types.setdefault(r["type"], {"file": r["file"], "roots": []})
+        if r.get("unsupported"):
+            con.close()
+            raise FullRebuildRequired(
+                f"block '{r['path']}' has parameter values the incremental "
+                f"splicer cannot reproduce")
+        key = (r["type"], json.dumps(r.get("params") or {}, sort_keys=True))
+        prev = affected_types.setdefault(
+            key, {"file": r["file"], "params": r.get("params") or {}, "roots": []})
         prev["roots"].append(r)
 
     # Parameterized instances elaborate differently per instance; the type
     # normalizer suffixes their type_name, so identical type names across
     # instances imply identical parameterization. A type name containing the
     # normalizer's suffix marker is treated as parameterized.
-    from .adapter import build_canonical
     from systemrdl import RDLCompileError
 
+    from .adapter import StageTimings, canonicalize_root
+    from systemrdl import RDLCompiler
+
     t0 = time.perf_counter()
-    submodels: dict[str, object] = {}
-    for tname, info in affected_types.items():
-        try:
-            sub = build_canonical([info["file"]], top=tname,
-                                  source_mode=source_mode)
-        except RDLCompileError as e:
-            con.close()
-            raise FullRebuildRequired(
-                f"standalone elaboration of '{tname}' failed "
-                f"(cross-file dependency?): {str(e)[:200]}")
+    submodels: dict[tuple, object] = {}
+    compilers: dict[str, RDLCompiler] = {}   # one parse per changed file
+    try:
+        for key, info in sorted(affected_types.items()):
+            fpath, params = info["file"], info["params"]
+            rdlc = compilers.get(fpath)
+            if rdlc is None:
+                rdlc = RDLCompiler()
+                rdlc.compile_file(fpath)
+                compilers[fpath] = rdlc
+            root_node = rdlc.elaborate(top_def_name=key[0],
+                                       parameters=params or None)
+            submodels[key] = canonicalize_root(root_node, source_mode,
+                                               StageTimings())
+    except RDLCompileError as e:
+        con.close()
+        raise FullRebuildRequired(
+            f"standalone elaboration failed "
+            f"(cross-file dependency?): {str(e)[:200]}")
+    for key, info in affected_types.items():
+        sub = submodels[key]
         for root in info["roots"]:
             if int(root["size"], 16) != sub.top_size:
                 con.close()
@@ -177,15 +197,14 @@ def incremental_build(files: list, output_dir: Path, top: Optional[str],
                     f"block '{root['path']}' size changed "
                     f"0x{root['size']} -> 0x{sub.top_size:x}; downstream "
                     f"addresses may shift")
-        submodels[tname] = sub
     elab_s = time.perf_counter() - t0
 
     # ---- splice ----
     t0 = time.perf_counter()
     upd = _Splicer(con)
     reg_delta = 0
-    for tname, info in affected_types.items():
-        sub = submodels[tname]
+    for key, info in sorted(affected_types.items()):
+        sub = submodels[key]
         for root in info["roots"]:
             reg_delta += upd.splice_block(root, sub)
     # Purge definitions no longer referenced by any node (and their search rows)
@@ -206,9 +225,9 @@ def incremental_build(files: list, output_dir: Path, top: Optional[str],
     counts["definitions"] = con.execute("SELECT COUNT(*) FROM definition").fetchone()[0]
     con.execute("UPDATE meta SET value=? WHERE key='counts'", (json.dumps(counts),))
     for r in block_roots:
-        t = r.get("type")
-        if t in submodels:
-            r["regs"] = submodels[t].total_regs
+        key = (r.get("type"), json.dumps(r.get("params") or {}, sort_keys=True))
+        if key in submodels:
+            r["regs"] = submodels[key].total_regs
     con.execute("UPDATE meta SET value=? WHERE key='block_roots'",
                 (json.dumps(block_roots),))
     amax = con.execute("SELECT MAX(addr_end) FROM node WHERE kind='reg'").fetchone()[0]
@@ -220,7 +239,9 @@ def incremental_build(files: list, output_dir: Path, top: Optional[str],
 
     report["unitsRebuilt"] = len(affected)
     report["unitsReused"] = len(block_roots) - len(affected)
-    report["rebuiltTypes"] = sorted(affected_types)
+    rebuilt = sorted({k[0] for k in affected_types})
+    report["rebuiltTypeCount"] = len(rebuilt)
+    report["rebuiltTypes"] = rebuilt[:20] + (["..."] if len(rebuilt) > 20 else [])
     report["registerDelta"] = reg_delta
     report["stages"]["elaborateSeconds"] = round(elab_s, 3)
     report["stages"]["spliceSeconds"] = round(splice_s, 3)

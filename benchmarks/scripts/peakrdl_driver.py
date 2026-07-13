@@ -22,7 +22,7 @@ def main() -> int:
 
     from systemrdl import RDLCompiler
     from peakrdl_html import HTMLExporter
-    import peakrdl_html
+    from peakrdl_html import __about__ as peakrdl_html_about
     import systemrdl
 
     t0 = time.perf_counter()
@@ -44,7 +44,7 @@ def main() -> int:
 
     print(json.dumps({
         "tool": "peakrdl-html",
-        "toolVersion": peakrdl_html.__version__,
+        "toolVersion": peakrdl_html_about.__version__,
         "systemrdlVersion": systemrdl.__version__,
         "parseMs": round((t1 - t0) * 1000),
         "elaborationMs": round((t2 - t1) * 1000),

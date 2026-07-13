@@ -1,0 +1,3 @@
+wrote regreview-out/specs__uart.rdl.diff.json (1 changes)
+wrote regreview-out/specs__uart.rdl.diff.md (1 changes)
+::error file=regreview-out/head-tree/specs/uart.rdl,line=7,title=REG-ADDRESS-CHANGED::reg 'status' address changed from 0x4 to 0x40.

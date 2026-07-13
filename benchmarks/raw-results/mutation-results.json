@@ -1,0 +1,3073 @@
+{
+  "trials": 240,
+  "semanticTrials": 160,
+  "neutralTrials": 80,
+  "detectedOverall": 240,
+  "recall": 1.0,
+  "neutralSuppression": 1.0,
+  "precision": 1.0,
+  "truePositives": 160,
+  "falsePositives": 0,
+  "falseNegatives": 0,
+  "perMutation": {
+    "reset-change": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "remove-reg": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "move-reg": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "access-rw-to-r": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "remove-field": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "shrink-field": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "add-reg-unused": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "desc-reword": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "whitespace": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "comment": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "numeric-format": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    },
+    "reorder": {
+      "trials": 20,
+      "detected": 20,
+      "falsePositives": 0
+    }
+  },
+  "records": [
+    {
+      "trial": 0,
+      "mutation": "reset-change",
+      "seed": 621010220,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r13.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 1,
+      "mutation": "remove-reg",
+      "seed": 581629512,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r21"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 2,
+      "mutation": "move-reg",
+      "seed": 144351008,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r12"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 3,
+      "mutation": "access-rw-to-r",
+      "seed": 1022632884,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r14.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 4,
+      "mutation": "remove-field",
+      "seed": 536048324,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r17.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 5,
+      "mutation": "shrink-field",
+      "seed": 702987055,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r11.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 6,
+      "mutation": "add-reg-unused",
+      "seed": 992988307,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 7,
+      "mutation": "desc-reword",
+      "seed": 198737317,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 8,
+      "mutation": "whitespace",
+      "seed": 73057435,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 9,
+      "mutation": "comment",
+      "seed": 402156000,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 10,
+      "mutation": "numeric-format",
+      "seed": 556247182,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 11,
+      "mutation": "reorder",
+      "seed": 660801697,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 12,
+      "mutation": "reset-change",
+      "seed": 734884557,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r16.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 13,
+      "mutation": "remove-reg",
+      "seed": 751042863,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r35"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 14,
+      "mutation": "move-reg",
+      "seed": 648528803,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r19"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 15,
+      "mutation": "access-rw-to-r",
+      "seed": 1008386491,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r5.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 16,
+      "mutation": "remove-field",
+      "seed": 189667381,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r18.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 17,
+      "mutation": "shrink-field",
+      "seed": 99956186,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r14.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 18,
+      "mutation": "add-reg-unused",
+      "seed": 742453700,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 19,
+      "mutation": "desc-reword",
+      "seed": 540701605,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 20,
+      "mutation": "whitespace",
+      "seed": 270372089,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 21,
+      "mutation": "comment",
+      "seed": 430709505,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 22,
+      "mutation": "numeric-format",
+      "seed": 372292930,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 23,
+      "mutation": "reorder",
+      "seed": 352467337,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 24,
+      "mutation": "reset-change",
+      "seed": 1048191130,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r24.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 25,
+      "mutation": "remove-reg",
+      "seed": 708832813,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r25"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 26,
+      "mutation": "move-reg",
+      "seed": 414307894,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r38"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 27,
+      "mutation": "access-rw-to-r",
+      "seed": 841241615,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r15.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 28,
+      "mutation": "remove-field",
+      "seed": 377009507,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r20.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 29,
+      "mutation": "shrink-field",
+      "seed": 416762415,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r13.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r13.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 30,
+      "mutation": "add-reg-unused",
+      "seed": 757599041,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 31,
+      "mutation": "desc-reword",
+      "seed": 102718422,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 32,
+      "mutation": "whitespace",
+      "seed": 1002993052,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 33,
+      "mutation": "comment",
+      "seed": 430842394,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 34,
+      "mutation": "numeric-format",
+      "seed": 736355769,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 35,
+      "mutation": "reorder",
+      "seed": 239258500,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 36,
+      "mutation": "reset-change",
+      "seed": 360467179,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r13.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 37,
+      "mutation": "remove-reg",
+      "seed": 293982137,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 38,
+      "mutation": "move-reg",
+      "seed": 72990962,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r30"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 39,
+      "mutation": "access-rw-to-r",
+      "seed": 946932632,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r24.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 40,
+      "mutation": "remove-field",
+      "seed": 681700044,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r36.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 41,
+      "mutation": "shrink-field",
+      "seed": 512763885,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r38.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r38.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 42,
+      "mutation": "add-reg-unused",
+      "seed": 31890624,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 43,
+      "mutation": "desc-reword",
+      "seed": 694759148,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r29"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 44,
+      "mutation": "whitespace",
+      "seed": 268601074,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 45,
+      "mutation": "comment",
+      "seed": 226269697,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 46,
+      "mutation": "numeric-format",
+      "seed": 623558478,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 47,
+      "mutation": "reorder",
+      "seed": 195887857,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 48,
+      "mutation": "reset-change",
+      "seed": 306780602,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r26.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 49,
+      "mutation": "remove-reg",
+      "seed": 821015173,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r18"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 50,
+      "mutation": "move-reg",
+      "seed": 678360034,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r14"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 51,
+      "mutation": "access-rw-to-r",
+      "seed": 629782083,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r33.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 52,
+      "mutation": "remove-field",
+      "seed": 899680682,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r22.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 53,
+      "mutation": "shrink-field",
+      "seed": 219984642,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r29.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 54,
+      "mutation": "add-reg-unused",
+      "seed": 107458568,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 55,
+      "mutation": "desc-reword",
+      "seed": 755099672,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r16"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 56,
+      "mutation": "whitespace",
+      "seed": 119432183,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 57,
+      "mutation": "comment",
+      "seed": 622849185,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 58,
+      "mutation": "numeric-format",
+      "seed": 633683779,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 59,
+      "mutation": "reorder",
+      "seed": 98748306,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 60,
+      "mutation": "reset-change",
+      "seed": 638446444,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r23.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 61,
+      "mutation": "remove-reg",
+      "seed": 570956345,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r16"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 62,
+      "mutation": "move-reg",
+      "seed": 399431745,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r30"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 63,
+      "mutation": "access-rw-to-r",
+      "seed": 367576500,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r21.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 64,
+      "mutation": "remove-field",
+      "seed": 982588415,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r6.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 65,
+      "mutation": "shrink-field",
+      "seed": 562878972,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r12.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 66,
+      "mutation": "add-reg-unused",
+      "seed": 29526507,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 67,
+      "mutation": "desc-reword",
+      "seed": 92312990,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r38"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 68,
+      "mutation": "whitespace",
+      "seed": 162506849,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 69,
+      "mutation": "comment",
+      "seed": 999588117,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 70,
+      "mutation": "numeric-format",
+      "seed": 651823187,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 71,
+      "mutation": "reorder",
+      "seed": 338663757,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 72,
+      "mutation": "reset-change",
+      "seed": 660130239,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r38.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 73,
+      "mutation": "remove-reg",
+      "seed": 245596945,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r29"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 74,
+      "mutation": "move-reg",
+      "seed": 890809121,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r29"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 75,
+      "mutation": "access-rw-to-r",
+      "seed": 265243466,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r33.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 76,
+      "mutation": "remove-field",
+      "seed": 240893556,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r27.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 77,
+      "mutation": "shrink-field",
+      "seed": 796902492,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r2.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r2.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 78,
+      "mutation": "add-reg-unused",
+      "seed": 153658548,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 79,
+      "mutation": "desc-reword",
+      "seed": 604209778,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r11"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 80,
+      "mutation": "whitespace",
+      "seed": 737419141,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 81,
+      "mutation": "comment",
+      "seed": 1007933914,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 82,
+      "mutation": "numeric-format",
+      "seed": 1062000521,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 83,
+      "mutation": "reorder",
+      "seed": 432822337,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 84,
+      "mutation": "reset-change",
+      "seed": 805653994,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r27.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 85,
+      "mutation": "remove-reg",
+      "seed": 70337530,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 86,
+      "mutation": "move-reg",
+      "seed": 226480462,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r5"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 87,
+      "mutation": "access-rw-to-r",
+      "seed": 350837888,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r15.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 88,
+      "mutation": "remove-field",
+      "seed": 358754349,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r9.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 89,
+      "mutation": "shrink-field",
+      "seed": 637025595,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r35.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r35.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 90,
+      "mutation": "add-reg-unused",
+      "seed": 267511242,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 91,
+      "mutation": "desc-reword",
+      "seed": 710130360,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r37"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 92,
+      "mutation": "whitespace",
+      "seed": 70564007,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 93,
+      "mutation": "comment",
+      "seed": 876998188,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 94,
+      "mutation": "numeric-format",
+      "seed": 425776920,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 95,
+      "mutation": "reorder",
+      "seed": 348296755,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 96,
+      "mutation": "reset-change",
+      "seed": 143782413,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r3.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 97,
+      "mutation": "remove-reg",
+      "seed": 984814108,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r36"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 98,
+      "mutation": "move-reg",
+      "seed": 899626998,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r28"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 99,
+      "mutation": "access-rw-to-r",
+      "seed": 428860039,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r38.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 100,
+      "mutation": "remove-field",
+      "seed": 680894668,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r22.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 101,
+      "mutation": "shrink-field",
+      "seed": 542473487,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r21.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r21.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 102,
+      "mutation": "add-reg-unused",
+      "seed": 829931331,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 103,
+      "mutation": "desc-reword",
+      "seed": 231437884,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r37"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 104,
+      "mutation": "whitespace",
+      "seed": 112951139,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 105,
+      "mutation": "comment",
+      "seed": 570438072,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 106,
+      "mutation": "numeric-format",
+      "seed": 1010381780,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 107,
+      "mutation": "reorder",
+      "seed": 788014063,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 108,
+      "mutation": "reset-change",
+      "seed": 946752440,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r33.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 109,
+      "mutation": "remove-reg",
+      "seed": 799863761,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r33"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 110,
+      "mutation": "move-reg",
+      "seed": 9065612,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r34"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 111,
+      "mutation": "access-rw-to-r",
+      "seed": 376066177,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r10.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 112,
+      "mutation": "remove-field",
+      "seed": 596805075,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r11.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 113,
+      "mutation": "shrink-field",
+      "seed": 65921560,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r8.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r8.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 114,
+      "mutation": "add-reg-unused",
+      "seed": 277627748,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 115,
+      "mutation": "desc-reword",
+      "seed": 27279937,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r11"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 116,
+      "mutation": "whitespace",
+      "seed": 906830967,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 117,
+      "mutation": "comment",
+      "seed": 1030602540,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 118,
+      "mutation": "numeric-format",
+      "seed": 342819241,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 119,
+      "mutation": "reorder",
+      "seed": 681395613,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 120,
+      "mutation": "reset-change",
+      "seed": 36191640,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r0.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 121,
+      "mutation": "remove-reg",
+      "seed": 1063099787,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r38"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 122,
+      "mutation": "move-reg",
+      "seed": 213093472,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 123,
+      "mutation": "access-rw-to-r",
+      "seed": 524497968,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r5.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 124,
+      "mutation": "remove-field",
+      "seed": 671114810,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r2.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 125,
+      "mutation": "shrink-field",
+      "seed": 172468995,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r8.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r8.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 126,
+      "mutation": "add-reg-unused",
+      "seed": 617993858,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 127,
+      "mutation": "desc-reword",
+      "seed": 582955870,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r18"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 128,
+      "mutation": "whitespace",
+      "seed": 871253833,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 129,
+      "mutation": "comment",
+      "seed": 570272270,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 130,
+      "mutation": "numeric-format",
+      "seed": 852008931,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 131,
+      "mutation": "reorder",
+      "seed": 493152981,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 132,
+      "mutation": "reset-change",
+      "seed": 734948566,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r10.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 133,
+      "mutation": "remove-reg",
+      "seed": 808011283,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r13"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 134,
+      "mutation": "move-reg",
+      "seed": 562380946,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r4"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 135,
+      "mutation": "access-rw-to-r",
+      "seed": 981112945,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r18.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 136,
+      "mutation": "remove-field",
+      "seed": 699706679,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r0.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 137,
+      "mutation": "shrink-field",
+      "seed": 863732164,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r34.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 138,
+      "mutation": "add-reg-unused",
+      "seed": 396949675,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 139,
+      "mutation": "desc-reword",
+      "seed": 1010911856,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r16"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 140,
+      "mutation": "whitespace",
+      "seed": 461286549,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 141,
+      "mutation": "comment",
+      "seed": 603588254,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 142,
+      "mutation": "numeric-format",
+      "seed": 73050487,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 143,
+      "mutation": "reorder",
+      "seed": 728619016,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 144,
+      "mutation": "reset-change",
+      "seed": 648778246,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r38.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 145,
+      "mutation": "remove-reg",
+      "seed": 195110110,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r16"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 146,
+      "mutation": "move-reg",
+      "seed": 650750080,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r29"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 147,
+      "mutation": "access-rw-to-r",
+      "seed": 506396486,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r10.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 148,
+      "mutation": "remove-field",
+      "seed": 668994928,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r38.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 149,
+      "mutation": "shrink-field",
+      "seed": 697353947,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r36.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r36.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 150,
+      "mutation": "add-reg-unused",
+      "seed": 1007783760,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 151,
+      "mutation": "desc-reword",
+      "seed": 792038227,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r7"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 152,
+      "mutation": "whitespace",
+      "seed": 945115419,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 153,
+      "mutation": "comment",
+      "seed": 349045336,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 154,
+      "mutation": "numeric-format",
+      "seed": 1066686199,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 155,
+      "mutation": "reorder",
+      "seed": 589543492,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 156,
+      "mutation": "reset-change",
+      "seed": 443652157,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r4.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 157,
+      "mutation": "remove-reg",
+      "seed": 507983790,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r6"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 158,
+      "mutation": "move-reg",
+      "seed": 423158381,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r8"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 159,
+      "mutation": "access-rw-to-r",
+      "seed": 553620952,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r31.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 160,
+      "mutation": "remove-field",
+      "seed": 936326420,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r3.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 161,
+      "mutation": "shrink-field",
+      "seed": 783213287,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r14.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 162,
+      "mutation": "add-reg-unused",
+      "seed": 571097136,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 163,
+      "mutation": "desc-reword",
+      "seed": 549026819,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r13"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 164,
+      "mutation": "whitespace",
+      "seed": 928097572,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 165,
+      "mutation": "comment",
+      "seed": 290845992,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 166,
+      "mutation": "numeric-format",
+      "seed": 724568471,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 167,
+      "mutation": "reorder",
+      "seed": 677355837,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 168,
+      "mutation": "reset-change",
+      "seed": 283983459,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r16.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 169,
+      "mutation": "remove-reg",
+      "seed": 327646171,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 170,
+      "mutation": "move-reg",
+      "seed": 1036127006,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r11"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 171,
+      "mutation": "access-rw-to-r",
+      "seed": 366552779,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r1.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 172,
+      "mutation": "remove-field",
+      "seed": 249383433,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r30.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 173,
+      "mutation": "shrink-field",
+      "seed": 637316185,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r27.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 174,
+      "mutation": "add-reg-unused",
+      "seed": 115718037,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 175,
+      "mutation": "desc-reword",
+      "seed": 837039386,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r26"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 176,
+      "mutation": "whitespace",
+      "seed": 804577188,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 177,
+      "mutation": "comment",
+      "seed": 628453847,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 178,
+      "mutation": "numeric-format",
+      "seed": 175789397,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 179,
+      "mutation": "reorder",
+      "seed": 329334734,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 180,
+      "mutation": "reset-change",
+      "seed": 15605786,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r33.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 181,
+      "mutation": "remove-reg",
+      "seed": 183416667,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r17"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 182,
+      "mutation": "move-reg",
+      "seed": 28482830,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r36"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 183,
+      "mutation": "access-rw-to-r",
+      "seed": 500711899,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r0.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 184,
+      "mutation": "remove-field",
+      "seed": 1064591203,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r39.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 185,
+      "mutation": "shrink-field",
+      "seed": 518037812,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r32.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 186,
+      "mutation": "add-reg-unused",
+      "seed": 553615721,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 187,
+      "mutation": "desc-reword",
+      "seed": 299855041,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r27"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 188,
+      "mutation": "whitespace",
+      "seed": 741796708,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 189,
+      "mutation": "comment",
+      "seed": 599887899,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 190,
+      "mutation": "numeric-format",
+      "seed": 733382118,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 191,
+      "mutation": "reorder",
+      "seed": 121939465,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 192,
+      "mutation": "reset-change",
+      "seed": 550389783,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r0.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 193,
+      "mutation": "remove-reg",
+      "seed": 995698252,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r14"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 194,
+      "mutation": "move-reg",
+      "seed": 564196128,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r20"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 195,
+      "mutation": "access-rw-to-r",
+      "seed": 826907937,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r10.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 196,
+      "mutation": "remove-field",
+      "seed": 284628621,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r5.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 197,
+      "mutation": "shrink-field",
+      "seed": 550618007,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r4.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 198,
+      "mutation": "add-reg-unused",
+      "seed": 982067856,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 199,
+      "mutation": "desc-reword",
+      "seed": 968003092,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r24"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 200,
+      "mutation": "whitespace",
+      "seed": 278343298,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 201,
+      "mutation": "comment",
+      "seed": 697926914,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 202,
+      "mutation": "numeric-format",
+      "seed": 273604016,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 203,
+      "mutation": "reorder",
+      "seed": 999925120,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 204,
+      "mutation": "reset-change",
+      "seed": 493379542,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r39.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 205,
+      "mutation": "remove-reg",
+      "seed": 216966207,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r20"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 206,
+      "mutation": "move-reg",
+      "seed": 637499764,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r21"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 207,
+      "mutation": "access-rw-to-r",
+      "seed": 900936758,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r7.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 208,
+      "mutation": "remove-field",
+      "seed": 796724395,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r7.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 209,
+      "mutation": "shrink-field",
+      "seed": 329339500,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r38.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 210,
+      "mutation": "add-reg-unused",
+      "seed": 84274228,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 211,
+      "mutation": "desc-reword",
+      "seed": 268037030,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 212,
+      "mutation": "whitespace",
+      "seed": 1539548,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 213,
+      "mutation": "comment",
+      "seed": 40631473,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 214,
+      "mutation": "numeric-format",
+      "seed": 60457968,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 215,
+      "mutation": "reorder",
+      "seed": 414725822,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 216,
+      "mutation": "reset-change",
+      "seed": 924323383,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r30.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 217,
+      "mutation": "remove-reg",
+      "seed": 698849663,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r31"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 218,
+      "mutation": "move-reg",
+      "seed": 845029175,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r27"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 219,
+      "mutation": "access-rw-to-r",
+      "seed": 1057698206,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r30.f1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 220,
+      "mutation": "remove-field",
+      "seed": 833453177,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r38.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 221,
+      "mutation": "shrink-field",
+      "seed": 997984783,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r27.f0"
+        ],
+        [
+          "RESET-VALUE-CHANGED",
+          "r27.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 222,
+      "mutation": "add-reg-unused",
+      "seed": 976299872,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 223,
+      "mutation": "desc-reword",
+      "seed": 1043784342,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r32"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 224,
+      "mutation": "whitespace",
+      "seed": 920500237,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 225,
+      "mutation": "comment",
+      "seed": 655286346,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 226,
+      "mutation": "numeric-format",
+      "seed": 417502784,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 227,
+      "mutation": "reorder",
+      "seed": 871300088,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 228,
+      "mutation": "reset-change",
+      "seed": 751243905,
+      "expectedRule": "RESET-VALUE-CHANGED",
+      "changes": [
+        [
+          "RESET-VALUE-CHANGED",
+          "r23.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 229,
+      "mutation": "remove-reg",
+      "seed": 762735734,
+      "expectedRule": "REG-REMOVED",
+      "changes": [
+        [
+          "REG-REMOVED",
+          "r1"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 230,
+      "mutation": "move-reg",
+      "seed": 505686634,
+      "expectedRule": "REG-ADDRESS-CHANGED",
+      "changes": [
+        [
+          "REG-ADDRESS-CHANGED",
+          "r31"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 231,
+      "mutation": "access-rw-to-r",
+      "seed": 785633796,
+      "expectedRule": "ACCESS-RW-TO-RO",
+      "changes": [
+        [
+          "ACCESS-RW-TO-RO",
+          "r33.f2"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 232,
+      "mutation": "remove-field",
+      "seed": 91602439,
+      "expectedRule": "FIELD-REMOVED",
+      "changes": [
+        [
+          "FIELD-REMOVED",
+          "r14.f3"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 233,
+      "mutation": "shrink-field",
+      "seed": 109885949,
+      "expectedRule": "FIELD-WIDTH-REDUCED",
+      "changes": [
+        [
+          "FIELD-WIDTH-REDUCED",
+          "r38.f0"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 234,
+      "mutation": "add-reg-unused",
+      "seed": 636427846,
+      "expectedRule": "REG-ADDED-UNUSED-SPACE",
+      "changes": [
+        [
+          "REG-ADDED-UNUSED-SPACE",
+          "r_new"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 235,
+      "mutation": "desc-reword",
+      "seed": 23819584,
+      "expectedRule": "DESC-CHANGED",
+      "changes": [
+        [
+          "DESC-CHANGED",
+          "r39"
+        ]
+      ],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 236,
+      "mutation": "whitespace",
+      "seed": 686275511,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 237,
+      "mutation": "comment",
+      "seed": 684663657,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 238,
+      "mutation": "numeric-format",
+      "seed": 913415739,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    },
+    {
+      "trial": 239,
+      "mutation": "reorder",
+      "seed": 114567772,
+      "expectedRule": null,
+      "changes": [],
+      "detected": true,
+      "falsePositives": 0
+    }
+  ],
+  "timestamp": "2026-07-13T12:55:57+1000"
+}

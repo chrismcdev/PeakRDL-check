@@ -1,0 +1,3 @@
+wrote regreview-out/specs__uart.rdl.diff.json (1 changes)
+wrote regreview-out/specs__uart.rdl.diff.md (1 changes)
+::notice file=regreview-out/head-tree/specs/uart.rdl,line=6,title=DESC-CHANGED::Description wording changed.

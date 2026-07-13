@@ -194,6 +194,117 @@ def cmd_query(args) -> int:
     return EXIT_OK
 
 
+def cmd_doctor(args) -> int:
+    import shutil
+    import sqlite3
+
+    checks = []
+
+    def check(name, ok, detail):
+        checks.append((name, bool(ok), detail))
+
+    check("python", sys.version_info >= (3, 10),
+          f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
+    try:
+        import systemrdl
+        check("systemrdl-compiler", True, systemrdl.__version__)
+    except ImportError:
+        check("systemrdl-compiler", False, "not importable")
+    try:
+        from peakrdl_html.__about__ import __version__ as prh_version
+        check("peakrdl-html (baseline)", True, prh_version)
+    except ImportError:
+        check("peakrdl-html (baseline)", False, "not installed (benchmarks only)")
+    v = sqlite3.sqlite_version_info
+    check("sqlite", v >= (3, 43), f"{sqlite3.sqlite_version} "
+          f"(contentless-delete FTS needs >= 3.43)")
+    con = sqlite3.connect(":memory:")
+    try:
+        con.execute("CREATE VIRTUAL TABLE t USING fts5(a)")
+        check("sqlite FTS5", True, "available")
+    except sqlite3.OperationalError:
+        check("sqlite FTS5", False, "missing")
+    con.close()
+    check("/usr/bin/time", Path("/usr/bin/time").exists(), "for benchmark RSS")
+    try:
+        import resource
+        mem = None
+        if sys.platform == "darwin":
+            import subprocess as sp
+            mem = int(sp.run(["sysctl", "-n", "hw.memsize"],
+                             capture_output=True, text=True).stdout)
+        check("memory", mem is None or mem >= 8 << 30,
+              f"{mem / (1 << 30):.0f} GiB" if mem else "unknown")
+    except Exception:
+        check("memory", True, "unknown")
+
+    ok = all(c[1] for c in checks if "baseline" not in c[0])
+    for name, good, detail in checks:
+        print(f"  [{'ok' if good else '!!'}] {name:28s} {detail}")
+    print("doctor:", "ready" if ok else "problems found")
+    return EXIT_OK if ok else EXIT_FINDINGS
+
+
+def cmd_cache(args) -> int:
+    import hashlib
+    import sqlite3
+
+    p = Path(args.index)
+    db = p / "register-map.sqlite" if p.is_dir() else p
+    if args.action == "clear":
+        if db.exists():
+            db.unlink()
+            print(f"removed {db}")
+        return EXIT_OK
+    if not db.is_file():
+        print("no index found", file=sys.stderr)
+        return EXIT_ERROR
+    con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
+    meta = {k: v for k, v in con.execute("SELECT key, value FROM meta")}
+    con.close()
+    inputs = json.loads(meta.get("build_inputs") or "{}")
+    roots = json.loads(meta.get("block_roots") or "[]")
+    if args.action == "list":
+        for r in roots:
+            print(f"  {r['path']:40s} type={r['type']} regs={r['regs']} "
+                  f"file={r['file']}")
+        return EXIT_OK
+    if args.action == "stats":
+        print(json.dumps({
+            "units": len(roots),
+            "trackedInputs": len(inputs),
+            "dbBytes": db.stat().st_size,
+            "schemaVersion": meta.get("storage_schema_version"),
+            "sourceMode": meta.get("source_mode"),
+        }, indent=2))
+        return EXIT_OK
+    if args.action == "verify":
+        stale = []
+        for path, digest in inputs.items():
+            fp = Path(path)
+            if not fp.is_file():
+                stale.append((path, "missing"))
+            elif hashlib.sha256(fp.read_bytes()).hexdigest() != digest:
+                stale.append((path, "changed"))
+        for path, why in stale:
+            print(f"  stale ({why}): {path}")
+        print("cache:", "valid" if not stale else f"{len(stale)} stale inputs")
+        return EXIT_OK if not stale else EXIT_FINDINGS
+    return EXIT_USAGE
+
+
+def cmd_benchmark(args) -> int:
+    import subprocess
+    script = Path(__file__).parent.parent / "benchmarks" / "scripts" / "bench.py"
+    cmd = [sys.executable, str(script), "--fixture", args.fixture,
+           "--runs", str(args.runs)]
+    if args.compare:
+        cmd += ["--tools", f"regreview,{args.compare}"]
+    else:
+        cmd += ["--tools", "regreview"]
+    return subprocess.call(cmd)
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="regreview")
     ap.add_argument("--version", action="version", version=__version__)
@@ -257,6 +368,20 @@ def main(argv=None) -> int:
                    help="parent node id (-1 for roots)")
     q.add_argument("--addr-range", help="start:end (any int base)")
     q.set_defaults(func=cmd_query)
+
+    doc = sub.add_parser("doctor", help="environment checks")
+    doc.set_defaults(func=cmd_doctor)
+
+    ca = sub.add_parser("cache", help="inspect or manage the incremental cache")
+    ca.add_argument("action", choices=("list", "stats", "clear", "verify"))
+    ca.add_argument("index")
+    ca.set_defaults(func=cmd_cache)
+
+    be = sub.add_parser("benchmark", help="run the benchmark suite")
+    be.add_argument("--fixture", default="1k")
+    be.add_argument("--compare", default=None, help="e.g. peakrdl-html")
+    be.add_argument("--runs", type=int, default=3)
+    be.set_defaults(func=cmd_benchmark)
 
     args = ap.parse_args(argv)
     try:

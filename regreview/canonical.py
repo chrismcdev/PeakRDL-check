@@ -95,8 +95,10 @@ class Decl:
     sort_key: int = 0                  # declaration order within parent
     is_alias: bool = False             # alias register (shares primary's storage)
     block_id: Optional[int] = None     # enclosing incremental unit (block root decl_id)
-    type_name: Optional[str] = None    # component type name (block roots only)
+    type_name: Optional[str] = None    # source-level type name (block roots only)
     def_file: Optional[str] = None     # file defining the type (block roots only)
+    params: Optional[dict] = None      # resolved parameter values (block roots)
+    params_supported: bool = True      # False if a param value isn't representable
 
     @property
     def total_elements(self) -> int:

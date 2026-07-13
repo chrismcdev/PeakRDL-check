@@ -151,11 +151,16 @@ class IndexWriter:
         block_roots = []
         for d in model.decls:
             if d.block_id == d.decl_id:
-                block_roots.append({
+                entry = {
                     "id": d.decl_id, "path": d.path, "type": d.type_name,
                     "file": d.def_file, "addr": addr_to_hex(d.addr),
                     "size": format(d.size, "x"), "regs": d.reg_count,
-                })
+                }
+                if d.params:
+                    entry["params"] = d.params
+                if not d.params_supported:
+                    entry["unsupported"] = True
+                block_roots.append(entry)
             row, fts = self._node_row(d, def_ids, files, desc_by_hash)
             batch.append(row)
             fts_batch.append(fts)
