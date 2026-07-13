@@ -45,15 +45,27 @@ Methodology: `docs/baseline-methodology.md`.
 
 ## Commit conventions
 
-- [Conventional Commits](https://www.conventionalcommits.org/): subjects are
-  `type(scope): summary` with types `feat`, `fix`, `docs`, `test`, `chore`,
-  `refactor`, `perf`, `build`; ≤ 72 characters, imperative mood, body
-  explains *why* when it isn't obvious. Small, reviewable commits.
+- [Conventional Commits](https://www.conventionalcommits.org/): pull-request
+  titles are `type(scope): summary` (or `type: summary`) with types `feat`,
+  `fix`, `docs`, `test`, `perf`, `build`, `ci`, `style`, or `revert`; ≤ 72
+  characters and imperative mood. `chore` and `refactor` are intentionally
+  excluded. GitHub squash-merges the pull-request title into the single commit
+  added to `main`, and CI blocks titles that do not follow this convention.
 - A commit that changes behaviour includes/updates its tests in the same
   commit; a commit that changes performance claims includes the raw-result
   files from the rerun.
 - Do not mix functional changes with benchmark reruns or fixture
   regeneration — keep the evidence diff auditable on its own.
+
+## Releases
+
+Merges to `main` update a generated release pull request based on Conventional
+Commit titles. `fix` changes produce a patch release, `feat` changes produce a
+minor release, and a `!` or `BREAKING CHANGE` produces a major release. Merging
+the generated `feat(release): prepare vX.Y.Z` pull request creates the tag and
+GitHub Release, verifies the package versions, runs the test and semantic-diff
+corpus, builds and checks the distributions, then publishes to PyPI through
+trusted publishing. Do not edit versions or create release tags manually.
 
 ## Authoring diff-corpus scenarios
 

@@ -1,0 +1,172 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
+      issues: write
+      pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      version: ${{ steps.release.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Create or update release pull request
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      - name: Validate generated release pull request title
+        if: steps.release.outputs.prs_created == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PR_JSON: ${{ steps.release.outputs.pr }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.request
+
+          sys.path.insert(0, ".github/scripts")
+          from validate_pr_title import validate
+
+          pull_request = json.loads(os.environ["PR_JSON"])
+          validate(pull_request["title"])
+
+          repository = os.environ["GITHUB_REPOSITORY"]
+          number = pull_request["number"]
+          token = os.environ["GITHUB_TOKEN"]
+          headers = {
+              "Accept": "application/vnd.github+json",
+              "Authorization": f"Bearer {token}",
+              "X-GitHub-Api-Version": "2022-11-28",
+          }
+
+          pull_request_url = f"https://api.github.com/repos/{repository}/pulls/{number}"
+          with urllib.request.urlopen(
+              urllib.request.Request(pull_request_url, headers=headers)
+          ) as response:
+              head_sha = json.load(response)["head"]["sha"]
+
+          check_url = f"https://api.github.com/repos/{repository}/check-runs"
+          payload = json.dumps(
+              {
+                  "name": "Validate PR title",
+                  "head_sha": head_sha,
+                  "status": "completed",
+                  "conclusion": "success",
+                  "output": {
+                      "title": "Conventional Commit title accepted",
+                      "summary": pull_request["title"],
+                  },
+              }
+          ).encode()
+          request = urllib.request.Request(
+              check_url,
+              data=payload,
+              headers={**headers, "Content-Type": "application/json"},
+              method="POST",
+          )
+          with urllib.request.urlopen(request):
+              pass
+          PY
+
+  release-build:
+    needs: release
+    if: needs.release.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.release.outputs.tag_name }}
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Verify release version
+        env:
+          RELEASE_TAG: ${{ needs.release.outputs.tag_name }}
+          RELEASE_VERSION: ${{ needs.release.outputs.version }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          import tomllib
+          from pathlib import Path
+
+          project_version = tomllib.loads(Path("pyproject.toml").read_text())["project"]["version"]
+          init_source = Path("peakrdl_check/__init__.py").read_text()
+          match = re.search(r'^__version__ = "([^"]+)"$', init_source, re.MULTILINE)
+          if not match:
+              raise RuntimeError("Could not read peakrdl_check.__version__")
+
+          expected_version = os.environ["RELEASE_VERSION"]
+          expected_tag = f"v{expected_version}"
+          values = {
+              "release output": expected_version,
+              "release tag": os.environ["RELEASE_TAG"],
+              "pyproject.toml": project_version,
+              "peakrdl_check.__version__": match.group(1),
+          }
+          if values["release tag"] != expected_tag:
+              raise RuntimeError(f"Expected tag {expected_tag}, got {values['release tag']}")
+          for source, version in values.items():
+              if source != "release tag" and version != expected_version:
+                  raise RuntimeError(
+                      f"Version mismatch: {source} has {version}, expected {expected_version}"
+                  )
+          PY
+
+      - name: Install build and test dependencies
+        run: python -m pip install --upgrade build twine ".[dev]"
+
+      - name: Run tests
+        run: |
+          pytest -q
+          python scripts/run_corpus.py
+
+      - name: Build and check distributions
+        run: |
+          python -m build
+          python -m twine check --strict dist/*
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-distributions
+          path: dist/
+
+  pypi-publish:
+    needs: [release, release-build]
+    if: needs.release.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/peakrdl-check/${{ needs.release.outputs.version }}/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-distributions
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
