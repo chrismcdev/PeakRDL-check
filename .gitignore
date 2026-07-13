@@ -1,5 +1,6 @@
 .venv/
 build/
+dist/
 benchmarks/out/
 fixtures/generated/
 __pycache__/

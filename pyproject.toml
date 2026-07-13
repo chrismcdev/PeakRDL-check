@@ -2,13 +2,29 @@
 name = "peakrdl-check"
 version = "0.1.0"
 description = "Semantic compatibility analysis and configurable quality gates for SystemRDL specifications"
+readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "Apache-2.0" }
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Christopher McDonald", email = "me@chrismc.dev" },
+]
+keywords = ["systemrdl", "peakrdl", "registers", "semantic-diff", "hardware"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Quality Assurance",
+]
 dependencies = [
     "systemrdl-compiler==1.32.2",
 ]
 
 [project.optional-dependencies]
+peakrdl = ["peakrdl==1.5.0"]
 baseline = ["peakrdl==1.5.0", "peakrdl-html==2.12.2"]
 dev = ["pytest==9.1.1"]
 
@@ -19,9 +35,17 @@ peakrdl-check-fixture = "peakrdl_check.fixture_gen:main"
 [project.entry-points."peakrdl.exporters"]
 check = "peakrdl_check.__peakrdl__:Exporter"
 
+[project.urls]
+Homepage = "https://github.com/chrismcdev/PeakRDL-check"
+Repository = "https://github.com/chrismcdev/PeakRDL-check.git"
+Issues = "https://github.com/chrismcdev/PeakRDL-check/issues"
+
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["peakrdl_check*"]
+
+[tool.setuptools.package-data]
+peakrdl_check = ["viewer/*.html", "viewer/*.js", "viewer/*.css", "viewer/*.svg"]

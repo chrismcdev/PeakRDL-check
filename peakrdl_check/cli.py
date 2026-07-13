@@ -302,6 +302,11 @@ def cmd_cache(args) -> int:
 def cmd_benchmark(args) -> int:
     import subprocess
     script = Path(__file__).parent.parent / "benchmarks" / "scripts" / "bench.py"
+    if not script.is_file():
+        raise RuntimeError(
+            "the benchmark suite is available only from a source checkout; "
+            "see docs/benchmarking.md"
+        )
     cmd = [sys.executable, str(script), "--fixture", args.fixture,
            "--runs", str(args.runs)]
     if args.compare:

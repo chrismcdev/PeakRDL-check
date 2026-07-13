@@ -126,7 +126,7 @@ def format_sarif(result: dict) -> str:
         "runs": [{
             "tool": {"driver": {
                 "name": "peakrdl-check",
-                "informationUri": "https://github.com/peakrdl-check/peakrdl-check",
+                "informationUri": "https://github.com/chrismcdev/PeakRDL-check",
                 "rules": sorted(rules_seen.values(), key=lambda r: r["id"]),
             }},
             "results": results,

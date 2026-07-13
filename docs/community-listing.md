@@ -10,7 +10,7 @@ after which maintainers add the entry.
 
 | Plugin | Author | Summary |
 |---|---|---|
-| [PeakRDL-check](https://github.com/REPLACE-WITH-FINAL-SLUG/peakrdl-check) | [Christopher McDonald](https://github.com/REPLACE-WITH-GITHUB-USER) | Semantic compatibility analysis and CI quality gates for SystemRDL; detects firmware-breaking register changes and provides scalable exploration of large register maps |
+| [PeakRDL-check](https://github.com/chrismcdev/PeakRDL-check) | [Christopher McDonald](https://github.com/chrismcdev) | Semantic compatibility analysis and CI quality gates for SystemRDL; detects firmware-breaking register changes and provides scalable exploration of large register maps |
 
 ## Draft show-and-tell post
 
@@ -42,13 +42,12 @@ after which maintainers add the entry.
 > - Uses systemrdl-compiler as its front end; benchmark methodology, raw run
 >   records and a generated PROOF.md ship in the repository.
 >
-> Repo: https://github.com/REPLACE-WITH-FINAL-SLUG/peakrdl-check
+> Repo: https://github.com/chrismcdev/PeakRDL-check
 
 ## Before posting
 
-1. Publish the repository and replace the two placeholder URLs above, plus:
-   - `examples/.github/workflows/register-review.yml` (`uses:` slug)
-   - `peakrdl_check/report.py` (SARIF `informationUri`)
+1. Publish the repository and create the `v0` action tag referenced by the
+   example workflow.
 2. ~~Optionally implement a `__peakrdl__` entry point~~ — done:
    `peakrdl check head.rdl --base main/design.rdl` works via the
    `peakrdl.exporters` entry point (`peakrdl_check/__peakrdl__.py`), so the

@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: peakrdl-check/peakrdl-check/action@v0  # replace with the final repository slug
+      - uses: chrismcdev/PeakRDL-check/action@v0
         with:
           base-ref: ${{ github.event.pull_request.base.sha }}
           head-ref: ${{ github.event.pull_request.head.sha }}
