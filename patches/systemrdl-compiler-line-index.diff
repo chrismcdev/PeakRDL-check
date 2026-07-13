@@ -1,0 +1,90 @@
+Prepared upstream patch for systemrdl-compiler (against 1.32.2):
+cache per-file line-start offset tables so DirectSourceRef line/column
+resolution is O(log lines) after one O(file) scan, instead of re-reading
+the file from position 0 on every lookup.
+
+Motivation (measured, see benchmarks/raw-results/source-location-profile.json
+in the RegReview repository): documentation generators resolve thousands of
+source references per build; each upstream lookup rescans the file.
+
+Behaviour is unchanged: identical line / line_text / line_selection results
+(cross-checked on randomized offsets). The cache lives on the class and is
+bounded by number of distinct source files in a compile.
+
+--- a/systemrdl/source_ref.py
++++ b/systemrdl/source_ref.py
+@@ -93,6 +93,9 @@ class DirectSourceRef(DetailedFileSourceRef):
+     """
+     Source reference that points directly to a file's coordinates.
+     """
++    #: class-level cache: path -> list of line-start character offsets
++    _line_start_cache: Dict[str, "List[int]"] = {}
++
+     def __init__(self, path: str, start_idx: int, end_idx: int) -> None:
+         super().__init__(path)
+         self._start_idx: int = start_idx
+@@ -102,31 +105,38 @@ class DirectSourceRef(DetailedFileSourceRef):
+         self._line_text: Optional[str] = None
+         self._line_selection: Optional[Tuple[int, int]] = None
+ 
+     def _extract_line_info(self) -> None:
+-        idx = 0
+-        lineno = 1
+-        line_start_idx = 0
+-
+-        with open(self.path, 'r', newline='', encoding='utf_8') as fp:
+-            while True:
+-                line_text = fp.readline()
+-                assert line_text != ""
+-
+-                idx += len(line_text)
+-
+-                # This line contains the start_idx
+-                if self._start_idx < idx:
+-                    line_text = line_text.rstrip("\n").rstrip("\r")
+-                    self._line = lineno
+-                    self._line_text = line_text
+-                    start_column = self._start_idx - line_start_idx
+-
+-                    # Get the end of the selection
+-                    end_column = self._end_idx - line_start_idx
+-                    # Clamp it to the end of the current line
+-                    if end_column >= len(line_text):
+-                        end_column = len(line_text) - 1
+-
+-                    self._line_selection = (start_column, end_column)
+-
+-                    break
+-
+-                lineno += 1
+-                line_start_idx = idx
++        from bisect import bisect_right
++
++        starts = self._line_start_cache.get(self.path)
++        if starts is None:
++            starts = [0]
++            pos = 0
++            with open(self.path, 'r', newline='', encoding='utf_8') as fp:
++                for line_text in fp:
++                    pos += len(line_text)
++                    starts.append(pos)
++            self._line_start_cache[self.path] = starts
++
++        lineno = bisect_right(starts, self._start_idx)
++        line_start_idx = starts[lineno - 1]
++
++        with open(self.path, 'r', newline='', encoding='utf_8') as fp:
++            fp.seek(0)
++            # read only the target line by seeking via character count
++            # (files are opened in text mode with newline='' upstream, so
++            # character offsets equal read() offsets)
++            fp.read(line_start_idx)
++            line_text = fp.readline().rstrip("\n").rstrip("\r")
++
++        self._line = lineno
++        self._line_text = line_text
++        start_column = self._start_idx - line_start_idx
++        end_column = self._end_idx - line_start_idx
++        if end_column >= len(line_text):
++            end_column = max(0, len(line_text) - 1)
++        self._line_selection = (start_column, end_column)

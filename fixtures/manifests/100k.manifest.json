@@ -1,0 +1,45 @@
+{
+  "generator": "regreview-fixture",
+  "generatorVersion": 1,
+  "params": {
+    "registers": 100000,
+    "fields_per_register": 8,
+    "blocks": 100,
+    "duplicate_ratio": 0.4,
+    "hierarchy_depth": 3,
+    "address_maps": 2,
+    "array_ratio": 0.9,
+    "enum_ratio": 0.15,
+    "desc_words": 12,
+    "include_files": 4,
+    "param_ratio": 0.25,
+    "seed": 12347,
+    "name": "bench100k"
+  },
+  "topComponent": "bench100k_top",
+  "files": [
+    "100k.rdl",
+    "100k_types_0.rdl",
+    "100k_types_1.rdl",
+    "100k_types_2.rdl",
+    "100k_types_3.rdl"
+  ],
+  "checksums": {
+    "100k.rdl": "4f2a3ac950b186375d5b43681e2622467fb1ad406852990a80f2a8cefa86ee4c",
+    "100k_types_0.rdl": "e115ec3711d13a623cb6942e946cc60d9f2e6e3723c48dd8534c860c5bfef746",
+    "100k_types_1.rdl": "40884ffef4a8112e385fe5c478fbdd7cef96ee74aa90f6d552ba35c58df503be",
+    "100k_types_2.rdl": "a9410f0a5439de72d9f15b2f00da6a2afb3c7e07fc488ad252ebaa89ef4e501a",
+    "100k_types_3.rdl": "3d92b76c0def5e1c4c3b560c630153ce64278ed37ac5399f5c46095e34d1850d"
+  },
+  "sourceLines": 109821,
+  "sourceBytes": 13327745,
+  "expected": {
+    "registers": 100000,
+    "fields": 800000,
+    "registerDefs": 8345,
+    "blockTypes": 80,
+    "blockInstances": 100,
+    "enumTypes": 160
+  },
+  "generationSeconds": 0.182
+}

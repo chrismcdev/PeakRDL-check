@@ -1,0 +1,20 @@
+name: Register interface review
+
+on:
+  pull_request:
+    paths:
+      - "**/*.rdl"
+
+jobs:
+  regreview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: regreview/regreview/action@v0
+        with:
+          base-ref: ${{ github.event.pull_request.base.sha }}
+          head-ref: ${{ github.event.pull_request.head.sha }}
+          fail-on: breaking

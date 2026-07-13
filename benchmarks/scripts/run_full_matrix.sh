@@ -28,9 +28,12 @@ done
 echo "=== unique-register profile (10k), both tools ==="
 $B --fixture uniq10k --tools regreview,peakrdl-html --runs 3 --timeout 1800
 
-echo "=== interactive query benchmarks ==="
-$Q "$ROOT/build/100k" 100k 200
-$Q "$ROOT/build/400k-idx" 400k 200 || echo "(400k index missing, building)"
-$Q "$ROOT/build/800k" 800k 200
+echo "=== interactive query benchmarks (indexes from the matrix runs) ==="
+$Q "$ROOT/benchmarks/out/bench-regreview-100k" 100k 200
+$Q "$ROOT/benchmarks/out/bench-regreview-400k" 400k 200
+$Q "$ROOT/benchmarks/out/bench-regreview-800k" 800k 200
+
+echo "=== incremental rebuild benchmark (3 preserved runs) ==="
+$PY "$ROOT/benchmarks/scripts/bench_incremental.py"
 
 echo "MATRIX COMPLETE"

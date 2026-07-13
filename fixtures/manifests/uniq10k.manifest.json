@@ -1,0 +1,45 @@
+{
+  "generator": "regreview-fixture",
+  "generatorVersion": 1,
+  "params": {
+    "registers": 10000,
+    "fields_per_register": 8,
+    "blocks": 16,
+    "duplicate_ratio": 0.0,
+    "hierarchy_depth": 3,
+    "address_maps": 2,
+    "array_ratio": 0.0,
+    "enum_ratio": 0.15,
+    "desc_words": 12,
+    "include_files": 4,
+    "param_ratio": 0.25,
+    "seed": 999,
+    "name": "uniq10k"
+  },
+  "topComponent": "uniq10k_top",
+  "files": [
+    "uniq10k.rdl",
+    "uniq10k_types_0.rdl",
+    "uniq10k_types_1.rdl",
+    "uniq10k_types_2.rdl",
+    "uniq10k_types_3.rdl"
+  ],
+  "checksums": {
+    "uniq10k.rdl": "0b520b133c6b3cc4e05f8e745048aee6ab462db8c4e71008fed1ffd0ecb20fc2",
+    "uniq10k_types_0.rdl": "0d1d319c98a5f4b26eed95540bb94f1892677da09181198c54a55507309aa90e",
+    "uniq10k_types_1.rdl": "7a229b8aa70e3ce774d533f8a237853441c88222bf80685dcec287aac47a2b04",
+    "uniq10k_types_2.rdl": "f23f13127193800939889d3a19553d5f71b86f59f986a83521f4c79a395d13de",
+    "uniq10k_types_3.rdl": "abb74070a684d9443cf80cd89e5218247645e94bdb9fda936dd7de7fea5103f3"
+  },
+  "sourceLines": 130262,
+  "sourceBytes": 15935131,
+  "expected": {
+    "registers": 10000,
+    "fields": 80000,
+    "registerDefs": 10000,
+    "blockTypes": 16,
+    "blockInstances": 16,
+    "enumTypes": 32
+  },
+  "generationSeconds": 0.217
+}

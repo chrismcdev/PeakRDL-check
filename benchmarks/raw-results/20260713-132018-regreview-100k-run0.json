@@ -1,0 +1,47 @@
+{
+  "tool": "regreview",
+  "fixture": "100k",
+  "fixtureChecksum": "4f2a3ac950b186375d5b43681e2622467fb1ad406852990a80f2a8cefa86ee4c",
+  "registerCount": 100000,
+  "fieldCount": 800000,
+  "sourceMode": "registers",
+  "run": 0,
+  "command": "/Users/christopher.mcdonald/Desktop/RagReview/.venv/bin/regreview build /Users/christopher.mcdonald/Desktop/RagReview/fixtures/generated/100k.rdl --top bench100k_top --source-locations registers --output /Users/christopher.mcdonald/Desktop/RagReview/benchmarks/out/bench-regreview-100k",
+  "cacheCondition": "cold-process/warm-fs",
+  "timeoutSeconds": 1800,
+  "hardware": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu": "Apple M4 Pro",
+    "cores": "14",
+    "memBytes": "25769803776",
+    "python": "3.12.12"
+  },
+  "runtimeVersions": {},
+  "timestamp": "2026-07-13T13:19:58+1000",
+  "wallClockMs": 19539,
+  "exitCode": 0,
+  "timeout": false,
+  "cpuTimeMs": 19460,
+  "timePeakRssBytes": 3312533504,
+  "toolReport": {
+    "output": "/Users/christopher.mcdonald/Desktop/RagReview/benchmarks/out/bench-regreview-100k/register-map.sqlite",
+    "sourceMode": "registers",
+    "registers": 100000,
+    "decls": 10543,
+    "definitions": 8427,
+    "dbBytes": 41844736,
+    "stages": {
+      "parseSeconds": 15.168,
+      "elaborateSeconds": 0.75,
+      "traverseSeconds": 0.589,
+      "writeRowsSeconds": 0.194,
+      "createIndexSeconds": 0.05
+    },
+    "totalSeconds": 16.813,
+    "peakRssBytes": 3312402432
+  },
+  "stderrTail": "",
+  "fileCount": 1,
+  "outputBytes": 41844736
+}

@@ -1,0 +1,11 @@
+#!/bin/bash
+# One-shot dev environment setup (macOS/Linux). Requires uv (https://docs.astral.sh/uv/).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+UV=${UV:-uv}
+command -v "$UV" >/dev/null || { echo "install uv first: https://docs.astral.sh/uv"; exit 1; }
+"$UV" python install 3.12
+"$UV" venv --python 3.12 .venv
+"$UV" pip install --python .venv/bin/python -e ".[baseline,dev]"
+.venv/bin/regreview doctor
+echo "bootstrap complete: .venv/bin/regreview"

@@ -1,0 +1,42 @@
+{
+  "tool": "peakrdl-html",
+  "fixture": "10k",
+  "fixtureChecksum": "3459778029ccafb1f316de33fd54262e4ff8175fd48c2beb2d7cf8c225369b20",
+  "registerCount": 10000,
+  "fieldCount": 80000,
+  "sourceMode": "default",
+  "run": 0,
+  "command": "/Users/christopher.mcdonald/Desktop/RagReview/.venv/bin/python /Users/christopher.mcdonald/Desktop/RagReview/benchmarks/scripts/peakrdl_driver.py /Users/christopher.mcdonald/Desktop/RagReview/fixtures/generated/10k.rdl /Users/christopher.mcdonald/Desktop/RagReview/benchmarks/out/bench-peakrdl-html-10k bench10k_top",
+  "cacheCondition": "cold-process/warm-fs",
+  "timeoutSeconds": 1800,
+  "hardware": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu": "Apple M4 Pro",
+    "cores": "14",
+    "memBytes": "25769803776",
+    "python": "3.12.12"
+  },
+  "runtimeVersions": {},
+  "timestamp": "2026-07-13T13:19:44+1000",
+  "wallClockMs": 4772,
+  "exitCode": 0,
+  "timeout": false,
+  "cpuTimeMs": 4740,
+  "timePeakRssBytes": 393527296,
+  "toolReport": {
+    "tool": "peakrdl-html",
+    "toolVersion": "2.12.2",
+    "systemrdlVersion": "1.32.2",
+    "parseMs": 1607,
+    "elaborationMs": 84,
+    "generationMs": 2622,
+    "wallClockMs": 4313,
+    "peakRssBytes": 393216000,
+    "outputBytes": 21440221,
+    "fileCount": 1136
+  },
+  "stderrTail": "",
+  "fileCount": 1136,
+  "outputBytes": 21440221
+}
