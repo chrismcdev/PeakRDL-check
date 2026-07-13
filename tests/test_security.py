@@ -123,3 +123,78 @@ def test_viewer_never_uses_innerhtml():
     assert "outerHTML" not in js
     assert "document.write" not in js
     assert "insertAdjacentHTML" not in js
+
+
+def test_viewer_renders_bitfields_and_change_annotations_safely():
+    root = Path(__file__).parent.parent / "peakrdl_check" / "viewer"
+    js = (root / "viewer.js").read_text()
+    html = (root / "index.html").read_text()
+
+    assert "document.createElementNS" in js
+    assert "function renderBitfield" in js
+    assert "function segmentLabel" in js
+    assert "function changesForRegister" in js
+    assert "FIELD-ADDED" not in html  # report content remains data, never markup
+    assert ".change-summary" in html
+    assert ".bit-segment.removed" in html
+
+
+def test_viewer_includes_bounded_review_and_address_views():
+    root = Path(__file__).parent.parent / "peakrdl_check" / "viewer"
+    js = (root / "viewer.js").read_text()
+    html = (root / "index.html").read_text()
+
+    assert 'id="tab-overview"' in html
+    assert "function renderOverview" in js
+    assert "function buildChangeImpactIndex" in js
+    assert "function changeImpactForPath" in js
+    assert "function renderAddressMap" in js
+    assert "const ADDRESS_MAP_LIMIT = 200" in js
+    assert "limit=${ADDRESS_MAP_LIMIT}" in js
+    assert ".row .impact.descendant" in html
+
+
+def test_empty_search_keeps_results_mode_active():
+    js = (Path(__file__).parent.parent / "peakrdl_check" / "viewer" / "viewer.js").read_text()
+
+    empty_search = js[js.index("async function runSearch"):js.index("async function runAddrFilter")]
+    assert 'setMode("results")' in empty_search
+    assert "Enter a search term" in empty_search
+    assert 'if (!q) { switchMode("tree")' not in empty_search
+
+
+def test_viewer_has_accessible_persistent_splitter():
+    root = Path(__file__).parent.parent / "peakrdl_check" / "viewer"
+    js = (root / "viewer.js").read_text()
+    html = (root / "index.html").read_text()
+
+    assert 'id="splitter" role="separator"' in html
+    assert 'aria-orientation="vertical"' in html
+    assert "function setLeftPanelWidth" in js
+    assert "setPointerCapture" in js
+    assert 'event.key === "ArrowLeft"' in js
+    assert 'event.key === "ArrowRight"' in js
+    assert "localStorage.setItem(PANEL_WIDTH_KEY" in js
+    assert 'splitterEl.addEventListener("dblclick"' in js
+
+
+def test_viewer_routes_restore_tabs_and_reveal_deep_links(hostile_server):
+    js = (Path(__file__).parent.parent / "peakrdl_check" / "viewer" / "viewer.js").read_text()
+
+    assert "function updateViewUrl" in js
+    assert 'new URLSearchParams({ view: mode })' in js
+    assert 'if (view === "changes")' in js
+    assert 'if (view === "results")' in js
+    assert "return await revealInHierarchy(path)" in js
+
+    for route in ("/?view=changes", "/?view=results", "/r/ctrl"):
+        status, headers, body = get(hostile_server, route)
+        assert status == 200
+        assert headers["Content-Type"].startswith("text/html")
+        assert b'id="tabs"' in body
+
+
+def test_viewer_assets_use_absolute_paths_for_deep_link_refreshes():
+    html = (Path(__file__).parent.parent / "peakrdl_check" / "viewer" / "index.html").read_text()
+    assert 'src="/viewer.js"' in html
+    assert 'src="viewer.js"' not in html
