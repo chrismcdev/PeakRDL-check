@@ -1,5 +1,9 @@
 # PeakRDL-check
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/chrismcdev/PeakRDL-check/main/.github/assets/systemrdl-logo.svg" alt="SystemRDL" width="329" height="122">
+</p>
+
 **Semantic compatibility analysis and configurable quality gates for SystemRDL
 specifications. Detects firmware-breaking register changes, produces CI
 reports and provides scalable exploration of large register maps.**
@@ -127,24 +131,21 @@ text/JSON/Markdown/SARIF). Incremental rebuilds re-elaborate only block types
 from changed files and splice their subtrees into the existing index — proven
 byte-equivalent to a clean rebuild. Details: [docs/architecture.md](https://github.com/chrismcdev/PeakRDL-check/blob/main/docs/architecture.md).
 
-## Limitations (honest list)
+## Known limitations
 
-- Cold builds are dominated by upstream ANTLR parsing (~190 s of a ~285 s
-  800k-register build). A prepared upstream patch
-  ([patches/](https://github.com/chrismcdev/PeakRDL-check/blob/main/patches/systemrdl-compiler-line-index.diff)) addresses the
-  separate source-location cost (measured 247× per-lookup speedup).
-- Incremental granularity is the *defining file*, not the individual type.
-- Static (serverless, in-browser) mode is deferred; server mode only.
-- The GitHub Action logic is exercised by a local simulation of the same
-  driver, not yet a hosted-runner run.
-- Full list: [docs/known-limitations.md](https://github.com/chrismcdev/PeakRDL-check/blob/main/docs/known-limitations.md).
+- Incremental rebuilds operate at defining-file granularity.
+- The register-map viewer requires a local server; static browser-only mode is
+  not currently supported.
+- Input is limited to SystemRDL 2.0. IP-XACT and register editing are outside
+  the current scope.
 
-## Evidence & docs
+See [the complete limitations list](https://github.com/chrismcdev/PeakRDL-check/blob/main/docs/known-limitations.md).
 
-[PROOF.md](https://github.com/chrismcdev/PeakRDL-check/blob/main/PROOF.md) · [benchmarks/report.html](https://github.com/chrismcdev/PeakRDL-check/blob/main/benchmarks/report.html) ·
-[benchmarks/results.json](https://github.com/chrismcdev/PeakRDL-check/blob/main/benchmarks/results.json) ·
-[diff-corpus/report.html](https://github.com/chrismcdev/PeakRDL-check/blob/main/diff-corpus/report.html) ·
-[docs/](https://github.com/chrismcdev/PeakRDL-check/tree/main/docs) · [ADRs](https://github.com/chrismcdev/PeakRDL-check/tree/main/docs/adr) · [CONTRIBUTING.md](https://github.com/chrismcdev/PeakRDL-check/blob/main/CONTRIBUTING.md) ·
-[SECURITY.md](https://github.com/chrismcdev/PeakRDL-check/blob/main/SECURITY.md)
+## Documentation
 
-Licensed under Apache-2.0.
+[Architecture](https://github.com/chrismcdev/PeakRDL-check/blob/main/docs/architecture.md) ·
+[Diff rules](https://github.com/chrismcdev/PeakRDL-check/blob/main/docs/diff-rules.md) ·
+[Benchmarks and evidence](https://github.com/chrismcdev/PeakRDL-check/blob/main/PROOF.md) ·
+[ADRs](https://github.com/chrismcdev/PeakRDL-check/tree/main/docs/adr) ·
+[Contributing](https://github.com/chrismcdev/PeakRDL-check/blob/main/CONTRIBUTING.md) ·
+[Security](https://github.com/chrismcdev/PeakRDL-check/blob/main/SECURITY.md)
