@@ -45,8 +45,10 @@ Methodology: `docs/baseline-methodology.md`.
 
 ## Commit conventions
 
-- Small, reviewable commits; imperative subject line ("Add X", "Fix Y"),
-  ≤ 72 characters, body explains *why* when it isn't obvious.
+- [Conventional Commits](https://www.conventionalcommits.org/): subjects are
+  `type(scope): summary` with types `feat`, `fix`, `docs`, `test`, `chore`,
+  `refactor`, `perf`, `build`; ≤ 72 characters, imperative mood, body
+  explains *why* when it isn't obvious. Small, reviewable commits.
 - A commit that changes behaviour includes/updates its tests in the same
   commit; a commit that changes performance claims includes the raw-result
   files from the rerun.
