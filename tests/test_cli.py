@@ -1,10 +1,8 @@
 import json
 import subprocess
 import sys
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-CLI = [str(ROOT / ".venv" / "bin" / "peakrdl-check")]
+CLI = [sys.executable, "-m", "peakrdl_check.cli"]
 
 BASE = """
 addrmap soc {
