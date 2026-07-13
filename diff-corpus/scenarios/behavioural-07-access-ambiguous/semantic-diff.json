@@ -21,12 +21,12 @@
       "before": "w",
       "after": "r",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-07-access-ambiguous/before.rdl",
+        "file": "diff-corpus/scenarios/behavioural-07-access-ambiguous/before.rdl",
         "line": 2,
         "column": 63
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-07-access-ambiguous/after.rdl",
+        "file": "diff-corpus/scenarios/behavioural-07-access-ambiguous/after.rdl",
         "line": 2,
         "column": 63
       },

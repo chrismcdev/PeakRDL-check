@@ -6,13 +6,13 @@ philosophy (cache condition, fairness, medians) is in
 
 ## Entry points
 
-### `regreview benchmark`
+### `peakrdl-check benchmark`
 
 Convenience wrapper around the harness:
 
 ```bash
-regreview benchmark --fixture 1k --runs 3                    # regreview only
-regreview benchmark --fixture 100k --compare peakrdl-html    # head-to-head
+peakrdl-check benchmark --fixture 1k --runs 3                    # peakrdl-check only
+peakrdl-check benchmark --fixture 100k --compare peakrdl-html    # head-to-head
 ```
 
 ### `benchmarks/scripts/bench.py` — build benchmark
@@ -20,10 +20,10 @@ regreview benchmark --fixture 100k --compare peakrdl-html    # head-to-head
 ```bash
 .venv/bin/python benchmarks/scripts/bench.py \
     --fixture 1k,10k,100k        # comma-separated fixture names
-    --tools regreview,peakrdl-html
+    --tools peakrdl-check,peakrdl-html
     --runs 3                     # runs per (tool, fixture) cell
     --timeout 1800               # seconds; expirations recorded as timeouts
-    --source-mode registers      # regreview: none | registers | all
+    --source-mode registers      # peakrdl-check: none | registers | all
 ```
 
 Each run: fresh subprocess wrapped in `/usr/bin/time -l`, output directory
@@ -37,7 +37,7 @@ wiped first, raw JSON record written to `benchmarks/raw-results/`.
 .venv/bin/python benchmarks/scripts/bench_queries.py build/800k 800k 200
 ```
 
-Measures, against a live `regreview serve` process:
+Measures, against a live `peakrdl-check serve` process:
 
 - server-ready time (process spawn → `/api/ready`), 5 fresh processes;
 - first usable viewer response (shell + metadata + first tree page);
@@ -53,7 +53,7 @@ benchmarks/scripts/run_full_matrix.sh
 ```
 
 Runs sequentially (measurements never contend): both tools at 1k/10k/100k/400k,
-regreview and peakrdl-html at 800k (30-minute timeout each), the three
+peakrdl-check and peakrdl-html at 800k (30-minute timeout each), the three
 source-location modes at 100k, the unique-register profile at 10k, then the
 interactive query benchmarks.
 
@@ -93,7 +93,7 @@ One JSON file per run: `benchmarks/raw-results/<timestamp>-<tool>-<fixture>-run<
 | `cacheCondition` | always `cold-process/warm-fs` |
 | `timeoutSeconds`, `timeout`, `exitCode` | limits and outcome; timeouts kept, not discarded |
 | `hardware` | platform, CPU, cores, memory, Python version |
-| `runtimeVersions` | systemrdl-compiler / peakrdl-html / regreview versions |
+| `runtimeVersions` | systemrdl-compiler / peakrdl-html / peakrdl-check versions |
 | `wallClockMs`, `cpuTimeMs`, `timePeakRssBytes` | from the harness and `/usr/bin/time -l` |
 | `toolReport` | the tool's own JSON (stage timings, db size, file count) |
 | `fileCount`, `outputBytes` | measured from the output tree |

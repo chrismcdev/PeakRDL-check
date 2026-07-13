@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-03-enum-value-added/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-03-enum-value-added/after.rdl
+diff --git a/diff-corpus/scenarios/compatible-03-enum-value-added/before.rdl b/diff-corpus/scenarios/compatible-03-enum-value-added/after.rdl
 index 742ec3b..503d24f 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-03-enum-value-added/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-03-enum-value-added/after.rdl
+--- a/diff-corpus/scenarios/compatible-03-enum-value-added/before.rdl
++++ b/diff-corpus/scenarios/compatible-03-enum-value-added/after.rdl
 @@ -2,6 +2,7 @@ addrmap soc {
      enum mode_e {
          off = 2'd0;

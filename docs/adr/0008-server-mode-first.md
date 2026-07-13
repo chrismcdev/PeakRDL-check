@@ -38,7 +38,7 @@ because every stdlib `BaseHTTPRequestHandler` user hits this.
 
 ## Consequences
 
-- One command (`regreview serve build/100k --port 8642`), works air-gapped;
+- One command (`peakrdl-check serve build/100k --port 8642`), works air-gapped;
   `--mode static` is reserved in the CLI but not yet implemented.
 - Viewer and API co-designed: everything paginated, JSON-only, no
   full-hierarchy responses.

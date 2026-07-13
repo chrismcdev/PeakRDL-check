@@ -50,7 +50,7 @@ def variance_pct(xs):
 
 
 def aggregate(runs: list) -> dict:
-    builds = [r for r in runs if r.get("tool") in ("regreview", "peakrdl-html")
+    builds = [r for r in runs if r.get("tool") in ("peakrdl-check", "peakrdl-html")
               and "wallClockMs" in r]
     groups: dict[tuple, list] = {}
     for r in builds:
@@ -158,12 +158,12 @@ def write_html(agg: dict, path: Path):
                                 "addressRange") if k in qs)
             + "</tr>")
     doc = f"""<!doctype html><meta charset="utf-8">
-<title>RegReview benchmark report</title>
+<title>PeakRDL-check benchmark report</title>
 <style>body{{font:14px system-ui;margin:2rem auto;max-width:70rem;padding:0 1rem}}
 table{{border-collapse:collapse;width:100%;margin:1rem 0}}
 th,td{{border:1px solid #ccc;padding:4px 10px;text-align:left;font-variant-numeric:tabular-nums}}
 th{{background:#f0f4ff}}</style>
-<h1>RegReview benchmark report</h1>
+<h1>PeakRDL-check benchmark report</h1>
 <p>Generated from raw run records in <code>benchmarks/raw-results/</code>.
 Medians over successful runs; variance = (max−min)/median.</p>
 <h2>Build benchmarks (cold process, warm FS cache)</h2>
@@ -189,7 +189,7 @@ def write_corpus_html():
                     f"<td>{r.get('totalChanges', '?')}</td>"
                     f"<td>{html.escape(json.dumps(r.get('summary', {})))}</td></tr>")
     doc = f"""<!doctype html><meta charset="utf-8">
-<title>RegReview semantic-diff corpus</title>
+<title>PeakRDL-check semantic-diff corpus</title>
 <style>body{{font:14px system-ui;margin:2rem auto;max-width:70rem;padding:0 1rem}}
 table{{border-collapse:collapse;width:100%}}th,td{{border:1px solid #ccc;padding:4px 8px;text-align:left}}
 th{{background:#f0f4ff}}</style>

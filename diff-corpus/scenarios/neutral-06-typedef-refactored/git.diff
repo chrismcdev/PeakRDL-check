@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-06-typedef-refactored/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-06-typedef-refactored/after.rdl
+diff --git a/diff-corpus/scenarios/neutral-06-typedef-refactored/before.rdl b/diff-corpus/scenarios/neutral-06-typedef-refactored/after.rdl
 index 4a24076..ea1d6c0 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-06-typedef-refactored/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-06-typedef-refactored/after.rdl
+--- a/diff-corpus/scenarios/neutral-06-typedef-refactored/before.rdl
++++ b/diff-corpus/scenarios/neutral-06-typedef-refactored/after.rdl
 @@ -1,4 +1,6 @@
  addrmap soc {
 -    reg { field { sw = rw; hw = r; reset = 0xff; } thresh[7:0]; } lim_lo @ 0x0;

@@ -1,9 +1,9 @@
 # Semantic diff rules
 
 Every change record carries a stable `ruleId`, a `classification` assigned by
-the versioned severity policy (`regreview/policy.py`, `policyVersion` 1.0.0),
+the versioned severity policy (`peakrdl_check/policy.py`, `policyVersion` 1.0.0),
 a `confidence`, a human message, before/after values, and source locations
-where available. Detection (`regreview/diff.py`) is separate from policy:
+where available. Detection (`peakrdl_check/diff.py`) is separate from policy:
 detection states what changed; the policy decides how much a reviewer should
 care.
 
@@ -145,7 +145,7 @@ not 500.
 ## Policy overrides
 
 ```bash
-regreview diff --base a.rdl --head b.rdl --policy my-policy.json
+peakrdl-check diff --base a.rdl --head b.rdl --policy my-policy.json
 ```
 
 ```json

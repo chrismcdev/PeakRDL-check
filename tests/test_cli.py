@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-REGREVIEW = [str(ROOT / ".venv" / "bin" / "regreview")]
+CLI = [str(ROOT / ".venv" / "bin" / "peakrdl-check")]
 
 BASE = """
 addrmap soc {
@@ -14,7 +14,7 @@ addrmap soc {
 
 
 def run(*args):
-    return subprocess.run(REGREVIEW + list(args), capture_output=True, text=True)
+    return subprocess.run(CLI + list(args), capture_output=True, text=True)
 
 
 def test_check_exit_codes(tmp_path):

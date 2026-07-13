@@ -27,8 +27,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from regreview.adapter import build_canonical      # noqa: E402
-from regreview.diff import diff_models             # noqa: E402
+from peakrdl_check.adapter import build_canonical      # noqa: E402
+from peakrdl_check.diff import diff_models             # noqa: E402
 
 N_REGS = 40
 N_FIELDS = 4
@@ -161,7 +161,7 @@ CATALOG = [
 def main() -> int:
     trials = int(sys.argv[1]) if len(sys.argv) > 1 else 240
     master = random.Random(20260713)
-    tmp = Path("/tmp/regreview-mutations")
+    tmp = Path("/tmp/peakrdl-check-mutations")
     tmp.mkdir(exist_ok=True)
 
     records = []

@@ -30,13 +30,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+# All scenario paths are handled relative to the repository root so that
+# generated artifacts (git.diff, semantic-diff.json) are machine-independent.
+import os
+os.chdir(ROOT)
 
-from regreview.adapter import build_canonical            # noqa: E402
-from regreview.diff import compile_failed_result, diff_models  # noqa: E402
-from regreview.report import format_json, format_markdown      # noqa: E402
+from peakrdl_check.adapter import build_canonical            # noqa: E402
+from peakrdl_check.diff import compile_failed_result, diff_models  # noqa: E402
+from peakrdl_check.report import format_json, format_markdown      # noqa: E402
 
 
 def find_input(scen: Path, which: str):
+    scen = scen.relative_to(ROOT) if scen.is_absolute() else scen
     single = scen / f"{which}.rdl"
     if single.is_file():
         return [single]
@@ -47,14 +52,15 @@ def find_input(scen: Path, which: str):
 
 
 def run_git_diff(scen: Path) -> str:
+    scen_rel = scen.relative_to(ROOT) if scen.is_absolute() else scen
     b, a = find_input(scen, "before")[0], find_input(scen, "after")[0]
-    if b.parent != scen or a.parent != scen:
+    if b.parent != scen_rel or a.parent != scen_rel:
         # directory scenarios: diff the whole trees
         cmd = ["git", "diff", "--no-index", "--stat", "--patch",
-               str(scen / "before"), str(scen / "after")]
+               str(scen_rel / "before"), str(scen_rel / "after")]
     else:
         cmd = ["git", "diff", "--no-index", str(b), str(a)]
-    p = subprocess.run(cmd, capture_output=True, text=True)
+    p = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
     return p.stdout
 
 

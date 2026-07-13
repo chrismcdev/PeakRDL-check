@@ -1,5 +1,5 @@
 {
-  "generator": "regreview-fixture",
+  "generator": "peakrdl-check-fixture",
   "generatorVersion": 1,
   "params": {
     "registers": 20000,
@@ -25,14 +25,14 @@
     "p4-broad-hierarchy_types_3.rdl"
   ],
   "checksums": {
-    "p4-broad-hierarchy.rdl": "6fea8ee1bc35a76e83857c44d89288849357f634be23aa341c9694d7c6494602",
+    "p4-broad-hierarchy.rdl": "fd8a88a31aded27f824e04ffb62ae6282dac44c6a05ac517b60954a080580caf",
     "p4-broad-hierarchy_types_0.rdl": "632562b1c392fad6d7b821bfae1915bbef78c53be4ce6acfdc030e19b023bef1",
     "p4-broad-hierarchy_types_1.rdl": "f447b4356ca2ebad6ffe8fd89e16d18721cf5616446e68231bdceeed2ddb97eb",
     "p4-broad-hierarchy_types_2.rdl": "dce5d3189279dfccd4158cac734095f785c6fb77d9db52015dcf270645c47145",
     "p4-broad-hierarchy_types_3.rdl": "73cb1c1ed7130579e9ce96cdc80a2c8cf949c96dd77ab95024d027cb2e95ea5e"
   },
   "sourceLines": 26063,
-  "sourceBytes": 2960741,
+  "sourceBytes": 2960738,
   "expected": {
     "registers": 20000,
     "fields": 160000,

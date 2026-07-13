@@ -6,7 +6,7 @@
   "fieldCount": 6400000,
   "sourceMode": "default",
   "run": 2,
-  "command": "/Users/christopher.mcdonald/Desktop/RagReview/.venv/bin/python /Users/christopher.mcdonald/Desktop/RagReview/benchmarks/scripts/peakrdl_driver.py /Users/christopher.mcdonald/Desktop/RagReview/fixtures/generated/800k.rdl /Users/christopher.mcdonald/Desktop/RagReview/benchmarks/out/bench-peakrdl-html-800k bench800k_top",
+  "command": ".venv/bin/python benchmarks/scripts/peakrdl_driver.py fixtures/generated/800k.rdl benchmarks/out/bench-peakrdl-html-800k bench800k_top",
   "cacheCondition": "cold-process/warm-fs",
   "timeoutSeconds": 1800,
   "hardware": {

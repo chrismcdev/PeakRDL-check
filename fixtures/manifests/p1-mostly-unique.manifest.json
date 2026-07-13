@@ -1,5 +1,5 @@
 {
-  "generator": "regreview-fixture",
+  "generator": "peakrdl-check-fixture",
   "generatorVersion": 1,
   "params": {
     "registers": 20000,
@@ -25,14 +25,14 @@
     "p1-mostly-unique_types_3.rdl"
   ],
   "checksums": {
-    "p1-mostly-unique.rdl": "dc509b7f58368b5addee63f4279cf26ac8cb41537ef5e16e031ef5115807ba06",
+    "p1-mostly-unique.rdl": "f5cd132be8f5f616aaca95fe8c027cc23961e944d36ac5f73386cc0438f6f5d9",
     "p1-mostly-unique_types_0.rdl": "34a0e83720eaa7fabded35ecb8e34bfe8477a2bb821031f18ad53c3909c1518e",
     "p1-mostly-unique_types_1.rdl": "2efe562804d167c9ea01e641ca262d6d849509df06666219d1f9020ba0fd64b4",
     "p1-mostly-unique_types_2.rdl": "92e01157a12e3ce7a205619af175ac80e59cdfe7a9d9ea913573203d774cf958",
     "p1-mostly-unique_types_3.rdl": "112b550498dcc6bd32af4a38f12465352e6241d37c5dc1439273c6a8a2e2d68c"
   },
   "sourceLines": 260521,
-  "sourceBytes": 31885438,
+  "sourceBytes": 31885435,
   "expected": {
     "registers": 20000,
     "fields": 160000,
@@ -41,5 +41,5 @@
     "blockInstances": 32,
     "enumTypes": 64
   },
-  "generationSeconds": 0.452
+  "generationSeconds": 0.456
 }

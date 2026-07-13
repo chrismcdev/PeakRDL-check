@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/after.rdl
+diff --git a/diff-corpus/scenarios/neutral-02-description-wording-changed/before.rdl b/diff-corpus/scenarios/neutral-02-description-wording-changed/after.rdl
 index 65cbd6c..a26b90c 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-02-description-wording-changed/after.rdl
+--- a/diff-corpus/scenarios/neutral-02-description-wording-changed/before.rdl
++++ b/diff-corpus/scenarios/neutral-02-description-wording-changed/after.rdl
 @@ -1,6 +1,6 @@
  addrmap soc {
      reg {

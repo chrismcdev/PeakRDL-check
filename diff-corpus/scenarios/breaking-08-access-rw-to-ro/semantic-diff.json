@@ -21,12 +21,12 @@
       "before": "rw",
       "after": "r",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-08-access-rw-to-ro/before.rdl",
+        "file": "diff-corpus/scenarios/breaking-08-access-rw-to-ro/before.rdl",
         "line": 5,
         "column": 7
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-08-access-rw-to-ro/after.rdl",
+        "file": "diff-corpus/scenarios/breaking-08-access-rw-to-ro/after.rdl",
         "line": 5,
         "column": 7
       },

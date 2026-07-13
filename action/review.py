@@ -57,7 +57,7 @@ def main() -> int:
     fail_on = os.environ.get("FAIL_ON", "breaking")
     policy = os.environ.get("POLICY") or None
 
-    out_dir = Path("regreview-out")
+    out_dir = Path("peakrdl-check-out")
     out_dir.mkdir(exist_ok=True)
 
     files = changed_rdl_files(base, head, glob)
@@ -72,7 +72,7 @@ def main() -> int:
             print(text)
 
     if not files:
-        emit_summary("### RegReview\n\nNo SystemRDL changes detected.")
+        emit_summary("### PeakRDL-check\n\nNo SystemRDL changes detected.")
         if outputs_path:
             with open(outputs_path, "a") as f:
                 f.write("breaking-count=0\nreport-path=\n")
@@ -85,7 +85,7 @@ def main() -> int:
 
     total_breaking = 0
     combined = []
-    from regreview.cli import main as regreview_main
+    from peakrdl_check.cli import main as cli_main
 
     for f in files:
         bfile, hfile = base_tree / f, head_tree / f
@@ -97,9 +97,9 @@ def main() -> int:
                 "--format", "json", "--output", str(report_json)]
         if policy:
             argv += ["--policy", policy]
-        rc = regreview_main(argv)
+        rc = cli_main(argv)
         result = json.loads(report_json.read_text())
-        regreview_main(["diff",
+        cli_main(["diff",
                         "--base", str(bfile if bfile.exists() else hfile),
                         "--head", str(hfile if hfile.exists() else bfile),
                         "--format", "markdown", "--output", str(report_md)]
@@ -125,7 +125,7 @@ def main() -> int:
     trigger = fail_sets.get(fail_on, ("breaking",))
     hits = sum(e["summary"].get(c, 0) for e in combined for c in trigger)
     if hits:
-        print(f"regreview: {hits} change(s) at or above '{fail_on}' — failing",
+        print(f"peakrdl-check: {hits} change(s) at or above '{fail_on}' — failing",
               file=sys.stderr)
         return 1
     return 0

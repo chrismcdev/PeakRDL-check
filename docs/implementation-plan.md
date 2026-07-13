@@ -1,6 +1,6 @@
 # Implementation plan (as executed)
 
-The phased plan for RegReview v0.1, recorded **as it was actually executed**
+The phased plan for PeakRDL-check v0.1, recorded **as it was actually executed**
 on 2026-07-13, with what each phase delivered and the evidence gate it had to
 pass. Gates were defined up front; a phase did not proceed until its gate held
 (gate F remains open — see [progress.md](progress.md)).
@@ -9,7 +9,7 @@ pass. Gates were defined up front; a phase did not proceed until its gate held
 
 ### Phase 0 — Environment and pins
 Pinned toolchain (Python 3.12.12, systemrdl-compiler 1.32.2, peakrdl-html
-2.12.2, full pins in `docs/pinned-versions.txt`), `regreview doctor`
+2.12.2, full pins in `docs/pinned-versions.txt`), `peakrdl-check doctor`
 environment checks, benchmark integrity rules agreed
 (`docs/baseline-methodology.md`).
 
@@ -22,7 +22,7 @@ releases; measured baselines at 1k/10k/100k/uniq10k
 preserved.**
 
 ### Phase 2 — Fixture generator
-Deterministic, seeded SystemRDL generator (`regreview/fixture_gen.py`) with
+Deterministic, seeded SystemRDL generator (`peakrdl_check/fixture_gen.py`) with
 exact analytic register counts, sha256 manifests, and a `verify` subcommand
 that re-derives counts from the elaborated model. Mixed-realistic and
 unique-register profiles.
@@ -44,9 +44,9 @@ TCP_NODELAY/buffering fix eliminating the flat ~50 ms keep-alive penalty
 
 ### Phase 6 — Viewer
 Framework-free single-file SPA with hand-rolled virtualization, textContent-
-only rendering, `window.__regreviewPerf` instrumentation. Verified
+only rendering, `window.__peakrdl-checkPerf` instrumentation. Verified
 interactively against the 800k index.
-**Gate C ✓ — 800k index built (~210 s total, RegReview-owned stages ≈ 9.6 s)
+**Gate C ✓ — 800k index built (~210 s total, PeakRDL-check-owned stages ≈ 9.6 s)
 and browsable with sub-millisecond API p95s.**
 
 ### Phase 7 — Semantic diff engine

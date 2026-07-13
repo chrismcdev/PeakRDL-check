@@ -2,7 +2,7 @@
 
 ## Threat model
 
-RegReview's primary untrusted input is the **specification itself**. Register
+PeakRDL-check's primary untrusted input is the **specification itself**. Register
 maps arrive from vendors, contractors and generated flows; descriptions and
 names may contain hostile content. The tool must assume any `.rdl` file — and
 any index built from one — is attacker-influenced.
@@ -27,7 +27,7 @@ process or browser tab can reach it) and index files received from others.
 ### Path traversal
 
 Static serving is restricted to the packaged viewer directory: the resolved
-target must be inside `regreview/viewer/`, must exist, and must have an
+target must be inside `peakrdl_check/viewer/`, must exist, and must have an
 allow-listed extension (`.html/.js/.css/.svg`). Encoded and plain `../`
 probes return 404 (`test_path_traversal_blocked`,
 `test_unknown_static_types_rejected`).
@@ -62,7 +62,7 @@ schema-version rejection is an integrity check, not a sandbox.
 ## Known non-mitigations
 
 - SQLite itself parses the index file; a maliciously crafted database
-  exercises SQLite's file-format robustness, which RegReview inherits from
+  exercises SQLite's file-format robustness, which PeakRDL-check inherits from
   the platform's SQLite build.
 - The server offers no authentication; anything on localhost can query a
   served index. Do not serve confidential maps on shared machines, or bind to

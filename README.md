@@ -1,10 +1,13 @@
-# RegReview
+# PeakRDL-check
 
-**RegReview is a local-first semantic review and large-scale browsing tool for
-hardware register specifications (SystemRDL).** It complements — not replaces —
-your existing flow around `systemrdl-compiler`, PeakRDL and friends: point it
-at the same `.rdl` sources, get an indexed, instantly searchable register map
-and a reviewer-grade semantic diff that classifies interface changes by impact.
+**Semantic compatibility analysis and configurable quality gates for SystemRDL
+specifications. Detects firmware-breaking register changes, produces CI
+reports and provides scalable exploration of large register maps.**
+
+PeakRDL-check is local-first and complements — not replaces — your existing
+flow around `systemrdl-compiler` and PeakRDL: point it at the same `.rdl`
+sources, get an indexed, instantly searchable register map and a
+reviewer-grade semantic diff that classifies interface changes by impact.
 
 ## Proof status
 
@@ -24,7 +27,7 @@ including failures) and `diff-corpus/`.
 On an 800,000-register specification (Apple M4 Pro, medians of 3 runs each,
 identical fixtures — full tables and environment in [PROOF.md](PROOF.md)):
 
-| Operation | RegReview | PeakRDL-html 2.12.2 |
+| Operation | PeakRDL-check | PeakRDL-html 2.12.2 |
 |---|---|---|
 | Cold build (raw source → browsable) | 285 s | 1390 s (4.9× slower) |
 | Output | 1 file, 338 MB | 85,216 files, 1098 MB |
@@ -41,7 +44,7 @@ recall 1.0, precision 1.0.
 ## What a semantic diff looks like
 
 ```text
-$ regreview diff --base main/uart.rdl --head pr/uart.rdl
+$ peakrdl-check diff --base main/uart.rdl --head pr/uart.rdl
 
 Semantic diff: 2 breaking, 1 documentation  (policy 1.0.0)
 
@@ -65,19 +68,19 @@ reported as `MATCH-UNCERTAIN` — the tool never silently guesses.
 ## Five-minute quick start
 
 ```bash
-git clone <repo> regreview && cd regreview
+git clone <repo> peakrdl-check && cd peakrdl-check
 ./scripts/bootstrap                  # uv-based venv + pinned deps + doctor
 
 # build an index and browse it
-.venv/bin/regreview build your_design.rdl --output build/design
-.venv/bin/regreview serve build/design         # opens http://127.0.0.1:<port>
+.venv/bin/peakrdl-check build your_design.rdl --output build/design
+.venv/bin/peakrdl-check serve build/design         # opens http://127.0.0.1:<port>
 
 # review a change
-.venv/bin/regreview diff --base main/design.rdl --head pr/design.rdl \
+.venv/bin/peakrdl-check diff --base main/design.rdl --head pr/design.rdl \
     --format markdown --output diff.md
 
 # CI gate (exit 1 on breaking changes)
-.venv/bin/regreview check --base main/design.rdl --head pr/design.rdl \
+.venv/bin/peakrdl-check check --base main/design.rdl --head pr/design.rdl \
     --fail-on breaking
 ```
 
@@ -90,7 +93,7 @@ workflow is in
 - **SystemRDL 2.0** via systemrdl-compiler 1.32.2 (parameters, arrays,
   dynamic assignments, aliases, `` `include `` / `` `define `` preprocessing).
 - **Not supported (yet):** IP-XACT, register editing, language-server
-  features. RegReview is a review surface, not an editor
+  features. PeakRDL-check is a review surface, not an editor
   (see [ADR-0009](docs/adr/0009-review-tool-not-editor.md)).
 
 ## Architecture in one paragraph

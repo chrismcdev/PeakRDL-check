@@ -45,10 +45,10 @@ def main() -> int:
     incr_runs = sorted(RAW.glob("incremental-800k-run*.json"))
     incrementals = [load(p) for p in incr_runs]
 
-    rr800 = find_build(agg, "regreview", "800k")
+    rr800 = find_build(agg, "peakrdl-check", "800k")
     prh800 = find_build(agg, "peakrdl-html", "800k")
     prh100 = find_build(agg, "peakrdl-html", "100k")
-    rr100 = find_build(agg, "regreview", "100k")
+    rr100 = find_build(agg, "peakrdl-check", "100k")
     inter800 = find_interactive(agg, "800k")
 
     criteria1 = []
@@ -117,7 +117,7 @@ def main() -> int:
                    prh_ref["fileCountMedian"] and
                    rr800["fileCountMedian"] * 100 < prh_ref["fileCountMedian"])
     crit("materially fewer filesystem objects than PeakRDL-html", fewer_files,
-         f"regreview 800k: {int(rr800['fileCountMedian'])} file(s); "
+         f"peakrdl-check 800k: {int(rr800['fileCountMedian'])} file(s); "
          f"peakrdl-html {prh_scale}: {int(prh_ref['fileCountMedian']):,} files"
          if rr800 and prh_ref else "no data")
 
@@ -162,7 +162,7 @@ def main() -> int:
     # --- hardware/env ---
     hw = {}
     versions = {}
-    for r in sorted(RAW.glob("*regreview-800k*.json")):
+    for r in sorted(RAW.glob("*peakrdl-check-800k*.json")):
         rec = load(r)
         hw = rec.get("hardware", {})
         versions = rec.get("runtimeVersions", {})
@@ -171,9 +171,9 @@ def main() -> int:
         # authoritative fallback: the same pinned environment the runs used
         import systemrdl
         from peakrdl_html.__about__ import __version__ as prh_v
-        import regreview
+        import peakrdl_check
         versions = {"systemrdl-compiler": systemrdl.__version__,
-                    "peakrdl-html": prh_v, "regreview": regreview.__version__}
+                    "peakrdl-html": prh_v, "peakrdl-check": peakrdl_check.__version__}
 
     def table(criteria):
         out = ["| Criterion | Result | Evidence |", "|---|---|---|"]
@@ -218,7 +218,7 @@ def main() -> int:
         return "\n".join(rows)
 
     def stage_rows():
-        rr = find_build(agg, "regreview", "800k")
+        rr = find_build(agg, "peakrdl-check", "800k")
         st = rr.get("stagesMsMedian", {}) if rr else {}
         rows = ["| Stage | Median |", "|---|---|"]
         for k, label in (("parseSeconds", "Parse (ANTLR, systemrdl-compiler)"),
@@ -257,11 +257,11 @@ by hand; regenerate with `./scripts/build-proof-report`.
 
 ## Claims (exact wording)
 
-**Claim 1.** RegReview makes 800,000-register specifications immediately
+**Claim 1.** PeakRDL-check makes 800,000-register specifications immediately
 browsable, incrementally rebuildable in under one minute, and materially
 faster and more efficient to generate than PeakRDL-html.
 
-**Claim 2.** RegReview identifies and explains breaking register-interface
+**Claim 2.** PeakRDL-check identifies and explains breaking register-interface
 changes that an ordinary textual Git diff cannot classify reliably.
 
 ## Environment
@@ -271,11 +271,11 @@ changes that an ordinary textual Git diff cannot classify reliably.
 - OS: {hw.get('platform', platform.platform())}
 - Python: {hw.get('python', '?')} · systemrdl-compiler \
 {versions.get('systemrdl-compiler', '?')} · peakrdl-html \
-{versions.get('peakrdl-html', '?')} · regreview {versions.get('regreview', '?')}
+{versions.get('peakrdl-html', '?')} · peakrdl-check {versions.get('peakrdl-check', '?')}
 - Cache condition: every run is a fresh process; the OS file cache is warm
   for both tools equally (see docs/baseline-methodology.md).
 - Fixtures: deterministic seeded generator, elaborated register counts
-  verified by `regreview-fixture verify` (manifests in fixtures/manifests/).
+  verified by `peakrdl-check-fixture verify` (manifests in fixtures/manifests/).
   The 800k fixture is the mixed realistic profile (register arrays + 40%
   repeated block types), `--seed 12345`.
 
@@ -289,7 +289,7 @@ changes that an ordinary textual Git diff cannot classify reliably.
 
 PeakRDL-html at 800k registers: {prh800_note}.
 
-### Cold 800k build, stage breakdown (regreview)
+### Cold 800k build, stage breakdown (peakrdl-check)
 
 {stage_rows()}
 
@@ -332,7 +332,7 @@ and machine-checked expectations. Highlights:
   reports MATCH-UNCERTAIN and keeps the removals; it never silently assumes
   a rename.
 - breaking-10/11 (address/field overlap): systemrdl-compiler itself rejects
-  overlapping definitions at elaboration; RegReview reports
+  overlapping definitions at elaboration; PeakRDL-check reports
   SPEC-COMPILE-FAILED (breaking), which is the honest observable outcome.
 
 Git diff comparison stance: git operates on text, by design; these results
@@ -368,7 +368,7 @@ GitHub Action was exercised through a local simulation of the same driver
     # README never carries hand-copied numbers.
     readme = ROOT / "README.md"
     if readme.is_file():
-        rr = find_build(agg, "regreview", "800k")
+        rr = find_build(agg, "peakrdl-check", "800k")
         prh = prh800 if prh800 and prh800.get("wallClockMsMedian") else None
         speed = (f"{prh['wallClockMsMedian'] / rr['wallClockMsMedian']:.1f}×"
                  if rr and prh else "n/a")
@@ -376,7 +376,7 @@ GitHub Action was exercised through a local simulation of the same driver
 On an 800,000-register specification (Apple M4 Pro, medians of 3 runs each,
 identical fixtures — full tables and environment in [PROOF.md](PROOF.md)):
 
-| Operation | RegReview | PeakRDL-html 2.12.2 |
+| Operation | PeakRDL-check | PeakRDL-html 2.12.2 |
 |---|---|---|
 | Cold build (raw source → browsable) | {rr['wallClockMsMedian'] / 1000:.0f} s | {f"{prh['wallClockMsMedian'] / 1000:.0f} s" if prh else "—"} ({speed} slower) |
 | Output | {int(rr['fileCountMedian'])} file, {rr['outputBytesMedian'] / 1e6:.0f} MB | {f"{int(prh['fileCountMedian']):,} files, {prh['outputBytesMedian'] / 1e6:.0f} MB" if prh else "—"} |

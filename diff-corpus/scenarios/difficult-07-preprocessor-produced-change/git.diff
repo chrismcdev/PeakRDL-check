@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/after.rdl
+diff --git a/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/before.rdl b/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/after.rdl
 index 7af43d1..7ac40c1 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/after.rdl
+--- a/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/before.rdl
++++ b/diff-corpus/scenarios/difficult-07-preprocessor-produced-change/after.rdl
 @@ -1,4 +1,4 @@
 -`define BASE_OFF 0x10
 +`define BASE_OFF 0x40

@@ -1,5 +1,5 @@
 {
-  "generator": "regreview-fixture",
+  "generator": "peakrdl-check-fixture",
   "generatorVersion": 1,
   "params": {
     "registers": 1000,
@@ -25,14 +25,14 @@
     "1k_types_3.rdl"
   ],
   "checksums": {
-    "1k.rdl": "ee93a9c6f859bb498db6d96c027a1e32b998f1e107da9973da292e688a8f6e59",
+    "1k.rdl": "3ea34831460068bda74c9e9bd4e8ff74649daa1279db6bc05d1d9b0450965be8",
     "1k_types_0.rdl": "52bf5a461c41e80f62a95832c10f1bea1470f316321ecaf50326227d538b2064",
     "1k_types_1.rdl": "803767e6a85801e5e9959803ac252e49ce3826a90e20d1e3c0fc8671025e896a",
     "1k_types_2.rdl": "a8d349612d5f8a78fbe6bcee4f5ea7b8e8241b710383ec4299d7d6b6454bd612",
     "1k_types_3.rdl": "4a8ba0595be5acf8adb2b6f28dd41876baa0b0f3dfb463d139e38a4394baa705"
   },
   "sourceLines": 1230,
-  "sourceBytes": 140764,
+  "sourceBytes": 140761,
   "expected": {
     "registers": 1000,
     "fields": 8000,

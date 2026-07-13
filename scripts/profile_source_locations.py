@@ -4,7 +4,7 @@
 Measures, on the 100k fixture:
   1. upstream: DirectSourceRef._extract_line_info — re-reads the file from
      position 0 for every lookup (systemrdl-compiler 1.32.2 behaviour);
-  2. regreview: SourceLineIndex — one O(file) scan per file, then
+  2. peakrdl-check: SourceLineIndex — one O(file) scan per file, then
      O(log lines) bisect per lookup.
 
 Results feed docs/adr/0005-source-location-strategy.md and the prepared
@@ -25,7 +25,7 @@ sys.path.insert(0, str(ROOT))
 
 
 def main() -> int:
-    from regreview.lineindex import SourceLineIndex
+    from peakrdl_check.lineindex import SourceLineIndex
     from systemrdl.source_ref import DirectSourceRef
 
     files = sorted((ROOT / "fixtures" / "generated").glob("100k_types_*.rdl"))
@@ -50,7 +50,7 @@ def main() -> int:
         _ = sr.line
     upstream_s = time.perf_counter() - t0
 
-    # regreview line index
+    # peakrdl-check line index
     idx = SourceLineIndex()
     t0 = time.perf_counter()
     for f, off in samples:

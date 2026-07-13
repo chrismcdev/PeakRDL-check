@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-08-interrupt-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-08-interrupt-changed/after.rdl
+diff --git a/diff-corpus/scenarios/behavioural-08-interrupt-changed/before.rdl b/diff-corpus/scenarios/behavioural-08-interrupt-changed/after.rdl
 index dacdbe4..0ee715a 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-08-interrupt-changed/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-08-interrupt-changed/after.rdl
+--- a/diff-corpus/scenarios/behavioural-08-interrupt-changed/before.rdl
++++ b/diff-corpus/scenarios/behavioural-08-interrupt-changed/after.rdl
 @@ -1,3 +1,3 @@
  addrmap soc {
 -    reg { field { sw = r; hw = w; reset = 0x0; } pending[0:0]; } irq_status @ 0x0;

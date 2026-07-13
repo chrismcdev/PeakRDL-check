@@ -7,5 +7,5 @@ command -v "$UV" >/dev/null || { echo "install uv first: https://docs.astral.sh/
 "$UV" python install 3.12
 "$UV" venv --python 3.12 .venv
 "$UV" pip install --python .venv/bin/python -e ".[baseline,dev]"
-.venv/bin/regreview doctor
-echo "bootstrap complete: .venv/bin/regreview"
+.venv/bin/peakrdl-check doctor
+echo "bootstrap complete: .venv/bin/peakrdl-check"

@@ -21,12 +21,12 @@
       "before": "clkdiv @ 0x4",
       "after": "clock_divider @ 0x10",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-02-register-moved-and-renamed/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-02-register-moved-and-renamed/before.rdl",
         "line": 3,
         "column": 64
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-02-register-moved-and-renamed/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-02-register-moved-and-renamed/after.rdl",
         "line": 3,
         "column": 64
       },

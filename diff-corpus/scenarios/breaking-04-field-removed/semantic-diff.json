@@ -21,12 +21,12 @@
       "before": "[3:3] sw=rw",
       "after": null,
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-04-field-removed/before.rdl",
+        "file": "diff-corpus/scenarios/breaking-04-field-removed/before.rdl",
         "line": 6,
         "column": 7
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-04-field-removed/after.rdl",
+        "file": "diff-corpus/scenarios/breaking-04-field-removed/after.rdl",
         "line": 5,
         "column": 7
       },

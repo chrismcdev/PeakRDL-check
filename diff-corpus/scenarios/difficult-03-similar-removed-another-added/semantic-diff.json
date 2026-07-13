@@ -22,7 +22,7 @@
       "before": "0x8",
       "after": null,
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-03-similar-removed-another-added/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-03-similar-removed-another-added/before.rdl",
         "line": 3,
         "column": 67
       },
@@ -40,7 +40,7 @@
       "after": "0x10",
       "baseLocation": null,
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-03-similar-removed-another-added/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-03-similar-removed-another-added/after.rdl",
         "line": 3,
         "column": 67
       },

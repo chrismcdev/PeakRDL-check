@@ -21,12 +21,12 @@
       "before": "0x2",
       "after": "0x3",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-07-enum-value-changed/before.rdl",
+        "file": "diff-corpus/scenarios/breaking-07-enum-value-changed/before.rdl",
         "line": 11,
         "column": 7
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-07-enum-value-changed/after.rdl",
+        "file": "diff-corpus/scenarios/breaking-07-enum-value-changed/after.rdl",
         "line": 11,
         "column": 7
       },

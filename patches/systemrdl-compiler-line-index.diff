@@ -4,7 +4,7 @@ resolution is O(log lines) after one O(file) scan, instead of re-reading
 the file from position 0 on every lookup.
 
 Motivation (measured, see benchmarks/raw-results/source-location-profile.json
-in the RegReview repository): documentation generators resolve thousands of
+in the PeakRDL-check repository): documentation generators resolve thousands of
 source references per build; each upstream lookup rescans the file.
 
 Behaviour is unchanged: identical line / line_text / line_selection results

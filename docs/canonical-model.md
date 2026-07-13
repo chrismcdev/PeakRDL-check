@@ -1,8 +1,8 @@
 # The canonical model
 
-`regreview/canonical.py` defines the tool-independent representation that
+`peakrdl_check/canonical.py` defines the tool-independent representation that
 storage, diffing and reporting operate on. Only the adapter
-(`regreview/adapter.py`) produces it; nothing downstream imports
+(`peakrdl_check/adapter.py`) produces it; nothing downstream imports
 systemrdl-compiler.
 
 ## Two entity kinds
@@ -85,6 +85,6 @@ recorded in a comment in `adapter.py` (`_Extractor.__init__`) and in
 
 ## Versioning
 
-`CANONICAL_SCHEMA_VERSION` (currently 1, `regreview/__init__.py`) is bumped on
+`CANONICAL_SCHEMA_VERSION` (currently 1, `peakrdl_check/__init__.py`) is bumped on
 any change to the entity representation or hashing scheme; cached artifacts are
 keyed on it.

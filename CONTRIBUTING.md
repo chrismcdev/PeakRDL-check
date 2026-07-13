@@ -1,11 +1,11 @@
-# Contributing to RegReview
+# Contributing to PeakRDL-check
 
 ## Development setup
 
 ```bash
 uv venv
 uv pip install -e ".[baseline,dev]"
-.venv/bin/regreview doctor        # environment sanity check
+.venv/bin/peakrdl-check doctor        # environment sanity check
 ```
 
 `baseline` (peakrdl-html) is only needed to run benchmarks; `dev` brings
@@ -20,10 +20,10 @@ pytest. Details: `docs/development.md`.
 .venv/bin/python scripts/simulate_pr_workflow.sh  # GitHub Action end-to-end (local)
 ```
 
-All of these must pass before a change to `regreview/` merges. Changes to the
+All of these must pass before a change to `peakrdl_check/` merges. Changes to the
 storage schema bump `STORAGE_SCHEMA_VERSION`; changes to canonical bodies or
 hashing bump `CANONICAL_SCHEMA_VERSION`; classification changes bump
-`POLICY_VERSION` (`regreview/__init__.py`, `regreview/policy.py`).
+`POLICY_VERSION` (`peakrdl_check/__init__.py`, `peakrdl_check/policy.py`).
 
 ## Benchmark rules
 

@@ -21,12 +21,12 @@
       "before": "[3:1]",
       "after": "[7:5]",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-05-field-bit-offset-changed/before.rdl",
+        "file": "diff-corpus/scenarios/breaking-05-field-bit-offset-changed/before.rdl",
         "line": 5,
         "column": 7
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-05-field-bit-offset-changed/after.rdl",
+        "file": "diff-corpus/scenarios/breaking-05-field-bit-offset-changed/after.rdl",
         "line": 5,
         "column": 7
       },

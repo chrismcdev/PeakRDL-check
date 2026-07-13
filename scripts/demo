@@ -2,12 +2,12 @@
 # End-to-end demo: build, inspect, diff, serve.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-R=.venv/bin/regreview
+R=.venv/bin/peakrdl-check
 $R doctor
-.venv/bin/regreview-fixture generate --registers 1000 --blocks 8 --seed 1 \
-    --name demo1k --output /tmp/regreview-demo/demo.rdl
-$R build /tmp/regreview-demo/demo.rdl --top demo1k_top --output /tmp/regreview-demo/out
-$R inspect /tmp/regreview-demo/out
-sed 's/reset = 0x/reset = 0x1/' /tmp/regreview-demo/demo.rdl > /tmp/regreview-demo/demo2.rdl
-$R diff --base /tmp/regreview-demo/demo.rdl --head /tmp/regreview-demo/demo2.rdl --format text | head -30
-echo; echo "starting viewer (ctrl-c to stop)"; $R serve /tmp/regreview-demo/out --port 8642
+.venv/bin/peakrdl-check-fixture generate --registers 1000 --blocks 8 --seed 1 \
+    --name demo1k --output /tmp/peakrdl-check-demo/demo.rdl
+$R build /tmp/peakrdl-check-demo/demo.rdl --top demo1k_top --output /tmp/peakrdl-check-demo/out
+$R inspect /tmp/peakrdl-check-demo/out
+sed 's/reset = 0x/reset = 0x1/' /tmp/peakrdl-check-demo/demo.rdl > /tmp/peakrdl-check-demo/demo2.rdl
+$R diff --base /tmp/peakrdl-check-demo/demo.rdl --head /tmp/peakrdl-check-demo/demo2.rdl --format text | head -30
+echo; echo "starting viewer (ctrl-c to stop)"; $R serve /tmp/peakrdl-check-demo/out --port 8642

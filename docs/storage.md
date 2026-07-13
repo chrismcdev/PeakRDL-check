@@ -1,6 +1,6 @@
 # SQLite storage
 
-`regreview/storage.py` implements storage schema v1: **one SQLite file per
+`peakrdl_check/storage.py` implements storage schema v1: **one SQLite file per
 specification** (`register-map.sqlite`), no file-per-entity anywhere.
 
 ## Schema
@@ -68,7 +68,7 @@ scan entity tables.
 
 Both search tables are **contentless** (`content=''`) — the indexed text is
 not stored twice — with `contentless_delete=1` so the incremental splicer can
-delete rows (requires SQLite ≥ 3.43; `regreview doctor` checks). `search`
+delete rows (requires SQLite ≥ 3.43; `peakrdl-check doctor` checks). `search`
 covers node name/path/description; `def_search` covers definition-level field
 names and descriptions, surfaced as `"match": "field"` results. User input is
 sanitised into a safe prefix query (`_sanitize_fts`: tokenise, cap at 8 terms,

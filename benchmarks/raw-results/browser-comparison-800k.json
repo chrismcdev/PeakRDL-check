@@ -10,8 +10,8 @@
     "jsHeapMBAfterLoad": 43,
     "note": "entire model (data/ral-data-*.json chunks) transferred and retained by the browser up front; localhost hides the 51.8 MB transfer cost that a remote/VPN link would expose"
   },
-  "regreview": {
-    "server": "regreview serve (SQLite-backed API)",
+  "peakrdl-check": {
+    "server": "peakrdl-check serve (SQLite-backed API)",
     "domContentLoadedMs": 13,
     "loadEventMs": 13,
     "resourceCount": 3,

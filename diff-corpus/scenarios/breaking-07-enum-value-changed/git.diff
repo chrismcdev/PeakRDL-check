@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-07-enum-value-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-07-enum-value-changed/after.rdl
+diff --git a/diff-corpus/scenarios/breaking-07-enum-value-changed/before.rdl b/diff-corpus/scenarios/breaking-07-enum-value-changed/after.rdl
 index 83c759d..95efcd0 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-07-enum-value-changed/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-07-enum-value-changed/after.rdl
+--- a/diff-corpus/scenarios/breaking-07-enum-value-changed/before.rdl
++++ b/diff-corpus/scenarios/breaking-07-enum-value-changed/after.rdl
 @@ -1,7 +1,7 @@
  enum speed_e {
      SLOW = 2'd0;

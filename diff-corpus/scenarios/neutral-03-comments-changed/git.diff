@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-03-comments-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-03-comments-changed/after.rdl
+diff --git a/diff-corpus/scenarios/neutral-03-comments-changed/before.rdl b/diff-corpus/scenarios/neutral-03-comments-changed/after.rdl
 index d9a0899..75fab6f 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-03-comments-changed/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-03-comments-changed/after.rdl
+--- a/diff-corpus/scenarios/neutral-03-comments-changed/before.rdl
++++ b/diff-corpus/scenarios/neutral-03-comments-changed/after.rdl
 @@ -1,5 +1,11 @@
  // Control block registers.
 +//

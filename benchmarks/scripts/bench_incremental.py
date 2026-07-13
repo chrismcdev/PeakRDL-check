@@ -2,7 +2,7 @@
 """Three measured incremental-rebuild runs at 800k, preserved as raw results.
 
 Each run edits ONE reset literal in one block-type file (a realistic local
-block change), runs `regreview build --incremental`, and records the report.
+block change), runs `peakrdl-check build --incremental`, and records the report.
 Each run starts from the previous spliced state, which is exactly the
 day-to-day editing workflow. The fixture is restored afterwards and a final
 equivalence check against a clean build of the restored sources runs in the
@@ -38,7 +38,7 @@ def main() -> int:
         # Fresh clean build to seed the incremental state (timed, recorded).
         print("seeding clean 800k build (several minutes)...", flush=True)
         t0 = time.perf_counter()
-        p = run([str(VENV / "regreview"), "build", str(FIXTURE_DIR / "800k.rdl"),
+        p = run([str(VENV / "peakrdl-check"), "build", str(FIXTURE_DIR / "800k.rdl"),
                  "--top", "bench800k_top", "--output", str(OUT)])
         assert p.returncode == 0, p.stderr[-2000:]
         seed_s = time.perf_counter() - t0
@@ -52,7 +52,7 @@ def main() -> int:
             flipped = int(m.group(1), 16) ^ 1
             TYPES_FILE.write_text(text[:m.start()]
                                   + f"reset = {flipped:#x}" + text[m.end():])
-            p = run(["/usr/bin/time", "-l", str(VENV / "regreview"), "build",
+            p = run(["/usr/bin/time", "-l", str(VENV / "peakrdl-check"), "build",
                      str(FIXTURE_DIR / "800k.rdl"), "--top", "bench800k_top",
                      "--output", str(OUT), "--incremental"])
             assert p.returncode == 0, p.stderr[-2000:]

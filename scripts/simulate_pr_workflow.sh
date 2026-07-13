@@ -9,7 +9,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PY="$ROOT/.venv/bin/python"
-WORK="$(mktemp -d /tmp/regreview-pr-sim.XXXXXX)"
+WORK="$(mktemp -d /tmp/peakrdl-check-pr-sim.XXXXXX)"
 trap 'rm -rf "$WORK"' EXIT
 
 cd "$WORK"
@@ -40,7 +40,7 @@ HEAD_SHA=$(git rev-parse HEAD)
 run_review() {
   local base=$1 head=$2 outdir=$3
   mkdir -p "$outdir"
-  rm -rf regreview-out
+  rm -rf peakrdl-check-out
   env BASE_REF="$base" HEAD_REF="$head" FAIL_ON=breaking \
       GITHUB_STEP_SUMMARY="$outdir/summary.md" \
       GITHUB_OUTPUT="$outdir/outputs.txt" \

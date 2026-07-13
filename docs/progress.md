@@ -12,12 +12,12 @@ Live checklist. Dates are completion dates.
       measured, file-count and memory behaviour confirmed on 2.12.2
       (`docs/problem-reproduction.md`) — **Gate A**
 - [x] 2026-07-13 — Deterministic fixture generator with manifests + `verify`
-      (`regreview/fixture_gen.py`)
+      (`peakrdl_check/fixture_gen.py`)
 - [x] 2026-07-13 — Canonical model + adapter (folded arrays, content-hash
       dedup, per-instance extraction; identity cache measured <0.2 s @100k and
       rejected) (`docs/canonical-model.md`)
 - [x] 2026-07-13 — Bisect line index replacing upstream per-lookup rescan
-      (`regreview/lineindex.py`, ADR-0005)
+      (`peakrdl_check/lineindex.py`, ADR-0005)
 - [x] 2026-07-13 — SQLite storage schema v1, deferred indexes, contentless
       FTS5, EXPLAIN-asserted query plans (`docs/storage.md`) — **Gate B**
       (100k vertical slice)
@@ -55,7 +55,7 @@ Live checklist. Dates are completion dates.
 
 - [x] 2026-07-13 — Full benchmark matrix (Gate F): every fixture × tool cell,
       3 runs each, all completed within timeout. Headlines at 800k:
-      regreview 285 s / 1 file / 338 MB vs peakrdl-html 1390 s / 85,216 files /
+      peakrdl-check 285 s / 1 file / 338 MB vs peakrdl-html 1390 s / 85,216 files /
       1.1 GB; interactive p95s 0.6–10.4 ms; incremental 32.2–32.9 s (3 runs);
       source-location modes measured equal-cost (18.6–18.8 s at 100k);
       browser first-page comparison recorded

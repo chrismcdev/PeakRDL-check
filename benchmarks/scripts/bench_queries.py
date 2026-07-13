@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Interactive-use benchmark: existing-index startup + query latencies.
 
-Measures against a live regreview server (fresh process per trial):
+Measures against a live peakrdl-check server (fresh process per trial):
   * time from process spawn to /api/ready answering (server ready)
   * time to first usable viewer response (index.html + metadata + roots)
   * p50/p95 for exact lookup, register detail, paginated children, search,
@@ -71,7 +71,7 @@ def main() -> int:
     for trial in range(5):
         port = 8700 + trial
         t0 = time.perf_counter()
-        proc = subprocess.Popen([str(VENV / "regreview"), "serve", str(db),
+        proc = subprocess.Popen([str(VENV / "peakrdl-check"), "serve", str(db),
                                  "--port", str(port)],
                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         ready = None
@@ -101,7 +101,7 @@ def main() -> int:
 
     # --- query latency trials (1 server, randomized params, keep-alive) ---
     port = 8710
-    proc = subprocess.Popen([str(VENV / "regreview"), "serve", str(db),
+    proc = subprocess.Popen([str(VENV / "peakrdl-check"), "serve", str(db),
                              "--port", str(port)],
                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(1.0)

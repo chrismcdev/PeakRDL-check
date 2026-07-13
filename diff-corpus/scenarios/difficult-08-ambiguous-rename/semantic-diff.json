@@ -23,7 +23,7 @@
       "before": "0x10",
       "after": null,
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
         "line": 3,
         "column": 61
       },
@@ -40,7 +40,7 @@
       "before": "0x14",
       "after": null,
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
         "line": 4,
         "column": 61
       },
@@ -57,7 +57,7 @@
       "before": null,
       "after": null,
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
         "line": 3,
         "column": 61
       },
@@ -78,7 +78,7 @@
       "before": null,
       "after": null,
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-08-ambiguous-rename/before.rdl",
         "line": 4,
         "column": 61
       },
@@ -100,7 +100,7 @@
       "after": "0x20",
       "baseLocation": null,
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-08-ambiguous-rename/after.rdl",
         "line": 3,
         "column": 61
       },
@@ -117,7 +117,7 @@
       "after": "0x24",
       "baseLocation": null,
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-08-ambiguous-rename/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-08-ambiguous-rename/after.rdl",
         "line": 4,
         "column": 61
       },

@@ -1,7 +1,7 @@
 {
   "mode": "incremental",
   "changedFiles": [
-    "/Users/christopher.mcdonald/Desktop/RagReview/fixtures/generated/800k_types_2.rdl"
+    "fixtures/generated/800k_types_2.rdl"
   ],
   "unitsTotal": 800,
   "stages": {
@@ -40,7 +40,7 @@
   "result": "updated",
   "peakRssBytes": 6219399168,
   "timePeakRssBytes": 6219399168,
-  "editedFile": "/Users/christopher.mcdonald/Desktop/RagReview/fixtures/generated/800k_types_2.rdl",
+  "editedFile": "fixtures/generated/800k_types_2.rdl",
   "editSite": 7,
   "timestamp": "2026-07-13T15:28:04+1000"
 }

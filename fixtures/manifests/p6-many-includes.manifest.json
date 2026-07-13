@@ -1,5 +1,5 @@
 {
-  "generator": "regreview-fixture",
+  "generator": "peakrdl-check-fixture",
   "generatorVersion": 1,
   "params": {
     "registers": 20000,
@@ -37,7 +37,7 @@
     "p6-many-includes_types_15.rdl"
   ],
   "checksums": {
-    "p6-many-includes.rdl": "092532813400858b6141c15bcc7a7f2c0a3b8d286052038630559847b1085eb0",
+    "p6-many-includes.rdl": "c3d55fec6d838e70c83568effdd8df17e7b7b0a62f058f949c50a8792149bed3",
     "p6-many-includes_types_0.rdl": "88d45d0db895a586885552d0706f89d00c23e692f47c5205464888b16383c893",
     "p6-many-includes_types_1.rdl": "4c6e9f65009c1ad21e1eef9cc4cbf667af45cd80504bea843f54f0d095f0279d",
     "p6-many-includes_types_2.rdl": "503fffcf3d3e9aa6a942fea620047ec24ee77d48b700747f8558b009e06af670",
@@ -56,7 +56,7 @@
     "p6-many-includes_types_15.rdl": "151c366dc9becb2219487488637f7329cf8502ca7b3140c950f77ab247015d03"
   },
   "sourceLines": 21853,
-  "sourceBytes": 2636698,
+  "sourceBytes": 2636695,
   "expected": {
     "registers": 20000,
     "fields": 160000,
@@ -65,5 +65,5 @@
     "blockInstances": 32,
     "enumTypes": 50
   },
-  "generationSeconds": 0.039
+  "generationSeconds": 0.04
 }

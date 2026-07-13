@@ -50,5 +50,5 @@ that is already 6x faster than required.
 
 Reopen this decision if index generation or diff **misses its performance
 target by more than 2x after profiling** (i.e. the shortfall is demonstrably
-in RegReview-owned code, not the upstream parser). Until then, a second
+in PeakRDL-check-owned code, not the upstream parser). Until then, a second
 runtime is complexity without a customer.

@@ -21,7 +21,7 @@
       "before": "0x8",
       "after": null,
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-01-register-removed/before.rdl",
+        "file": "diff-corpus/scenarios/breaking-01-register-removed/before.rdl",
         "line": 4,
         "column": 64
       },

@@ -1,0 +1,47 @@
+{
+  "tool": "peakrdl-check",
+  "fixture": "800k",
+  "fixtureChecksum": "e7308ec1a90107e45e392b0c45a5af89fa996e290a5895b3e4faf3371084a794",
+  "registerCount": 800000,
+  "fieldCount": 6400000,
+  "sourceMode": "registers",
+  "run": 1,
+  "command": ".venv/bin/peakrdl-check build fixtures/generated/800k.rdl --top bench800k_top --source-locations registers --output benchmarks/out/bench-peakrdl-check-800k",
+  "cacheCondition": "cold-process/warm-fs",
+  "timeoutSeconds": 1800,
+  "hardware": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu": "Apple M4 Pro",
+    "cores": "14",
+    "memBytes": "25769803776",
+    "python": "3.12.12"
+  },
+  "runtimeVersions": {},
+  "timestamp": "2026-07-13T13:55:52+1000",
+  "wallClockMs": 279056,
+  "exitCode": 0,
+  "timeout": false,
+  "cpuTimeMs": 242030,
+  "timePeakRssBytes": 10197876736,
+  "toolReport": {
+    "output": "benchmarks/out/bench-peakrdl-check-800k/register-map.sqlite",
+    "sourceMode": "registers",
+    "registers": 800000,
+    "decls": 85151,
+    "definitions": 67483,
+    "dbBytes": 337801216,
+    "stages": {
+      "parseSeconds": 181.251,
+      "elaborateSeconds": 9.903,
+      "traverseSeconds": 7.281,
+      "writeRowsSeconds": 2.797,
+      "createIndexSeconds": 0.233
+    },
+    "totalSeconds": 202.582,
+    "peakRssBytes": 8460173312
+  },
+  "stderrTail": "",
+  "fileCount": 1,
+  "outputBytes": 337801216
+}

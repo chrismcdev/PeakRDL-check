@@ -1,5 +1,5 @@
 {
-  "generator": "regreview-fixture",
+  "generator": "peakrdl-check-fixture",
   "generatorVersion": 1,
   "params": {
     "registers": 20000,
@@ -25,14 +25,14 @@
     "p3-deep-hierarchy_types_3.rdl"
   ],
   "checksums": {
-    "p3-deep-hierarchy.rdl": "07d95fac76a16c0c461015b604ae16448ad1ab99d54a27934ec8c842833c724b",
+    "p3-deep-hierarchy.rdl": "9f101a28fa12cd6c8f062b8eb3770bfa01445e26b6bd7a57e6a3ec155043fd68",
     "p3-deep-hierarchy_types_0.rdl": "81c54593a1718bad7d7e35f716196862e3b53e47ea420180ac1f69b5fb653308",
     "p3-deep-hierarchy_types_1.rdl": "c18b6f9d09b389add15fafbb2b8bcf8b947178cafbff6a8f1efd8cf962e820c7",
     "p3-deep-hierarchy_types_2.rdl": "6a8a2806ed218bbc8f8f8078115a5f6ea4388c3894d6d883d547c042fb683298",
     "p3-deep-hierarchy_types_3.rdl": "81cd903698c74d6d1a93916feb325c059895beabd0226656fc096219922e1880"
   },
   "sourceLines": 22312,
-  "sourceBytes": 2731960,
+  "sourceBytes": 2731957,
   "expected": {
     "registers": 20000,
     "fields": 160000,
@@ -41,5 +41,5 @@
     "blockInstances": 16,
     "enumTypes": 26
   },
-  "generationSeconds": 0.039
+  "generationSeconds": 0.04
 }

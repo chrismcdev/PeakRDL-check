@@ -1,13 +1,13 @@
 # Reproducing the peakrdl-html large-map problems
 
-The motivating claim behind RegReview is that the standard HTML exporter does
+The motivating claim behind PeakRDL-check is that the standard HTML exporter does
 not scale to large register maps. That claim was **re-verified on the current
 releases** (peakrdl 1.5.0, peakrdl-html 2.12.2, systemrdl-compiler 1.32.2) on
 2026-07-13, not taken on historical faith.
 
 ## Fixture profiles
 
-Fixtures are generated deterministically (`regreview-fixture`, seeded; manifests
+Fixtures are generated deterministically (`peakrdl-check-fixture`, seeded; manifests
 with checksums in `fixtures/generated/`). Two profiles matter:
 
 - **Mixed realistic** (`1k`, `10k`, `100k`, `400k`, `800k`): ~90 % of elaborated
@@ -74,7 +74,7 @@ the full matrix is therefore run with a 1800 s timeout and its outcome recorded
 as-is (timeout or completion), never extrapolated silently — see
 [benchmarking.md](benchmarking.md).
 
-For contrast, RegReview's clean 800k mixed build completes in ~210 s producing
+For contrast, PeakRDL-check's clean 800k mixed build completes in ~210 s producing
 one 337 MB SQLite file (85,151 node rows; `build/800k-build.json`), and its
 peak RSS is dominated by the shared systemrdl-compiler front end, not the
 index writer.

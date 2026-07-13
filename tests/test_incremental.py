@@ -28,7 +28,7 @@ addrmap incr_top {
 
 
 def build(tmp_path, out, incremental=False):
-    from regreview.cli import main
+    from peakrdl_check.cli import main
     args = ["build", str(tmp_path / "top.rdl"), "--top", "incr_top",
             "--output", str(out)]
     if incremental:
@@ -136,7 +136,7 @@ def test_top_change_forces_full_rebuild(project, tmp_path, capsys):
     out = tmp_path / "out"
     build(project, out)
     (project / "top.rdl").write_text(TOP.replace("@ 0x2000", "@ 0x3000"))
-    from regreview.incremental import FullRebuildRequired, incremental_build
+    from peakrdl_check.incremental import FullRebuildRequired, incremental_build
     with pytest.raises(FullRebuildRequired, match="top-level file"):
         incremental_build([project / "top.rdl"], out, "incr_top", "registers")
 
@@ -148,7 +148,7 @@ def test_size_change_forces_full_rebuild(project, tmp_path):
         "reg { field { sw = r; hw = w; } s[7:0]; } st @ 0x0;",
         "reg { field { sw = r; hw = w; } s[7:0]; } st @ 0x40;")
     (project / "types.rdl").write_text(bigger)
-    from regreview.incremental import FullRebuildRequired, incremental_build
+    from peakrdl_check.incremental import FullRebuildRequired, incremental_build
     with pytest.raises(FullRebuildRequired, match="size changed"):
         incremental_build([project / "top.rdl"], out, "incr_top", "registers")
 
@@ -159,7 +159,7 @@ def test_search_consistent_after_splice(project, tmp_path):
     renamed = TYPES.replace("} r1 @ 0x4;", "} renamed_unique_xyz @ 0x4;")
     (project / "types.rdl").write_text(renamed)
     build(project, out, incremental=True)
-    from regreview.storage import RegIndex
+    from peakrdl_check.storage import RegIndex
     idx = RegIndex(out / "register-map.sqlite")
     hits = idx.search("renamed_unique_xyz")
     assert {h["path"] for h in hits["items"]} == {"a0.renamed_unique_xyz",

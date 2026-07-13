@@ -22,7 +22,7 @@ Baking severity into detection would make both untestable and unconfigurable.
    tool reports facts plus a `MATCH-UNCERTAIN` advisory rather than guessing
    (see docs/diff-rules.md, rename honesty).
 3. **Policy is versioned separately from detection.** Detection emits stable
-   rule ids describing *what* changed; `regreview/policy.py` maps rule id →
+   rule ids describing *what* changed; `peakrdl_check/policy.py` maps rule id →
    classification under `POLICY_VERSION` (1.0.0), and every change record
    carries the `policyVersion` it was classified under. Teams override per
    rule with `--policy overrides.json`.

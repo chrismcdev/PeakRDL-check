@@ -1,20 +1,20 @@
 # Known limitations
 
-An honest list. Each item is a real, current constraint of RegReview v0.1 —
+An honest list. Each item is a real, current constraint of PeakRDL-check v0.1 —
 not a roadmap promise.
 
 ## Performance
 
 - **Cold builds are parser-bound.** The ANTLR4 parse inside systemrdl-compiler
-  costs ~190 s at the 800k mixed fixture; everything RegReview adds (traverse,
-  write, index) is under 10 s. RegReview cannot make first builds fast — it
+  costs ~190 s at the 800k mixed fixture; everything PeakRDL-check adds (traverse,
+  write, index) is under 10 s. PeakRDL-check cannot make first builds fast — it
   makes them *pay off* (one-file index, sub-millisecond queries, incremental
   rebuilds).
 - **Mostly-unique register profiles are far worse upstream.** The 10k
   unique-register fixture costs ~19 s just to parse+elaborate (vs ~4 s for 10k
   mixed): with no shared types the compiler deep-copies every definition. A
   unique-800k fixture is impractical to even elaborate upstream, so no such
-  cell exists in the benchmark matrix. RegReview's dedup helps storage and
+  cell exists in the benchmark matrix. PeakRDL-check's dedup helps storage and
   queries, but cannot recover the front-end cost.
 
 ## Incremental builds
@@ -57,8 +57,8 @@ not a roadmap promise.
   `benchmarks/raw-results/pr-workflow-simulation/`). It has not yet run on
   github.com infrastructure.
 - **Browser-side metrics for peakrdl-html were measured manually**, not by an
-  automated harness (its viewer is a JS application; RegReview's viewer
-  exposes `window.__regreviewPerf` for scripted checks, the baseline does
+  automated harness (its viewer is a JS application; PeakRDL-check's viewer
+  exposes `window.__peakrdl-checkPerf` for scripted checks, the baseline does
   not).
 
 ## Scope

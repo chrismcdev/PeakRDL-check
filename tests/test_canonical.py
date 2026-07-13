@@ -1,6 +1,6 @@
 import pytest
 
-from regreview.canonical import (ADDR_HEX_WIDTH, Decl, addr_to_hex,
+from peakrdl_check.canonical import (ADDR_HEX_WIDTH, Decl, addr_to_hex,
                                  canonical_json, content_hash, hex_to_addr)
 
 

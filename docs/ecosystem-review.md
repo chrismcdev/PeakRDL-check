@@ -8,19 +8,19 @@ numbers come from runs preserved under `benchmarks/raw-results/` and `build/`.
 
 The reference SystemRDL 2.0 front end (Python, ANTLR4-based parser). It is the
 compile/elaborate foundation for essentially the whole open ecosystem, including
-RegReview. Observations from reading the 1.32.2 source:
+PeakRDL-check. Observations from reading the 1.32.2 source:
 
 - **Parsing is ANTLR4 in Python** and dominates wall time on large inputs. At the
-  800k-register mixed fixture, parse alone is ~190 s of a ~210 s RegReview build
+  800k-register mixed fixture, parse alone is ~190 s of a ~210 s PeakRDL-check build
   (`build/800k-build.json`).
 - **Per-lookup source rescans.** `source_ref.py` `DirectSourceRef._extract_line_info`
   re-reads the source file from position 0 for every line/column lookup —
-  O(file size) per reference. RegReview replaces this with a per-file line-start
-  table and bisect lookup (`regreview/lineindex.py`; see ADR-0005).
+  O(file size) per reference. PeakRDL-check replaces this with a per-file line-start
+  table and bisect lookup (`peakrdl_check/lineindex.py`; see ADR-0005).
 - **Elaboration deep-copies per instance.** Each instantiation copies the component
   definition, so memory and elaboration time scale with instance count.
 - **Non-unrolled traversal keeps arrays folded.** `children(unroll=False)` yields one
-  node per declared array with dimensions and stride intact. RegReview's adapter
+  node per declared array with dimensions and stride intact. PeakRDL-check's adapter
   relies on this to keep the canonical model proportional to declarations, not
   elaborated registers.
 
@@ -62,7 +62,7 @@ more than 100k mixed ones. Extrapolation and reproduction commands are in
 
 Qt-based graphical IP-XACT editor (kactus2.org). Different niche: it is an
 *editing* environment for IP-XACT packaging, not a SystemRDL review/browsing tool.
-No overlap with RegReview's review workflow; not benchmarked.
+No overlap with PeakRDL-check's review workflow; not benchmarked.
 
 ## OpenTitan reggen
 
@@ -74,20 +74,20 @@ semantic diff of SystemRDL.
 ## systemrdl-pro
 
 Commercial SystemRDL IDE / language server (editor integration, completion,
-navigation, live diagnostics). RegReview deliberately does **not** duplicate its
+navigation, live diagnostics). PeakRDL-check deliberately does **not** duplicate its
 editor/LSP feature set: the underserved niche is large-scale *review* — fast
 whole-design indexing, browsing, and semantic diff in CI (see ADR-0009).
 
-## Where RegReview fits
+## Where PeakRDL-check fits
 
 | Need | Existing answer | Gap |
 |---|---|---|
-| Compile/elaborate SystemRDL | systemrdl-compiler | none — RegReview builds on it |
+| Compile/elaborate SystemRDL | systemrdl-compiler | none — PeakRDL-check builds on it |
 | HTML documentation | peakrdl-html | collapses at 100k+ registers (files, memory) |
 | Editing / LSP | systemrdl-pro | commercial; out of scope here |
 | IP-XACT packaging | Kactus2 | different format/workflow |
-| Semantic diff of register maps in CI | — | RegReview's `diff`/`check` + GitHub Action |
-| Million-register local browsing | — | RegReview's SQLite index + local server |
+| Semantic diff of register maps in CI | — | PeakRDL-check's `diff`/`check` + GitHub Action |
+| Million-register local browsing | — | PeakRDL-check's SQLite index + local server |
 
 Storage is a single SQLite file per specification (rationale and rejected
 alternatives in [ADR-0003](adr/0003-sqlite-storage.md)).

@@ -15,7 +15,7 @@ The viewer's actual requirements, stated as claims to verify:
 
 ## Decision
 
-A **single-file vanilla-JS viewer** (`regreview/viewer/viewer.js`, ~400 lines,
+A **single-file vanilla-JS viewer** (`peakrdl_check/viewer/viewer.js`, ~400 lines,
 plus `index.html`) with hand-rolled virtualization, served as static files by
 the local server.
 

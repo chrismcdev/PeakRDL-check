@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""RegReview vs PeakRDL-html build benchmark harness.
+"""PeakRDL-check vs PeakRDL-html build benchmark harness.
 
 Every run is a fresh subprocess (cold process, warm OS file cache — identical
 conditions for both tools; see docs/baseline-methodology.md). Each run's raw
@@ -7,8 +7,8 @@ record is preserved under benchmarks/raw-results/ as the source of truth;
 reports are generated from those files, never hand-edited.
 
 Usage:
-  bench.py --fixture 1k,10k,100k --tools regreview,peakrdl-html --runs 3
-  bench.py --fixture 800k --tools regreview --runs 3 --timeout 1800
+  bench.py --fixture 1k,10k,100k --tools peakrdl-check,peakrdl-html --runs 3
+  bench.py --fixture 800k --tools peakrdl-check --runs 3 --timeout 1800
 """
 
 from __future__ import annotations
@@ -47,12 +47,12 @@ def hardware() -> dict:
 
 def versions() -> dict:
     out = subprocess.run([str(VENV / "python"), "-c",
-                          "import systemrdl, regreview;"
+                          "import systemrdl, peakrdl-check;"
                           "from peakrdl_html.__about__ import __version__ as p;"
-                          "print(systemrdl.__version__, p, regreview.__version__)"],
+                          "print(systemrdl.__version__, p, peakrdl_check.__version__)"],
                          capture_output=True, text=True).stdout.split()
     return {"systemrdl-compiler": out[0], "peakrdl-html": out[1],
-            "regreview": out[2]} if len(out) == 3 else {}
+            "peakrdl-check": out[2]} if len(out) == 3 else {}
 
 
 def run_one(tool: str, fixture: str, run_idx: int, timeout: int,
@@ -68,8 +68,8 @@ def run_one(tool: str, fixture: str, run_idx: int, timeout: int,
         cmd = [str(VENV / "python"),
                str(ROOT / "benchmarks/scripts/peakrdl_driver.py"),
                str(rdl), str(out_dir), manifest["topComponent"]]
-    elif tool == "regreview":
-        cmd = [str(VENV / "regreview"), "build", str(rdl),
+    elif tool == "peakrdl-check":
+        cmd = [str(VENV / "peakrdl-check"), "build", str(rdl),
                "--top", manifest["topComponent"],
                "--source-locations", source_mode,
                "--output", str(out_dir)]
@@ -83,7 +83,7 @@ def run_one(tool: str, fixture: str, run_idx: int, timeout: int,
         "fixtureChecksum": manifest["checksums"][f"{fixture}.rdl"],
         "registerCount": manifest["expected"]["registers"],
         "fieldCount": manifest["expected"]["fields"],
-        "sourceMode": source_mode if tool == "regreview" else "default",
+        "sourceMode": source_mode if tool == "peakrdl-check" else "default",
         "run": run_idx,
         "command": " ".join(cmd),
         "cacheCondition": "cold-process/warm-fs",
@@ -141,7 +141,7 @@ def run_one(tool: str, fixture: str, run_idx: int, timeout: int,
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--fixture", required=True, help="comma-separated: 1k,10k,...")
-    ap.add_argument("--tools", default="regreview,peakrdl-html")
+    ap.add_argument("--tools", default="peakrdl-check,peakrdl-html")
     ap.add_argument("--runs", type=int, default=3)
     ap.add_argument("--timeout", type=int, default=1800)
     ap.add_argument("--source-mode", default="registers")

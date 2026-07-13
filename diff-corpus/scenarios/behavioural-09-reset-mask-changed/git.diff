@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-09-reset-mask-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-09-reset-mask-changed/after.rdl
+diff --git a/diff-corpus/scenarios/behavioural-09-reset-mask-changed/before.rdl b/diff-corpus/scenarios/behavioural-09-reset-mask-changed/after.rdl
 index bdc9e5d..448a8ce 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-09-reset-mask-changed/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-09-reset-mask-changed/after.rdl
+--- a/diff-corpus/scenarios/behavioural-09-reset-mask-changed/before.rdl
++++ b/diff-corpus/scenarios/behavioural-09-reset-mask-changed/after.rdl
 @@ -1,6 +1,6 @@
  addrmap soc {
      reg {

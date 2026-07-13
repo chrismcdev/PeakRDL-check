@@ -6,14 +6,14 @@ on:
       - "**/*.rdl"
 
 jobs:
-  regreview:
+  peakrdl-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: regreview/regreview/action@v0
+      - uses: peakrdl-check/peakrdl-check/action@v0  # replace with the final repository slug
         with:
           base-ref: ${{ github.event.pull_request.base.sha }}
           head-ref: ${{ github.event.pull_request.head.sha }}

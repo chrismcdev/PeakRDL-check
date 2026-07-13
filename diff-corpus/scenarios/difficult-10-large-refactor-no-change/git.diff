@@ -1,11 +1,11 @@
  .../{before => after}/main.rdl                     | 136 +++++++++++++++++----
- .../after/types.rdl}                               |  50 ++++++++
+ .../after/types.rdl                                |  50 ++++++++
  2 files changed, 162 insertions(+), 24 deletions(-)
 
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/before/main.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/main.rdl
+diff --git a/diff-corpus/scenarios/difficult-10-large-refactor-no-change/before/main.rdl b/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/main.rdl
 index 9db56b4..8a346df 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/before/main.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/main.rdl
+--- a/diff-corpus/scenarios/difficult-10-large-refactor-no-change/before/main.rdl
++++ b/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/main.rdl
 @@ -1,26 +1,114 @@
 +// -------------------------------------------------------------------------
 +// SoC register map.
@@ -145,11 +145,11 @@ index 9db56b4..8a346df 100644
 +    tx_t        uart_tx     @ 0x18;
 +    rx_t        uart_rx     @ 0x1c;
  };
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl
+diff --git a/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl b/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl
 new file mode 100644
 index 0000000..80085e0
 --- /dev/null
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl
++++ b/diff-corpus/scenarios/difficult-10-large-refactor-no-change/after/types.rdl
 @@ -0,0 +1,50 @@
 +// -------------------------------------------------------------------------
 +// Shared register shapes used by every peripheral block in the SoC.

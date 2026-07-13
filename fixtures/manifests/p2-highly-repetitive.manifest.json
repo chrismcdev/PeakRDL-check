@@ -1,5 +1,5 @@
 {
-  "generator": "regreview-fixture",
+  "generator": "peakrdl-check-fixture",
   "generatorVersion": 1,
   "params": {
     "registers": 20000,
@@ -25,14 +25,14 @@
     "p2-highly-repetitive_types_3.rdl"
   ],
   "checksums": {
-    "p2-highly-repetitive.rdl": "5de963185e52eb56d9879a7d727d9b5495338de0a30f41dc80cb4417df035583",
+    "p2-highly-repetitive.rdl": "034ede8c42d903c818eb7b6b516b286a537d8ab3b54a73e5bfe6bb423bc31385",
     "p2-highly-repetitive_types_0.rdl": "7ce1a538e21fb70fa21a3397af3f1dd982214f9c99ee685ad9c0d887b1ef67e2",
     "p2-highly-repetitive_types_1.rdl": "e21884ba696973a1a12860653e659f627bfe5f434a3efc15a41f9b49e7c86bd9",
     "p2-highly-repetitive_types_2.rdl": "b3acd85cc760af6ea21747750f1214576308243445fc7ec0cacc74b814fa8fce",
     "p2-highly-repetitive_types_3.rdl": "57498994f405881bd8c75f6ac98f58a85a6c57f15aa1cf7be57b7cccd0803178"
   },
   "sourceLines": 7085,
-  "sourceBytes": 851747,
+  "sourceBytes": 851744,
   "expected": {
     "registers": 20000,
     "fields": 160000,
@@ -41,5 +41,5 @@
     "blockInstances": 32,
     "enumTypes": 16
   },
-  "generationSeconds": 0.013
+  "generationSeconds": 0.012
 }

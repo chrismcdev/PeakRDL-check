@@ -2,7 +2,7 @@
 # Regenerate the deterministic benchmark fixtures (not committed; manifests are).
 set -euo pipefail
 cd "$(dirname "$0")/.."
-F=.venv/bin/regreview-fixture
+F=.venv/bin/peakrdl-check-fixture
 G=fixtures/generated
 $F generate --registers 1000   --blocks 8   --seed 12345 --name bench1k   --output $G/1k.rdl
 $F generate --registers 10000  --blocks 16  --seed 12346 --name bench10k  --output $G/10k.rdl

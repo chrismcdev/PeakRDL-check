@@ -1,4 +1,4 @@
 #!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-.venv/bin/python benchmarks/scripts/bench.py --tools regreview "$@"
+.venv/bin/python benchmarks/scripts/bench.py --tools peakrdl-check "$@"

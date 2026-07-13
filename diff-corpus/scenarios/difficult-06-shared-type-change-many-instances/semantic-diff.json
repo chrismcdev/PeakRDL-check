@@ -21,12 +21,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 4,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 4,
         "column": 11
       },
@@ -42,12 +42,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 5,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 5,
         "column": 11
       },
@@ -63,12 +63,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 6,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 6,
         "column": 11
       },
@@ -84,12 +84,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 7,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 7,
         "column": 11
       },
@@ -105,12 +105,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 8,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 8,
         "column": 11
       },
@@ -126,12 +126,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 9,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 9,
         "column": 11
       },
@@ -147,12 +147,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 10,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 10,
         "column": 11
       },
@@ -168,12 +168,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 11,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 11,
         "column": 11
       },
@@ -189,12 +189,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 12,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 12,
         "column": 11
       },
@@ -210,12 +210,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 13,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 13,
         "column": 11
       },
@@ -231,12 +231,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 14,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 14,
         "column": 11
       },
@@ -252,12 +252,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 15,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 15,
         "column": 11
       },
@@ -273,12 +273,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 16,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 16,
         "column": 11
       },
@@ -294,12 +294,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 17,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 17,
         "column": 11
       },
@@ -315,12 +315,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 18,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 18,
         "column": 11
       },
@@ -336,12 +336,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 19,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 19,
         "column": 11
       },
@@ -357,12 +357,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 20,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 20,
         "column": 11
       },
@@ -378,12 +378,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 21,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 21,
         "column": 11
       },
@@ -399,12 +399,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 22,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 22,
         "column": 11
       },
@@ -420,12 +420,12 @@
       "before": "0x0",
       "after": "0x1",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/before.rdl",
         "line": 23,
         "column": 11
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-06-shared-type-change-many-instances/after.rdl",
         "line": 23,
         "column": 11
       },

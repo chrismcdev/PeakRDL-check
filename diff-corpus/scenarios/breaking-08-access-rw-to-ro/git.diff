@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-08-access-rw-to-ro/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-08-access-rw-to-ro/after.rdl
+diff --git a/diff-corpus/scenarios/breaking-08-access-rw-to-ro/before.rdl b/diff-corpus/scenarios/breaking-08-access-rw-to-ro/after.rdl
 index 0ff12c5..8a2b34a 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-08-access-rw-to-ro/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-08-access-rw-to-ro/after.rdl
+--- a/diff-corpus/scenarios/breaking-08-access-rw-to-ro/before.rdl
++++ b/diff-corpus/scenarios/breaking-08-access-rw-to-ro/after.rdl
 @@ -1,7 +1,7 @@
  addrmap soc {
      reg {

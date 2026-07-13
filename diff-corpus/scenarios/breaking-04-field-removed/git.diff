@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-04-field-removed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-04-field-removed/after.rdl
+diff --git a/diff-corpus/scenarios/breaking-04-field-removed/before.rdl b/diff-corpus/scenarios/breaking-04-field-removed/after.rdl
 index 131ebcb..e8c98dc 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-04-field-removed/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/breaking-04-field-removed/after.rdl
+--- a/diff-corpus/scenarios/breaking-04-field-removed/before.rdl
++++ b/diff-corpus/scenarios/breaking-04-field-removed/after.rdl
 @@ -2,7 +2,6 @@ addrmap soc {
      reg {
          field { sw = rw; hw = r; reset = 0x0; } en[0:0];

@@ -19,7 +19,7 @@ def tmp_rdl(tmp_path):
 
 @pytest.fixture()
 def compile_model(tmp_rdl):
-    from regreview.adapter import build_canonical
+    from peakrdl_check.adapter import build_canonical
 
     def _compile(text: str, top=None, source_mode="registers", name="test.rdl"):
         return build_canonical([tmp_rdl(text, name)], top=top,
@@ -29,8 +29,8 @@ def compile_model(tmp_rdl):
 
 @pytest.fixture()
 def diff_texts(tmp_path):
-    from regreview.adapter import build_canonical
-    from regreview.diff import diff_models
+    from peakrdl_check.adapter import build_canonical
+    from peakrdl_check.diff import diff_models
 
     def _diff(before: str, after: str, **kw):
         b = tmp_path / "before.rdl"

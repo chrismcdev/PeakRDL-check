@@ -4,7 +4,7 @@ Status: accepted (2026-07-13)
 
 ## Context
 
-Every RegReview feature — storage, browsing, semantic diff, incremental
+Every PeakRDL-check feature — storage, browsing, semantic diff, incremental
 rebuilds — needs a representation of the elaborated register map. The obvious
 shortcut is to pass systemrdl-compiler's node objects around. That couples
 every module to upstream internals (which change), makes content comparison
@@ -13,7 +13,7 @@ memory wherever any consumer runs.
 
 ## Decision
 
-Define a small canonical model (`regreview/canonical.py`) that only the
+Define a small canonical model (`peakrdl_check/canonical.py`) that only the
 adapter produces and everything else consumes:
 
 1. **Definition** — the deduplicated elaborated *content* of a component,

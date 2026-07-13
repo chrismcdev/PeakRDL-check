@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-05-alias-added/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-05-alias-added/after.rdl
+diff --git a/diff-corpus/scenarios/compatible-05-alias-added/before.rdl b/diff-corpus/scenarios/compatible-05-alias-added/after.rdl
 index b92d0a7..9b79233 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-05-alias-added/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-05-alias-added/after.rdl
+--- a/diff-corpus/scenarios/compatible-05-alias-added/before.rdl
++++ b/diff-corpus/scenarios/compatible-05-alias-added/after.rdl
 @@ -1,4 +1,5 @@
  addrmap soc {
      reg ctrl_t { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; };

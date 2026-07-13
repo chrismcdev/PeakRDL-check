@@ -1,7 +1,7 @@
 # Incremental builds
 
-`regreview build --incremental` reuses an existing index and rebuilds only the
-parts affected by changed files. Implementation: `regreview/incremental.py`.
+`peakrdl-check build --incremental` reuses an existing index and rebuilds only the
+parts affected by changed files. Implementation: `peakrdl_check/incremental.py`.
 
 ## Unit of incrementality: the block root
 
@@ -95,8 +95,8 @@ rebuild. This is enforced two ways:
 ## Inspecting the cache
 
 ```bash
-regreview cache stats build/800k    # units, tracked inputs, db size
-regreview cache list  build/800k    # every block root: path, type, regs, file
-regreview cache verify build/800k   # which tracked inputs are stale
-regreview cache clear build/800k
+peakrdl-check cache stats build/800k    # units, tracked inputs, db size
+peakrdl-check cache list  build/800k    # every block root: path, type, regs, file
+peakrdl-check cache verify build/800k   # which tracked inputs are stale
+peakrdl-check cache clear build/800k
 ```

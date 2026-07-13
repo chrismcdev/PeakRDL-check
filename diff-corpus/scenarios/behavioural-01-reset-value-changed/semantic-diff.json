@@ -21,12 +21,12 @@
       "before": "0xff",
       "after": "0x80",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-01-reset-value-changed/before.rdl",
+        "file": "diff-corpus/scenarios/behavioural-01-reset-value-changed/before.rdl",
         "line": 2,
         "column": 64
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/behavioural-01-reset-value-changed/after.rdl",
+        "file": "diff-corpus/scenarios/behavioural-01-reset-value-changed/after.rdl",
         "line": 2,
         "column": 64
       },

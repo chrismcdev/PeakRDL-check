@@ -3,7 +3,7 @@ import sqlite3
 
 import pytest
 
-from regreview.storage import IndexWriter, RegIndex
+from peakrdl_check.storage import IndexWriter, RegIndex
 
 SPEC = """
 addrmap soc {
@@ -61,7 +61,7 @@ def test_array_element_resolution(index):
     n = index.node_by_path("uart.ch[3]")
     assert n is not None
     assert n["addr_int"] == 0x100 + 3 * 0x10
-    from regreview.storage import PathResolveError
+    from peakrdl_check.storage import PathResolveError
     with pytest.raises(PathResolveError):
         index.node_by_path("uart.ch[16]")  # out of range
     with pytest.raises(PathResolveError):

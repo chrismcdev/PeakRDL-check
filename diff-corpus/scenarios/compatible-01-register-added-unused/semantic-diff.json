@@ -22,7 +22,7 @@
       "after": "0x100",
       "baseLocation": null,
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-01-register-added-unused/after.rdl",
+        "file": "diff-corpus/scenarios/compatible-01-register-added-unused/after.rdl",
         "line": 3,
         "column": 56
       },

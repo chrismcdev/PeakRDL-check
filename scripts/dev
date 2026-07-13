@@ -3,8 +3,8 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 if [ ! -f build/demo/register-map.sqlite ]; then
-  .venv/bin/regreview-fixture generate --registers 10000 --blocks 16 --seed 42 \
+  .venv/bin/peakrdl-check-fixture generate --registers 10000 --blocks 16 --seed 42 \
       --name demo --output fixtures/generated/demo.rdl
-  .venv/bin/regreview build fixtures/generated/demo.rdl --top demo_top --output build/demo
+  .venv/bin/peakrdl-check build fixtures/generated/demo.rdl --top demo_top --output build/demo
 fi
-.venv/bin/regreview serve build/demo --port 8642
+.venv/bin/peakrdl-check serve build/demo --port 8642

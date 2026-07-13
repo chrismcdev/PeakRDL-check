@@ -13,7 +13,7 @@ multi-megabyte files this is quadratic-shaped and untenable.
 
 ## Decision
 
-1. **Own line index** (`regreview/lineindex.py`): one O(file size) scan per
+1. **Own line index** (`peakrdl_check/lineindex.py`): one O(file size) scan per
    file builds a line-start offset table; each lookup is then a
    `bisect_right` — O(log lines).
 2. **Use the resolved path + private offset.** The adapter takes
@@ -41,4 +41,4 @@ multi-megabyte files this is quadratic-shaped and untenable.
 - **Upstream patch candidacy**: the line-start-table approach is small,
   dependency-free and semantically identical to upstream's slow path — a good
   candidate to contribute to systemrdl-compiler as a fix for
-  `_extract_line_info`. Until accepted, RegReview keeps its own copy.
+  `_extract_line_info`. Until accepted, PeakRDL-check keeps its own copy.

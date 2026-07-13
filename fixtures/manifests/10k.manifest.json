@@ -1,5 +1,5 @@
 {
-  "generator": "regreview-fixture",
+  "generator": "peakrdl-check-fixture",
   "generatorVersion": 1,
   "params": {
     "registers": 10000,
@@ -25,14 +25,14 @@
     "10k_types_3.rdl"
   ],
   "checksums": {
-    "10k.rdl": "3459778029ccafb1f316de33fd54262e4ff8175fd48c2beb2d7cf8c225369b20",
+    "10k.rdl": "41bc0569292f3910d64b72882b46ccb7fa56c69f735ebbc00630f92e80fdb789",
     "10k_types_0.rdl": "b3d440b6525c40ada67b8ad896a1a7216cea3f1379963b0156e9a26b6f849a13",
     "10k_types_1.rdl": "983d6752a9d3bb86bd662a430c129b77effadd6d231df76a9a500af747cfba27",
     "10k_types_2.rdl": "8f072bd04a0fdfd551ee60c1e7c0290cb7f0e63e093e4292096bc72e3c61b3a9",
     "10k_types_3.rdl": "72915f67a23d90db08952a772fec58383636821aa34eb6305e488c5587bb473d"
   },
   "sourceLines": 11388,
-  "sourceBytes": 1371661,
+  "sourceBytes": 1371658,
   "expected": {
     "registers": 10000,
     "fields": 80000,
@@ -41,5 +41,5 @@
     "blockInstances": 16,
     "enumTypes": 26
   },
-  "generationSeconds": 0.022
+  "generationSeconds": 0.02
 }

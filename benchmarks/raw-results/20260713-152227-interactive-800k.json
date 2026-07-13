@@ -1,6 +1,6 @@
 {
   "benchmark": "interactive",
-  "index": "/Users/christopher.mcdonald/Desktop/RagReview/benchmarks/out/bench-regreview-800k/register-map.sqlite",
+  "index": "benchmarks/out/bench-peakrdl-check-800k/register-map.sqlite",
   "label": "800k",
   "dbBytes": 337801216,
   "serverReadySeconds": {

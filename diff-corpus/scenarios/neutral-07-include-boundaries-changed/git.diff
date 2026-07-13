@@ -1,11 +1,11 @@
  .../neutral-07-include-boundaries-changed/{before => after}/main.rdl   | 3 +--
- .../scenarios/neutral-07-include-boundaries-changed/after/types.rdl}   | 2 ++
+ .../scenarios/neutral-07-include-boundaries-changed/after/types.rdl    | 2 ++
  2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-07-include-boundaries-changed/before/main.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/main.rdl
+diff --git a/diff-corpus/scenarios/neutral-07-include-boundaries-changed/before/main.rdl b/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/main.rdl
 index 0e3fa3f..340adaa 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-07-include-boundaries-changed/before/main.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/main.rdl
+--- a/diff-corpus/scenarios/neutral-07-include-boundaries-changed/before/main.rdl
++++ b/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/main.rdl
 @@ -1,5 +1,4 @@
 -reg ctrl_t { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; };
 -reg stat_t { field { sw = r; hw = w; } busy[0:0]; };
@@ -13,11 +13,11 @@ index 0e3fa3f..340adaa 100644
  
  addrmap soc {
      ctrl_t ctrl   @ 0x0;
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/types.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/types.rdl
+diff --git a/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/types.rdl b/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/types.rdl
 new file mode 100644
 index 0000000..15a6474
 --- /dev/null
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/types.rdl
++++ b/diff-corpus/scenarios/neutral-07-include-boundaries-changed/after/types.rdl
 @@ -0,0 +1,2 @@
 +reg ctrl_t { field { sw = rw; hw = r; reset = 0x0; } en[0:0]; };
 +reg stat_t { field { sw = r; hw = w; } busy[0:0]; };

@@ -1,6 +1,6 @@
 # Architecture
 
-RegReview is three pipelines sharing one canonical model: **index build**,
+PeakRDL-check is three pipelines sharing one canonical model: **index build**,
 **semantic diff**, and **incremental rebuild**. Everything downstream of the
 adapter is independent of systemrdl-compiler internals.
 
@@ -13,22 +13,22 @@ SystemRDL sources
 systemrdl-compiler 1.32.2          parse (ANTLR4) + elaborate
       │  elaborated tree
       ▼
-adapter (regreview/adapter.py)     canonical extraction:
+adapter (peakrdl_check/adapter.py)     canonical extraction:
       │                            - arrays kept folded (children(unroll=False))
       │                            - definition/instance dedup via content hashing
       │                            - per-stage timings, source locations
       ▼
-canonical model (regreview/canonical.py)
+canonical model (peakrdl_check/canonical.py)
       │  Definition (hash → body) + Decl list (parents before children)
       ▼
-SQLite index (regreview/storage.py)
+SQLite index (peakrdl_check/storage.py)
       │  ONE file: build/<name>/register-map.sqlite
       │  batched inserts, deferred index creation, contentless FTS5
       ▼
-local server (regreview/server.py)  stdlib http.server, localhost-only,
+local server (peakrdl_check/server.py)  stdlib http.server, localhost-only,
       │                             paginated JSON API, no full-hierarchy responses
       ▼
-viewer (regreview/viewer/)          framework-free single-file SPA,
+viewer (peakrdl_check/viewer/)          framework-free single-file SPA,
                                     virtualized tree, textContent-only rendering
 ```
 
@@ -48,7 +48,7 @@ From `build/800k-build.json` / `800k-build2.json` (representative run):
 | create indexes (deferred) | 0.25 |
 | **total** | **~210** |
 
-RegReview-owned work (traverse + write + index) is under 10 s at 800k
+PeakRDL-check-owned work (traverse + write + index) is under 10 s at 800k
 registers; the front-end parser dominates everything else (see
 [known-limitations.md](known-limitations.md) and ADR-0002).
 
@@ -63,14 +63,14 @@ head sources ──► canonical model ─┘                    over subtree co
                                    detection          (structural changes, no opinions)
                                         │
                                         ▼
-                                   policy             (regreview/policy.py, versioned 1.0.0,
+                                   policy             (peakrdl_check/policy.py, versioned 1.0.0,
                                         │              rule id → classification, JSON overrides)
                                         ▼
                                    explanation        (human message per change)
                                         │
                                         ▼
                                    formats            (text / json / markdown / sarif,
-                                                       regreview/report.py)
+                                                       peakrdl_check/report.py)
 ```
 
 The stages are deliberately separated: detection states *what* changed; the

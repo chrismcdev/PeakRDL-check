@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-08-source-formatting-changed/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-08-source-formatting-changed/after.rdl
+diff --git a/diff-corpus/scenarios/neutral-08-source-formatting-changed/before.rdl b/diff-corpus/scenarios/neutral-08-source-formatting-changed/after.rdl
 index 7f8ecfd..64be588 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-08-source-formatting-changed/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/neutral-08-source-formatting-changed/after.rdl
+--- a/diff-corpus/scenarios/neutral-08-source-formatting-changed/before.rdl
++++ b/diff-corpus/scenarios/neutral-08-source-formatting-changed/after.rdl
 @@ -1,24 +1,9 @@
  addrmap soc {
 -    reg {

@@ -9,8 +9,8 @@ from pathlib import Path
 
 import pytest
 
-from regreview.server import make_server
-from regreview.storage import IndexWriter, RegIndex
+from peakrdl_check.server import make_server
+from peakrdl_check.storage import IndexWriter, RegIndex
 
 HOSTILE_SPEC = r"""
 addrmap soc {
@@ -118,7 +118,7 @@ def test_server_binds_localhost_only(tmp_path, compile_model):
 
 
 def test_viewer_never_uses_innerhtml():
-    js = (Path(__file__).parent.parent / "regreview" / "viewer" / "viewer.js").read_text()
+    js = (Path(__file__).parent.parent / "peakrdl_check" / "viewer" / "viewer.js").read_text()
     assert "innerHTML" not in js
     assert "outerHTML" not in js
     assert "document.write" not in js

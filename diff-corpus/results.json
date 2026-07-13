@@ -8,7 +8,7 @@
       "title": "Reset value changed",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.023,
+      "diffSeconds": 0.022,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -47,7 +47,7 @@
       "title": "Field volatility changed (hw write access dropped)",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.001,
       "totalChanges": 2,
       "summary": {
         "behavioural": 2
@@ -99,7 +99,7 @@
       "title": "Interrupt behaviour enabled on a field",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.001,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -151,7 +151,7 @@
       "title": "Register width reduced from 64 to 32 bits",
       "category": "breaking",
       "gitDiffLines": 13,
-      "diffSeconds": 0.007,
+      "diffSeconds": 0.003,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -164,7 +164,7 @@
       "title": "Field removed, sibling fields untouched",
       "category": "breaking",
       "gitDiffLines": 12,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.003,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -281,7 +281,7 @@
       "title": "Register added in unused address space",
       "category": "compatible",
       "gitDiffLines": 9,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.003,
       "totalChanges": 1,
       "summary": {
         "compatible": 1
@@ -399,7 +399,7 @@
       "title": "Array dimensions changed on a register array",
       "category": "difficult",
       "gitDiffLines": 11,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.003,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -514,7 +514,7 @@
       "title": "Comments added and changed only",
       "category": "neutral",
       "gitDiffLines": 17,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.003,
       "totalChanges": 0,
       "summary": {},
       "failures": [],
@@ -525,7 +525,7 @@
       "title": "Declarations reordered, addresses explicit and unchanged",
       "category": "neutral",
       "gitDiffLines": 17,
-      "diffSeconds": 0.003,
+      "diffSeconds": 0.002,
       "totalChanges": 0,
       "summary": {},
       "failures": [],

@@ -1,6 +1,6 @@
 # Baseline measurement methodology
 
-How the peakrdl-html baseline (and every RegReview number compared against it)
+How the peakrdl-html baseline (and every PeakRDL-check number compared against it)
 is measured. The goal is a comparison that is fair, reproducible, and auditable
 from raw files.
 
@@ -43,7 +43,7 @@ build of the day actually pays.
   with default options) but times compile / elaborate / export separately and
   emits a JSON record. Parity with the real CLI was verified by comparing wall
   time and output trees.
-- **RegReview reports its own stage timings** (`parseSeconds`,
+- **PeakRDL-check reports its own stage timings** (`parseSeconds`,
   `elaborateSeconds`, `traverseSeconds`, `writeRowsSeconds`,
   `createIndexSeconds`) in its build report, captured into the same record.
 
@@ -52,7 +52,7 @@ build of the day actually pays.
 - **3 runs minimum** per (tool, fixture) cell; **medians** are reported, never
   best-of.
 - **One raw JSON file per run** is written to `benchmarks/raw-results/`
-  (timestamped, e.g. `20260713-131323-regreview-1k-run0.json`). These are the
+  (timestamped, e.g. `20260713-131323-peakrdl-check-1k-run0.json`). These are the
   source of truth; report tables are generated from them and never hand-edited.
 - **Timeouts are recorded as timeouts** (`"timeout": true`), not discarded.
   Default timeout 1800 s (`--timeout` on `bench.py`).
@@ -66,7 +66,7 @@ build of the day actually pays.
 ```bash
 # One cell of the matrix
 .venv/bin/python benchmarks/scripts/bench.py \
-    --fixture 100k --tools regreview,peakrdl-html --runs 3 --timeout 1800
+    --fixture 100k --tools peakrdl-check,peakrdl-html --runs 3 --timeout 1800
 
 # The whole matrix (sequential, so measurements never contend)
 benchmarks/scripts/run_full_matrix.sh
@@ -77,3 +77,22 @@ benchmarks/scripts/run_full_matrix.sh
 
 See [benchmarking.md](benchmarking.md) for the full flag reference and the raw
 record format.
+
+## Post-campaign record sanitation (2026-07-13)
+
+The project adopted its final name (PeakRDL-check) after the benchmark
+campaign concluded. Raw run records in `benchmarks/raw-results/` were updated
+mechanically at that point: the `"tool"` label string (previous working name
+→ `peakrdl-check`), executable paths inside recorded `command` fields, and
+machine-specific absolute path prefixes (redacted to repository-relative
+form). **No measurement value, timestamp, count or size was altered.**
+File names containing the previous working name were renamed
+correspondingly.
+
+Fixture continuity across the rename: the generator's line-1 attribution
+comment changed with the tool name, so manifests regenerated after the rename
+carry new file checksums. Equivalence with the benchmarked fixtures was
+verified programmatically: for every benchmark fixture, sha256(old line-1 +
+current lines 2..N) equals the `fixtureChecksum` recorded in the raw run
+records — i.e. the RDL content that was measured is byte-identical. The
+header is now tool-name-free so fixture bytes stay stable in future.

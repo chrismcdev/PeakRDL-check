@@ -8,14 +8,14 @@ uv pip install -e ".[baseline,dev]"
 ```
 
 - `baseline` pulls `peakrdl==1.5.0` + `peakrdl-html==2.12.2` (needed only for
-  benchmarks; RegReview itself depends solely on
+  benchmarks; PeakRDL-check itself depends solely on
   `systemrdl-compiler==1.32.2`).
 - `dev` pulls `pytest`.
 
 Check the environment:
 
 ```bash
-.venv/bin/regreview doctor
+.venv/bin/peakrdl-check doctor
 ```
 
 (verifies Python ≥ 3.10, systemrdl-compiler, SQLite ≥ 3.43 with FTS5,
@@ -41,35 +41,35 @@ plans), diff rules, incremental splicing, CLI, and security.
 
 ```bash
 # Generate a fixture (deterministic, manifest with checksums)
-.venv/bin/regreview-fixture generate --registers 100000 --name 100k \
+.venv/bin/peakrdl-check-fixture generate --registers 100000 --name 100k \
     --output fixtures/generated
 # verify a manifest against the elaborated model:
-.venv/bin/regreview-fixture verify fixtures/generated/100k.manifest.json
+.venv/bin/peakrdl-check-fixture verify fixtures/generated/100k.manifest.json
 
 # Build
-.venv/bin/regreview build fixtures/generated/100k.rdl \
+.venv/bin/peakrdl-check build fixtures/generated/100k.rdl \
     --top bench100k_top --output build/100k
 
 # Incremental rebuild after editing a type file
-.venv/bin/regreview build fixtures/generated/100k.rdl \
+.venv/bin/peakrdl-check build fixtures/generated/100k.rdl \
     --top bench100k_top --output build/100k --incremental
 
 # Serve (localhost only; port 0 = auto)
-regreview serve build/100k --port 8642
+peakrdl-check serve build/100k --port 8642
 # → http://127.0.0.1:8642/
 ```
 
-Other useful commands: `regreview inspect <index>`, `regreview query <index>
---search foo`, `regreview diff --base a.rdl --head b.rdl --format markdown`,
-`regreview check --base a.rdl --head b.rdl --fail-on breaking`,
-`regreview cache stats <index>`.
+Other useful commands: `peakrdl-check inspect <index>`, `peakrdl-check query <index>
+--search foo`, `peakrdl-check diff --base a.rdl --head b.rdl --format markdown`,
+`peakrdl-check check --base a.rdl --head b.rdl --fail-on breaking`,
+`peakrdl-check cache stats <index>`.
 
 ## Repository layout
 
 | Path | Contents |
 |---|---|
-| `regreview/` | the package: `adapter.py` (only module that imports systemrdl), `canonical.py`, `storage.py`, `diff.py`, `policy.py`, `report.py`, `incremental.py`, `server.py`, `lineindex.py`, `cli.py`, `fixture_gen.py` |
-| `regreview/viewer/` | `index.html` + `viewer.js` — the whole UI |
+| `peakrdl_check/` | the package: `adapter.py` (only module that imports systemrdl), `canonical.py`, `storage.py`, `diff.py`, `policy.py`, `report.py`, `incremental.py`, `server.py`, `lineindex.py`, `cli.py`, `fixture_gen.py` |
+| `peakrdl_check/viewer/` | `index.html` + `viewer.js` — the whole UI |
 | `tests/` | pytest suite |
 | `diff-corpus/scenarios/` | 47 semantic-diff scenarios with `expected.json` ground truth |
 | `scripts/` | `run_corpus.py`, `mutation_tests.py`, `verify_incremental_equivalence.py`, `simulate_pr_workflow.sh` |
@@ -82,7 +82,7 @@ Other useful commands: `regreview inspect <index>`, `regreview query <index>
 
 ## The viewer has no build step
 
-`regreview/viewer/viewer.js` is a single hand-written vanilla-JS file (~400
+`peakrdl_check/viewer/viewer.js` is a single hand-written vanilla-JS file (~400
 lines) served as-is by the local server; `index.html` carries the CSS. There
 is no Node, no bundler, no transpiler, no lockfile — editing the file and
 reloading the browser is the entire workflow. Invariants to preserve

@@ -21,12 +21,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 2,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 2,
         "column": 65
       },
@@ -42,12 +42,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 3,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 3,
         "column": 65
       },
@@ -63,12 +63,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 4,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 4,
         "column": 65
       },
@@ -84,12 +84,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 5,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 5,
         "column": 65
       },
@@ -105,12 +105,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 6,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 6,
         "column": 65
       },
@@ -126,12 +126,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 7,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 7,
         "column": 65
       },
@@ -147,12 +147,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 8,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 8,
         "column": 65
       },
@@ -168,12 +168,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 9,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 9,
         "column": 65
       },
@@ -189,12 +189,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 10,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 10,
         "column": 65
       },
@@ -210,12 +210,12 @@
       "before": "0x4",
       "after": "0x7",
       "baseLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/before.rdl",
         "line": 11,
         "column": 65
       },
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
+        "file": "diff-corpus/scenarios/difficult-05-parameter-change-many-instances/after.rdl",
         "line": 11,
         "column": 65
       },

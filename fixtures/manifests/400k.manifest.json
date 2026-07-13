@@ -1,5 +1,5 @@
 {
-  "generator": "regreview-fixture",
+  "generator": "peakrdl-check-fixture",
   "generatorVersion": 1,
   "params": {
     "registers": 400000,
@@ -25,14 +25,14 @@
     "400k_types_3.rdl"
   ],
   "checksums": {
-    "400k.rdl": "2f6678cd077a32b3b0022e4bc0345dc32289967f0352f9b915279edcb3cc2811",
+    "400k.rdl": "768ecbb8c9e6d7db2077b337937aef9c647b8d65f8adcd43b2db217fc4bbfebb",
     "400k_types_0.rdl": "71a5cb0614cbcf47f5ca4f4a63a3ee61cd86eeb127c9f19770702ddfb3ef1aac",
     "400k_types_1.rdl": "5eeb4c56fb6e94999714a63904a7e7c88a250e734d437db97903c8a0d95e9c65",
     "400k_types_2.rdl": "40dd49e394e2db097b0b5ca68d6508e2429cdf85eba046afea068135ddb0cca9",
     "400k_types_3.rdl": "30fd4ace2beef868fb5cadc6a613c3183deb77f21ae0ce3239d47f452f293a8c"
   },
   "sourceLines": 440062,
-  "sourceBytes": 53535030,
+  "sourceBytes": 53535027,
   "expected": {
     "registers": 400000,
     "fields": 3200000,
@@ -41,5 +41,5 @@
     "blockInstances": 400,
     "enumTypes": 640
   },
-  "generationSeconds": 0.715
+  "generationSeconds": 0.773
 }

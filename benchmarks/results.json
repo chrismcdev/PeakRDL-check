@@ -1,6 +1,232 @@
 {
   "builds": [
     {
+      "tool": "peakrdl-check",
+      "fixture": "100k",
+      "sourceMode": "all",
+      "runs": 3,
+      "succeeded": 3,
+      "timeouts": 0,
+      "failures": 0,
+      "registerCount": 100000,
+      "wallClockMsMedian": 18590,
+      "wallClockVariancePct": 0.3,
+      "peakRssBytesMedian": 3325329408,
+      "fileCountMedian": 1,
+      "outputBytesMedian": 41861120,
+      "rawFiles": [
+        "benchmarks/raw-results/20260713-151728-peakrdl-check-100k-run0.json",
+        "benchmarks/raw-results/20260713-151747-peakrdl-check-100k-run1.json",
+        "benchmarks/raw-results/20260713-151806-peakrdl-check-100k-run2.json"
+      ],
+      "stagesMsMedian": {
+        "parseSeconds": 14304.0,
+        "elaborateSeconds": 748.0,
+        "traverseSeconds": 604.0,
+        "writeRowsSeconds": 202.0,
+        "createIndexSeconds": 45.0
+      }
+    },
+    {
+      "tool": "peakrdl-check",
+      "fixture": "100k",
+      "sourceMode": "none",
+      "runs": 3,
+      "succeeded": 3,
+      "timeouts": 0,
+      "failures": 0,
+      "registerCount": 100000,
+      "wallClockMsMedian": 18762,
+      "wallClockVariancePct": 1.8,
+      "peakRssBytesMedian": 3314335744,
+      "fileCountMedian": 1,
+      "outputBytesMedian": 41795584,
+      "rawFiles": [
+        "benchmarks/raw-results/20260713-151536-peakrdl-check-100k-run0.json",
+        "benchmarks/raw-results/20260713-151555-peakrdl-check-100k-run1.json",
+        "benchmarks/raw-results/20260713-151613-peakrdl-check-100k-run2.json"
+      ],
+      "stagesMsMedian": {
+        "parseSeconds": 14476.0,
+        "elaborateSeconds": 747.0,
+        "traverseSeconds": 573.0,
+        "writeRowsSeconds": 205.0,
+        "createIndexSeconds": 45.0
+      }
+    },
+    {
+      "tool": "peakrdl-check",
+      "fixture": "100k",
+      "sourceMode": "registers",
+      "runs": 6,
+      "succeeded": 6,
+      "timeouts": 0,
+      "failures": 0,
+      "registerCount": 100000,
+      "wallClockMsMedian": 18680.5,
+      "wallClockVariancePct": 5.0,
+      "peakRssBytesMedian": 3321651200.0,
+      "fileCountMedian": 1.0,
+      "outputBytesMedian": 41844736.0,
+      "rawFiles": [
+        "benchmarks/raw-results/20260713-132018-peakrdl-check-100k-run0.json",
+        "benchmarks/raw-results/20260713-132037-peakrdl-check-100k-run1.json",
+        "benchmarks/raw-results/20260713-132056-peakrdl-check-100k-run2.json",
+        "benchmarks/raw-results/20260713-151632-peakrdl-check-100k-run0.json",
+        "benchmarks/raw-results/20260713-151651-peakrdl-check-100k-run1.json",
+        "benchmarks/raw-results/20260713-151710-peakrdl-check-100k-run2.json"
+      ],
+      "stagesMsMedian": {
+        "parseSeconds": 14436.5,
+        "elaborateSeconds": 752.5,
+        "traverseSeconds": 587.0,
+        "writeRowsSeconds": 197.0,
+        "createIndexSeconds": 47.5
+      }
+    },
+    {
+      "tool": "peakrdl-check",
+      "fixture": "10k",
+      "sourceMode": "registers",
+      "runs": 6,
+      "succeeded": 6,
+      "timeouts": 0,
+      "failures": 0,
+      "registerCount": 10000,
+      "wallClockMsMedian": 2162.0,
+      "wallClockVariancePct": 5.3,
+      "peakRssBytesMedian": 380542976.0,
+      "fileCountMedian": 1.0,
+      "outputBytesMedian": 4407296.0,
+      "rawFiles": [
+        "benchmarks/raw-results/20260713-131926-peakrdl-check-10k-run0.json",
+        "benchmarks/raw-results/20260713-131929-peakrdl-check-10k-run1.json",
+        "benchmarks/raw-results/20260713-131931-peakrdl-check-10k-run2.json",
+        "benchmarks/raw-results/20260713-131939-peakrdl-check-10k-run0.json",
+        "benchmarks/raw-results/20260713-131941-peakrdl-check-10k-run1.json",
+        "benchmarks/raw-results/20260713-131944-peakrdl-check-10k-run2.json"
+      ],
+      "stagesMsMedian": {
+        "parseSeconds": 1627.5,
+        "elaborateSeconds": 83.5,
+        "traverseSeconds": 64.0,
+        "writeRowsSeconds": 20.0,
+        "createIndexSeconds": 6.0
+      }
+    },
+    {
+      "tool": "peakrdl-check",
+      "fixture": "1k",
+      "sourceMode": "registers",
+      "runs": 7,
+      "succeeded": 7,
+      "timeouts": 0,
+      "failures": 0,
+      "registerCount": 1000,
+      "wallClockMsMedian": 248,
+      "wallClockVariancePct": 16.5,
+      "peakRssBytesMedian": 68763648,
+      "fileCountMedian": 1,
+      "outputBytesMedian": 528384,
+      "rawFiles": [
+        "benchmarks/raw-results/20260713-131323-peakrdl-check-1k-run0.json",
+        "benchmarks/raw-results/20260713-131921-peakrdl-check-1k-run0.json",
+        "benchmarks/raw-results/20260713-131921-peakrdl-check-1k-run1.json",
+        "benchmarks/raw-results/20260713-131921-peakrdl-check-1k-run2.json",
+        "benchmarks/raw-results/20260713-131934-peakrdl-check-1k-run0.json",
+        "benchmarks/raw-results/20260713-131934-peakrdl-check-1k-run1.json",
+        "benchmarks/raw-results/20260713-131934-peakrdl-check-1k-run2.json"
+      ],
+      "stagesMsMedian": {
+        "parseSeconds": 134.0,
+        "elaborateSeconds": 26.0,
+        "traverseSeconds": 7.0,
+        "writeRowsSeconds": 2.0,
+        "createIndexSeconds": 1.0
+      }
+    },
+    {
+      "tool": "peakrdl-check",
+      "fixture": "400k",
+      "sourceMode": "registers",
+      "runs": 3,
+      "succeeded": 3,
+      "timeouts": 0,
+      "failures": 0,
+      "registerCount": 400000,
+      "wallClockMsMedian": 105816,
+      "wallClockVariancePct": 8.5,
+      "peakRssBytesMedian": 7683424256,
+      "fileCountMedian": 1,
+      "outputBytesMedian": 168574976,
+      "rawFiles": [
+        "benchmarks/raw-results/20260713-132539-peakrdl-check-400k-run0.json",
+        "benchmarks/raw-results/20260713-132725-peakrdl-check-400k-run1.json",
+        "benchmarks/raw-results/20260713-132909-peakrdl-check-400k-run2.json"
+      ],
+      "stagesMsMedian": {
+        "parseSeconds": 72654.0,
+        "elaborateSeconds": 3619.0,
+        "traverseSeconds": 2786.0,
+        "writeRowsSeconds": 1161.0,
+        "createIndexSeconds": 194.0
+      }
+    },
+    {
+      "tool": "peakrdl-check",
+      "fixture": "800k",
+      "sourceMode": "registers",
+      "runs": 3,
+      "succeeded": 3,
+      "timeouts": 0,
+      "failures": 0,
+      "registerCount": 800000,
+      "wallClockMsMedian": 284929,
+      "wallClockVariancePct": 5.5,
+      "peakRssBytesMedian": 10402332672,
+      "fileCountMedian": 1,
+      "outputBytesMedian": 337801216,
+      "rawFiles": [
+        "benchmarks/raw-results/20260713-135552-peakrdl-check-800k-run0.json",
+        "benchmarks/raw-results/20260713-140032-peakrdl-check-800k-run1.json",
+        "benchmarks/raw-results/20260713-140527-peakrdl-check-800k-run2.json"
+      ],
+      "stagesMsMedian": {
+        "parseSeconds": 181875.0,
+        "elaborateSeconds": 10186.0,
+        "traverseSeconds": 7281.0,
+        "writeRowsSeconds": 2698.0,
+        "createIndexSeconds": 250.0
+      }
+    },
+    {
+      "tool": "peakrdl-check",
+      "fixture": "uniq10k",
+      "sourceMode": "registers",
+      "runs": 3,
+      "succeeded": 3,
+      "timeouts": 0,
+      "failures": 0,
+      "registerCount": 10000,
+      "wallClockMsMedian": 21765,
+      "wallClockVariancePct": 1.0,
+      "peakRssBytesMedian": 3847782400,
+      "fileCountMedian": 1,
+      "outputBytesMedian": 49205248,
+      "rawFiles": [
+        "benchmarks/raw-results/20260713-151828-peakrdl-check-uniq10k-run0.json",
+        "benchmarks/raw-results/20260713-151850-peakrdl-check-uniq10k-run1.json",
+        "benchmarks/raw-results/20260713-151911-peakrdl-check-uniq10k-run2.json"
+      ],
+      "stagesMsMedian": {
+        "parseSeconds": 16206.0,
+        "elaborateSeconds": 2453.0,
+        "traverseSeconds": 554.0,
+        "writeRowsSeconds": 224.0,
+        "createIndexSeconds": 54.0
+      }
+    },
+    {
       "tool": "peakrdl-html",
       "fixture": "100k",
       "sourceMode": "default",
@@ -152,232 +378,6 @@
         "parseMs": 17264,
         "elaborationMs": 712,
         "generationMs": 39873
-      }
-    },
-    {
-      "tool": "regreview",
-      "fixture": "100k",
-      "sourceMode": "all",
-      "runs": 3,
-      "succeeded": 3,
-      "timeouts": 0,
-      "failures": 0,
-      "registerCount": 100000,
-      "wallClockMsMedian": 18590,
-      "wallClockVariancePct": 0.3,
-      "peakRssBytesMedian": 3325329408,
-      "fileCountMedian": 1,
-      "outputBytesMedian": 41861120,
-      "rawFiles": [
-        "benchmarks/raw-results/20260713-151728-regreview-100k-run0.json",
-        "benchmarks/raw-results/20260713-151747-regreview-100k-run1.json",
-        "benchmarks/raw-results/20260713-151806-regreview-100k-run2.json"
-      ],
-      "stagesMsMedian": {
-        "parseSeconds": 14304.0,
-        "elaborateSeconds": 748.0,
-        "traverseSeconds": 604.0,
-        "writeRowsSeconds": 202.0,
-        "createIndexSeconds": 45.0
-      }
-    },
-    {
-      "tool": "regreview",
-      "fixture": "100k",
-      "sourceMode": "none",
-      "runs": 3,
-      "succeeded": 3,
-      "timeouts": 0,
-      "failures": 0,
-      "registerCount": 100000,
-      "wallClockMsMedian": 18762,
-      "wallClockVariancePct": 1.8,
-      "peakRssBytesMedian": 3314335744,
-      "fileCountMedian": 1,
-      "outputBytesMedian": 41795584,
-      "rawFiles": [
-        "benchmarks/raw-results/20260713-151536-regreview-100k-run0.json",
-        "benchmarks/raw-results/20260713-151555-regreview-100k-run1.json",
-        "benchmarks/raw-results/20260713-151613-regreview-100k-run2.json"
-      ],
-      "stagesMsMedian": {
-        "parseSeconds": 14476.0,
-        "elaborateSeconds": 747.0,
-        "traverseSeconds": 573.0,
-        "writeRowsSeconds": 205.0,
-        "createIndexSeconds": 45.0
-      }
-    },
-    {
-      "tool": "regreview",
-      "fixture": "100k",
-      "sourceMode": "registers",
-      "runs": 6,
-      "succeeded": 6,
-      "timeouts": 0,
-      "failures": 0,
-      "registerCount": 100000,
-      "wallClockMsMedian": 18680.5,
-      "wallClockVariancePct": 5.0,
-      "peakRssBytesMedian": 3321651200.0,
-      "fileCountMedian": 1.0,
-      "outputBytesMedian": 41844736.0,
-      "rawFiles": [
-        "benchmarks/raw-results/20260713-132018-regreview-100k-run0.json",
-        "benchmarks/raw-results/20260713-132037-regreview-100k-run1.json",
-        "benchmarks/raw-results/20260713-132056-regreview-100k-run2.json",
-        "benchmarks/raw-results/20260713-151632-regreview-100k-run0.json",
-        "benchmarks/raw-results/20260713-151651-regreview-100k-run1.json",
-        "benchmarks/raw-results/20260713-151710-regreview-100k-run2.json"
-      ],
-      "stagesMsMedian": {
-        "parseSeconds": 14436.5,
-        "elaborateSeconds": 752.5,
-        "traverseSeconds": 587.0,
-        "writeRowsSeconds": 197.0,
-        "createIndexSeconds": 47.5
-      }
-    },
-    {
-      "tool": "regreview",
-      "fixture": "10k",
-      "sourceMode": "registers",
-      "runs": 6,
-      "succeeded": 6,
-      "timeouts": 0,
-      "failures": 0,
-      "registerCount": 10000,
-      "wallClockMsMedian": 2162.0,
-      "wallClockVariancePct": 5.3,
-      "peakRssBytesMedian": 380542976.0,
-      "fileCountMedian": 1.0,
-      "outputBytesMedian": 4407296.0,
-      "rawFiles": [
-        "benchmarks/raw-results/20260713-131926-regreview-10k-run0.json",
-        "benchmarks/raw-results/20260713-131929-regreview-10k-run1.json",
-        "benchmarks/raw-results/20260713-131931-regreview-10k-run2.json",
-        "benchmarks/raw-results/20260713-131939-regreview-10k-run0.json",
-        "benchmarks/raw-results/20260713-131941-regreview-10k-run1.json",
-        "benchmarks/raw-results/20260713-131944-regreview-10k-run2.json"
-      ],
-      "stagesMsMedian": {
-        "parseSeconds": 1627.5,
-        "elaborateSeconds": 83.5,
-        "traverseSeconds": 64.0,
-        "writeRowsSeconds": 20.0,
-        "createIndexSeconds": 6.0
-      }
-    },
-    {
-      "tool": "regreview",
-      "fixture": "1k",
-      "sourceMode": "registers",
-      "runs": 7,
-      "succeeded": 7,
-      "timeouts": 0,
-      "failures": 0,
-      "registerCount": 1000,
-      "wallClockMsMedian": 248,
-      "wallClockVariancePct": 16.5,
-      "peakRssBytesMedian": 68763648,
-      "fileCountMedian": 1,
-      "outputBytesMedian": 528384,
-      "rawFiles": [
-        "benchmarks/raw-results/20260713-131323-regreview-1k-run0.json",
-        "benchmarks/raw-results/20260713-131921-regreview-1k-run0.json",
-        "benchmarks/raw-results/20260713-131921-regreview-1k-run1.json",
-        "benchmarks/raw-results/20260713-131921-regreview-1k-run2.json",
-        "benchmarks/raw-results/20260713-131934-regreview-1k-run0.json",
-        "benchmarks/raw-results/20260713-131934-regreview-1k-run1.json",
-        "benchmarks/raw-results/20260713-131934-regreview-1k-run2.json"
-      ],
-      "stagesMsMedian": {
-        "parseSeconds": 134.0,
-        "elaborateSeconds": 26.0,
-        "traverseSeconds": 7.0,
-        "writeRowsSeconds": 2.0,
-        "createIndexSeconds": 1.0
-      }
-    },
-    {
-      "tool": "regreview",
-      "fixture": "400k",
-      "sourceMode": "registers",
-      "runs": 3,
-      "succeeded": 3,
-      "timeouts": 0,
-      "failures": 0,
-      "registerCount": 400000,
-      "wallClockMsMedian": 105816,
-      "wallClockVariancePct": 8.5,
-      "peakRssBytesMedian": 7683424256,
-      "fileCountMedian": 1,
-      "outputBytesMedian": 168574976,
-      "rawFiles": [
-        "benchmarks/raw-results/20260713-132539-regreview-400k-run0.json",
-        "benchmarks/raw-results/20260713-132725-regreview-400k-run1.json",
-        "benchmarks/raw-results/20260713-132909-regreview-400k-run2.json"
-      ],
-      "stagesMsMedian": {
-        "parseSeconds": 72654.0,
-        "elaborateSeconds": 3619.0,
-        "traverseSeconds": 2786.0,
-        "writeRowsSeconds": 1161.0,
-        "createIndexSeconds": 194.0
-      }
-    },
-    {
-      "tool": "regreview",
-      "fixture": "800k",
-      "sourceMode": "registers",
-      "runs": 3,
-      "succeeded": 3,
-      "timeouts": 0,
-      "failures": 0,
-      "registerCount": 800000,
-      "wallClockMsMedian": 284929,
-      "wallClockVariancePct": 5.5,
-      "peakRssBytesMedian": 10402332672,
-      "fileCountMedian": 1,
-      "outputBytesMedian": 337801216,
-      "rawFiles": [
-        "benchmarks/raw-results/20260713-135552-regreview-800k-run0.json",
-        "benchmarks/raw-results/20260713-140032-regreview-800k-run1.json",
-        "benchmarks/raw-results/20260713-140527-regreview-800k-run2.json"
-      ],
-      "stagesMsMedian": {
-        "parseSeconds": 181875.0,
-        "elaborateSeconds": 10186.0,
-        "traverseSeconds": 7281.0,
-        "writeRowsSeconds": 2698.0,
-        "createIndexSeconds": 250.0
-      }
-    },
-    {
-      "tool": "regreview",
-      "fixture": "uniq10k",
-      "sourceMode": "registers",
-      "runs": 3,
-      "succeeded": 3,
-      "timeouts": 0,
-      "failures": 0,
-      "registerCount": 10000,
-      "wallClockMsMedian": 21765,
-      "wallClockVariancePct": 1.0,
-      "peakRssBytesMedian": 3847782400,
-      "fileCountMedian": 1,
-      "outputBytesMedian": 49205248,
-      "rawFiles": [
-        "benchmarks/raw-results/20260713-151828-regreview-uniq10k-run0.json",
-        "benchmarks/raw-results/20260713-151850-regreview-uniq10k-run1.json",
-        "benchmarks/raw-results/20260713-151911-regreview-uniq10k-run2.json"
-      ],
-      "stagesMsMedian": {
-        "parseSeconds": 16206.0,
-        "elaborateSeconds": 2453.0,
-        "traverseSeconds": 554.0,
-        "writeRowsSeconds": 224.0,
-        "createIndexSeconds": 54.0
       }
     }
   ],

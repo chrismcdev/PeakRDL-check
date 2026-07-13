@@ -1,6 +1,6 @@
 import json
 
-from regreview.policy import DEFAULT_POLICY, load_policy
+from peakrdl_check.policy import DEFAULT_POLICY, load_policy
 
 
 BASE = """
@@ -49,7 +49,7 @@ def test_field_added_overlapping_bits(diff_texts):
 
 
 def test_access_transition_matrix():
-    from regreview.diff import ModelDiffer
+    from peakrdl_check.diff import ModelDiffer
     rule = ModelDiffer._sw_access_rule
     assert rule("rw", "r") == "ACCESS-RW-TO-RO"
     assert rule("rw", "w") == "ACCESS-READABLE-TO-WO"

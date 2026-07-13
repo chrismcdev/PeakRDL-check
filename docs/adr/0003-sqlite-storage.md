@@ -20,7 +20,7 @@ incremental updates. Candidates considered:
 ## Decision
 
 One SQLite file per specification (`register-map.sqlite`), schema in
-`regreview/storage.py` (see docs/storage.md).
+`peakrdl_check/storage.py` (see docs/storage.md).
 
 Deciding factors: portability (Python stdlib, no native deps), true random
 access for a virtualized tree UI, FTS5 with contentless tables and
@@ -44,7 +44,7 @@ Measured at the 800k mixed fixture (`build/800k-build*.json`):
 - Write path uses `journal_mode=OFF` / `synchronous=OFF` — safe because the
   writer always creates a fresh file; the incremental splicer runs inside a
   normal transaction on an existing file.
-- FTS5 `contentless_delete` requires SQLite ≥ 3.43 (`regreview doctor`
+- FTS5 `contentless_delete` requires SQLite ≥ 3.43 (`peakrdl-check doctor`
   checks; pinned environment ships 3.50.4).
 - Addresses stored as zero-padded hex TEXT so B-tree order is numeric order
   without 64-bit integer or float hazards.

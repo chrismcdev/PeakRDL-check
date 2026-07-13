@@ -1,7 +1,7 @@
-diff --git a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/before.rdl b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/after.rdl
+diff --git a/diff-corpus/scenarios/difficult-09-one-line-thousands/before.rdl b/diff-corpus/scenarios/difficult-09-one-line-thousands/after.rdl
 index d2955fb..6ad4e53 100644
---- a/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/before.rdl
-+++ b/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/difficult-09-one-line-thousands/after.rdl
+--- a/diff-corpus/scenarios/difficult-09-one-line-thousands/before.rdl
++++ b/diff-corpus/scenarios/difficult-09-one-line-thousands/after.rdl
 @@ -2,7 +2,7 @@ addrmap dma_t {
      reg chan_t {
          field { sw = rw; hw = r; reset = 0x0; } src_lo[31:0];

@@ -10,7 +10,7 @@ review with comments and sign-off workflows.
 
 ## Decision
 
-RegReview does none of that. Scope is: **build a fast index, browse it, diff
+PeakRDL-check does none of that. Scope is: **build a fast index, browse it, diff
 two revisions semantically, gate CI**.
 
 Reasons:
@@ -36,7 +36,7 @@ Reasons:
 
 - The viewer has no write path at all; the server is read-only over the
   index.
-- CI is a first-class consumer: `regreview check --fail-on`, SARIF output,
+- CI is a first-class consumer: `peakrdl-check check --fail-on`, SARIF output,
   the composite action in `action/`.
 - If review workflows someday need persistent annotations, the answer should
   be exporting to the forge's review primitives, not building storage for

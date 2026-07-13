@@ -22,7 +22,7 @@
       "after": "0x100",
       "baseLocation": null,
       "headLocation": {
-        "file": "/Users/christopher.mcdonald/Desktop/RagReview/diff-corpus/scenarios/compatible-05-alias-added/after.rdl",
+        "file": "diff-corpus/scenarios/compatible-05-alias-added/after.rdl",
         "line": 4,
         "column": 23
       },

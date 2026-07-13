@@ -1,2 +1,2 @@
 breaking-count=0
-report-path=regreview-out/combined.json
+report-path=peakrdl-check-out/combined.json
