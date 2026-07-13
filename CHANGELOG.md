@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.1](https://github.com/chrismcdev/PeakRDL-check/compare/v0.1.0...v0.1.1) (2026-07-13)
+
+
+### Bug Fixes
+
+* **action:** use Node.js 24 action runtimes ([#6](https://github.com/chrismcdev/PeakRDL-check/issues/6)) ([61c8a65](https://github.com/chrismcdev/PeakRDL-check/commit/61c8a65e8680c7bfae29c103ee462d86f34e42eb))
+
+
+### Documentation
+
+* update issue templates ([#4](https://github.com/chrismcdev/PeakRDL-check/issues/4)) ([e26f839](https://github.com/chrismcdev/PeakRDL-check/commit/e26f8397735758b30c19958173b58c7c2d824ed7))
+
 ## 0.1.0 (2026-07-13)
 
 
