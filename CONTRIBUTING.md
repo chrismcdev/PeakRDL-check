@@ -50,7 +50,8 @@ Methodology: `docs/baseline-methodology.md`.
   `fix`, `docs`, `test`, `perf`, `build`, `ci`, `style`, or `revert`; ≤ 72
   characters and imperative mood. `chore` and `refactor` are intentionally
   excluded. GitHub squash-merges the pull-request title into the single commit
-  added to `main`, and CI blocks titles that do not follow this convention.
+  added to `main`. CI blocks titles that do not follow this convention, and
+  the required unit-test job must also pass before merging.
 - A commit that changes behaviour includes/updates its tests in the same
   commit; a commit that changes performance claims includes the raw-result
   files from the rerun.

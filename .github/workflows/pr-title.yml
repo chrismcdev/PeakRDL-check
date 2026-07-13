@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          # Validate with the trusted copy of the script from the base branch.
+          ref: ${{ github.event.pull_request.base.sha }}
 
       - name: Validate Conventional Commit title
         env:
