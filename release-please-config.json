@@ -6,7 +6,7 @@
       "package-name": "peakrdl-check",
       "include-component-in-tag": false,
       "include-v-in-tag": true,
-      "pull-request-title-pattern": "feat(release): prepare ${version}",
+      "pull-request-title-pattern": "feat(release): prepare v${version}",
       "changelog-sections": [
         { "type": "feat", "section": "Features" },
         { "type": "fix", "section": "Bug Fixes" },
