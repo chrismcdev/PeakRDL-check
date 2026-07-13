@@ -41,6 +41,12 @@ def cmd_build(args) -> int:
     from .adapter import build_canonical
     from .storage import IndexWriter
 
+    if args.mode == "static":
+        print("error: static mode (in-browser SQLite) is not implemented in "
+              "this release; use --mode server (see docs/adr/0008)",
+              file=sys.stderr)
+        return EXIT_USAGE
+
     out_dir = Path(args.output)
     out_dir.mkdir(parents=True, exist_ok=True)
     db_path = out_dir / "register-map.sqlite"

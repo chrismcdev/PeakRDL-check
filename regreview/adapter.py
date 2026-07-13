@@ -336,7 +336,9 @@ def canonicalize_root(root, source_mode: str,
     total = walk(top_node, None, "")
     timings.traverse_s = time.perf_counter() - t0
 
-    src_files = sorted({d.src_file for d in decls if d.src_file}) or [str(f) for f in rdl_files]
+    src_files = sorted({d.src_file for d in decls if d.src_file})
+    if not src_files and top_src_file:
+        src_files = [top_src_file]
 
     model = CanonicalModel(
         top_name=top_name,

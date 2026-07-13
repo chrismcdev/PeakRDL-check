@@ -36,8 +36,7 @@ def changed_rdl_files(base: str, head: str, glob: str) -> list:
 
 def checkout_tree(ref: str, dest: Path) -> None:
     dest.mkdir(parents=True, exist_ok=True)
-    tar = sh("git", "archive", ref)
-    p = subprocess.run(["git", "archive", ref], capture_output=True)
+    p = subprocess.run(["git", "archive", ref], capture_output=True, check=True)
     subprocess.run(["tar", "-x", "-C", str(dest)], input=p.stdout, check=True)
 
 

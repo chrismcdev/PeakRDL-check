@@ -207,7 +207,6 @@ class IndexWriter:
         con.executemany("INSERT OR REPLACE INTO meta VALUES (?,?)", meta.items())
         con.execute("PRAGMA optimize")
         con.commit()
-        con.execute("VACUUM") if False else None
         con.close()
         return {"nodes": n_nodes, "definitions": len(def_rows),
                 "registers": total_regs, **{k: round(v, 3) for k, v in self.timings.items()}}

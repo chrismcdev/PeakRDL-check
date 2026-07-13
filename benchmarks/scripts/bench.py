@@ -108,15 +108,16 @@ def run_one(tool: str, fixture: str, run_idx: int, timeout: int,
                 parts = line.split()
                 record["cpuTimeMs"] = round(
                     (float(parts[2]) + float(parts[4])) * 1000)
-        # tool's own JSON (stdout, last json object)
-        for chunk in reversed(p.stdout.strip().splitlines()):
-            if chunk.startswith("{") or chunk.startswith("}"):
-                try:
-                    start = p.stdout.index("{")
-                    record["toolReport"] = json.loads(p.stdout[start:])
-                except (ValueError, json.JSONDecodeError):
-                    pass
-                break
+        # tool's own JSON report: parse the trailing JSON object on stdout
+        out = p.stdout.strip()
+        start = out.rfind("\n{")
+        candidate = out[start + 1:] if start != -1 else (
+            out if out.startswith("{") else "")
+        if candidate:
+            try:
+                record["toolReport"] = json.loads(candidate)
+            except json.JSONDecodeError:
+                pass
         record["stderrTail"] = p.stderr[-2000:] if p.returncode else ""
     except subprocess.TimeoutExpired:
         record["wallClockMs"] = round((time.perf_counter() - t0) * 1000)
