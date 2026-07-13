@@ -2,10 +2,9 @@
 
 import json
 import subprocess
-from pathlib import Path
+import sys
 
-ROOT = Path(__file__).resolve().parent.parent
-PEAKRDL = str(ROOT / ".venv" / "bin" / "peakrdl")
+PEAKRDL = [sys.executable, "-m", "peakrdl"]
 
 BASE = """
 addrmap soc {
@@ -16,12 +15,12 @@ addrmap soc {
 
 
 def run(*args):
-    return subprocess.run([PEAKRDL, "check", *args],
+    return subprocess.run([*PEAKRDL, "check", *args],
                           capture_output=True, text=True)
 
 
 def test_subcommand_registered():
-    p = subprocess.run([PEAKRDL, "--help"], capture_output=True, text=True)
+    p = subprocess.run([*PEAKRDL, "--help"], capture_output=True, text=True)
     assert "check" in p.stdout
     assert "Semantic compatibility check" in p.stdout
 
