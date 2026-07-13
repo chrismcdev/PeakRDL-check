@@ -1,0 +1,17 @@
+{
+  "lookups": 2000,
+  "files": [
+    "100k_types_0.rdl",
+    "100k_types_1.rdl",
+    "100k_types_2.rdl",
+    "100k_types_3.rdl"
+  ],
+  "fileBytes": 13324227,
+  "upstreamSeconds": 3.21,
+  "upstreamPerLookupMs": 1.605,
+  "lineIndexSeconds": 0.013,
+  "lineIndexPerLookupUs": 6.49,
+  "speedup": 247.5,
+  "correctnessMismatches": 0,
+  "timestamp": "2026-07-13T15:29:39+1000"
+}

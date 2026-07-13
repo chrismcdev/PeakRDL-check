@@ -1,0 +1,45 @@
+{
+  "generator": "regreview-fixture",
+  "generatorVersion": 1,
+  "params": {
+    "registers": 20000,
+    "fields_per_register": 8,
+    "blocks": 200,
+    "duplicate_ratio": 0.4,
+    "hierarchy_depth": 3,
+    "address_maps": 8,
+    "array_ratio": 0.9,
+    "enum_ratio": 0.15,
+    "desc_words": 12,
+    "include_files": 4,
+    "param_ratio": 0.25,
+    "seed": 104,
+    "name": "p_broad"
+  },
+  "topComponent": "p_broad_top",
+  "files": [
+    "p4-broad-hierarchy.rdl",
+    "p4-broad-hierarchy_types_0.rdl",
+    "p4-broad-hierarchy_types_1.rdl",
+    "p4-broad-hierarchy_types_2.rdl",
+    "p4-broad-hierarchy_types_3.rdl"
+  ],
+  "checksums": {
+    "p4-broad-hierarchy.rdl": "6fea8ee1bc35a76e83857c44d89288849357f634be23aa341c9694d7c6494602",
+    "p4-broad-hierarchy_types_0.rdl": "632562b1c392fad6d7b821bfae1915bbef78c53be4ce6acfdc030e19b023bef1",
+    "p4-broad-hierarchy_types_1.rdl": "f447b4356ca2ebad6ffe8fd89e16d18721cf5616446e68231bdceeed2ddb97eb",
+    "p4-broad-hierarchy_types_2.rdl": "dce5d3189279dfccd4158cac734095f785c6fb77d9db52015dcf270645c47145",
+    "p4-broad-hierarchy_types_3.rdl": "73cb1c1ed7130579e9ce96cdc80a2c8cf949c96dd77ab95024d027cb2e95ea5e"
+  },
+  "sourceLines": 26063,
+  "sourceBytes": 2960741,
+  "expected": {
+    "registers": 20000,
+    "fields": 160000,
+    "registerDefs": 1803,
+    "blockTypes": 160,
+    "blockInstances": 200,
+    "enumTypes": 320
+  },
+  "generationSeconds": 0.043
+}

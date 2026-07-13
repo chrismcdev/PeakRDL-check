@@ -1,0 +1,45 @@
+{
+  "generator": "regreview-fixture",
+  "generatorVersion": 1,
+  "params": {
+    "registers": 20000,
+    "fields_per_register": 8,
+    "blocks": 32,
+    "duplicate_ratio": 0.4,
+    "hierarchy_depth": 3,
+    "address_maps": 2,
+    "array_ratio": 0.9,
+    "enum_ratio": 0.15,
+    "desc_words": 40,
+    "include_files": 4,
+    "param_ratio": 0.25,
+    "seed": 107,
+    "name": "p_desc"
+  },
+  "topComponent": "p_desc_top",
+  "files": [
+    "p7-heavy-source-desc.rdl",
+    "p7-heavy-source-desc_types_0.rdl",
+    "p7-heavy-source-desc_types_1.rdl",
+    "p7-heavy-source-desc_types_2.rdl",
+    "p7-heavy-source-desc_types_3.rdl"
+  ],
+  "checksums": {
+    "p7-heavy-source-desc.rdl": "2fc275811632c32dcf046e1acc2ee715a1c997c7cbd5f01f2f1003ce44bb5490",
+    "p7-heavy-source-desc_types_0.rdl": "afe90ecb01cbb3cd07339b032a9236dc152424c3c5b2a16d6f72427776be0cb6",
+    "p7-heavy-source-desc_types_1.rdl": "4b5650caea0530e18f20fece480c559cd517cc3fd57b81f6d3408ccf2baa950a",
+    "p7-heavy-source-desc_types_2.rdl": "fd91f384aa8067a56ccc8ab54aad5c1d4a20fdd005156ef05ef20182473ae9f3",
+    "p7-heavy-source-desc_types_3.rdl": "45e6cacffffd8f8338fb2f280c62369b61cc9d6ee6be4ec3d258cb45d8cec19b"
+  },
+  "sourceLines": 21932,
+  "sourceBytes": 5906316,
+  "expected": {
+    "registers": 20000,
+    "fields": 160000,
+    "registerDefs": 1654,
+    "blockTypes": 25,
+    "blockInstances": 32,
+    "enumTypes": 50
+  },
+  "generationSeconds": 0.085
+}

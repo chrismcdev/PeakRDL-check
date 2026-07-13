@@ -1,0 +1,23 @@
+{
+  "benchmark": "browser-first-page-800k",
+  "method": "Chromium browser pane, Navigation Timing API + resource transferSize, localhost, cold page load (no HTTP cache), 800k fixture outputs from the benchmark matrix",
+  "peakrdl-html": {
+    "server": "python http.server on generated static output",
+    "domContentLoadedMs": 81,
+    "loadEventMs": 181,
+    "resourceCount": 35,
+    "resourceTransferBytes": 51764740,
+    "jsHeapMBAfterLoad": 43,
+    "note": "entire model (data/ral-data-*.json chunks) transferred and retained by the browser up front; localhost hides the 51.8 MB transfer cost that a remote/VPN link would expose"
+  },
+  "regreview": {
+    "server": "regreview serve (SQLite-backed API)",
+    "domContentLoadedMs": 13,
+    "loadEventMs": 13,
+    "resourceCount": 3,
+    "resourceTransferBytes": 225433,
+    "note": "shell + metadata + first children page only (225 KB); further data fetched on demand, browser state proportional to what is expanded/requested. JS heap reading is unreliable across pages in a shared renderer and is omitted."
+  },
+  "transferReduction": "230x",
+  "timestamp": "2026-07-13T15:35:00+1000"
+}

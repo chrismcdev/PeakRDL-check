@@ -1,0 +1,45 @@
+{
+  "generator": "regreview-fixture",
+  "generatorVersion": 1,
+  "params": {
+    "registers": 10000,
+    "fields_per_register": 24,
+    "blocks": 16,
+    "duplicate_ratio": 0.4,
+    "hierarchy_depth": 3,
+    "address_maps": 2,
+    "array_ratio": 0.9,
+    "enum_ratio": 0.15,
+    "desc_words": 12,
+    "include_files": 4,
+    "param_ratio": 0.25,
+    "seed": 105,
+    "name": "p_fields"
+  },
+  "topComponent": "p_fields_top",
+  "files": [
+    "p5-many-fields.rdl",
+    "p5-many-fields_types_0.rdl",
+    "p5-many-fields_types_1.rdl",
+    "p5-many-fields_types_2.rdl",
+    "p5-many-fields_types_3.rdl"
+  ],
+  "checksums": {
+    "p5-many-fields.rdl": "d7192ade09c31ec600b2aed55abdb9af0b93250f558b32aaad5b424370a97525",
+    "p5-many-fields_types_0.rdl": "956d8a0e304d80ae4a59d7babc0f4dc5580ba1fb57a97f58015f1a926b140439",
+    "p5-many-fields_types_1.rdl": "53e5967d51d95f604ac345bbc435187067946c1ff48022895feea3e580812cc8",
+    "p5-many-fields_types_2.rdl": "86bf065c25f77deaa6c50dce084db2c8d6ed337722f0daded86812c43d226e6e",
+    "p5-many-fields_types_3.rdl": "fc15f8a9a1e8979f96fb250cfd8952621f9f62f170265600cca0bd4abdc7206e"
+  },
+  "sourceLines": 25118,
+  "sourceBytes": 3707716,
+  "expected": {
+    "registers": 10000,
+    "fields": 240000,
+    "registerDefs": 858,
+    "blockTypes": 13,
+    "blockInstances": 16,
+    "enumTypes": 26
+  },
+  "generationSeconds": 0.054
+}

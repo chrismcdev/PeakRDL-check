@@ -1,0 +1,45 @@
+{
+  "generator": "regreview-fixture",
+  "generatorVersion": 1,
+  "params": {
+    "registers": 20000,
+    "fields_per_register": 8,
+    "blocks": 24,
+    "duplicate_ratio": 0.4,
+    "hierarchy_depth": 4,
+    "address_maps": 2,
+    "array_ratio": 0.85,
+    "enum_ratio": 0.2,
+    "desc_words": 12,
+    "include_files": 4,
+    "param_ratio": 0.25,
+    "seed": 110,
+    "name": "p_mixed"
+  },
+  "topComponent": "p_mixed_top",
+  "files": [
+    "p10-mixed-realistic.rdl",
+    "p10-mixed-realistic_types_0.rdl",
+    "p10-mixed-realistic_types_1.rdl",
+    "p10-mixed-realistic_types_2.rdl",
+    "p10-mixed-realistic_types_3.rdl"
+  ],
+  "checksums": {
+    "p10-mixed-realistic.rdl": "26a0c26fd067a77f96ea10543d03f9ea05ce535d8aa7b24b6ceb1e7ea0f6e026",
+    "p10-mixed-realistic_types_0.rdl": "ca903d850b9c3b033aa02e3982acc5cb38f0804a03862d08a99037df3b7df88e",
+    "p10-mixed-realistic_types_1.rdl": "474ad96ea8dc3b6052885021dd5e2171f5ea83852b8371ac0b7537eb02734a58",
+    "p10-mixed-realistic_types_2.rdl": "dde9db1e20fea52bc43bfa65ed5abe5c48c50dd146aacd38607e98938b8ba1c7",
+    "p10-mixed-realistic_types_3.rdl": "4f5fec100bd6e674a7dc4a599ab3419a3286d50536f79ae648922464b8eb1574"
+  },
+  "sourceLines": 30354,
+  "sourceBytes": 3715267,
+  "expected": {
+    "registers": 20000,
+    "fields": 160000,
+    "registerDefs": 2309,
+    "blockTypes": 18,
+    "blockInstances": 24,
+    "enumTypes": 36
+  },
+  "generationSeconds": 0.052
+}

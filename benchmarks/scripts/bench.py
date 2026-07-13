@@ -47,9 +47,9 @@ def hardware() -> dict:
 
 def versions() -> dict:
     out = subprocess.run([str(VENV / "python"), "-c",
-                          "import systemrdl, peakrdl_html, regreview;"
-                          "print(systemrdl.__version__, peakrdl_html.__version__,"
-                          "regreview.__version__)"],
+                          "import systemrdl, regreview;"
+                          "from peakrdl_html.__about__ import __version__ as p;"
+                          "print(systemrdl.__version__, p, regreview.__version__)"],
                          capture_output=True, text=True).stdout.split()
     return {"systemrdl-compiler": out[0], "peakrdl-html": out[1],
             "regreview": out[2]} if len(out) == 3 else {}

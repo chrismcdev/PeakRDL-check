@@ -1,0 +1,45 @@
+{
+  "generator": "regreview-fixture",
+  "generatorVersion": 1,
+  "params": {
+    "registers": 20000,
+    "fields_per_register": 8,
+    "blocks": 32,
+    "duplicate_ratio": 0.8,
+    "hierarchy_depth": 3,
+    "address_maps": 2,
+    "array_ratio": 0.9,
+    "enum_ratio": 0.15,
+    "desc_words": 12,
+    "include_files": 4,
+    "param_ratio": 0.25,
+    "seed": 102,
+    "name": "p_repet"
+  },
+  "topComponent": "p_repet_top",
+  "files": [
+    "p2-highly-repetitive.rdl",
+    "p2-highly-repetitive_types_0.rdl",
+    "p2-highly-repetitive_types_1.rdl",
+    "p2-highly-repetitive_types_2.rdl",
+    "p2-highly-repetitive_types_3.rdl"
+  ],
+  "checksums": {
+    "p2-highly-repetitive.rdl": "5de963185e52eb56d9879a7d727d9b5495338de0a30f41dc80cb4417df035583",
+    "p2-highly-repetitive_types_0.rdl": "7ce1a538e21fb70fa21a3397af3f1dd982214f9c99ee685ad9c0d887b1ef67e2",
+    "p2-highly-repetitive_types_1.rdl": "e21884ba696973a1a12860653e659f627bfe5f434a3efc15a41f9b49e7c86bd9",
+    "p2-highly-repetitive_types_2.rdl": "b3acd85cc760af6ea21747750f1214576308243445fc7ec0cacc74b814fa8fce",
+    "p2-highly-repetitive_types_3.rdl": "57498994f405881bd8c75f6ac98f58a85a6c57f15aa1cf7be57b7cccd0803178"
+  },
+  "sourceLines": 7085,
+  "sourceBytes": 851747,
+  "expected": {
+    "registers": 20000,
+    "fields": 160000,
+    "registerDefs": 532,
+    "blockTypes": 8,
+    "blockInstances": 32,
+    "enumTypes": 16
+  },
+  "generationSeconds": 0.013
+}

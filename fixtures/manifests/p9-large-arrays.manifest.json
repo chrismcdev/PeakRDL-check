@@ -1,0 +1,45 @@
+{
+  "generator": "regreview-fixture",
+  "generatorVersion": 1,
+  "params": {
+    "registers": 20000,
+    "fields_per_register": 8,
+    "blocks": 8,
+    "duplicate_ratio": 0.4,
+    "hierarchy_depth": 3,
+    "address_maps": 2,
+    "array_ratio": 0.98,
+    "enum_ratio": 0.15,
+    "desc_words": 12,
+    "include_files": 4,
+    "param_ratio": 0.25,
+    "seed": 109,
+    "name": "p_arrays"
+  },
+  "topComponent": "p_arrays_top",
+  "files": [
+    "p9-large-arrays.rdl",
+    "p9-large-arrays_types_0.rdl",
+    "p9-large-arrays_types_1.rdl",
+    "p9-large-arrays_types_2.rdl",
+    "p9-large-arrays_types_3.rdl"
+  ],
+  "checksums": {
+    "p9-large-arrays.rdl": "89ee3cf65f9387852e009acb0f95b2b181b5f4011a597916d377c6aa0b17377b",
+    "p9-large-arrays_types_0.rdl": "cc07f06db729b574785b0e6ee2443c401fe385e3b76478f5366640b36d772dc0",
+    "p9-large-arrays_types_1.rdl": "6bee1a8d847188a9d10b3ad9446405887f93103043b42f16b82258cfe505db6d",
+    "p9-large-arrays_types_2.rdl": "d0a8441116555454c4bbfcb766a0f69455c6ff71d5d17bfe4b5be5584451d906",
+    "p9-large-arrays_types_3.rdl": "8cf85f1ffb811c378c64ee7201866b71593bac74eb815cb78bdc8cd8113a1c8f"
+  },
+  "sourceLines": 4864,
+  "sourceBytes": 586053,
+  "expected": {
+    "registers": 20000,
+    "fields": 160000,
+    "registerDefs": 366,
+    "blockTypes": 6,
+    "blockInstances": 8,
+    "enumTypes": 12
+  },
+  "generationSeconds": 0.009
+}

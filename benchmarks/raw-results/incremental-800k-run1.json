@@ -1,0 +1,46 @@
+{
+  "mode": "incremental",
+  "changedFiles": [
+    "/Users/christopher.mcdonald/Desktop/RagReview/fixtures/generated/800k_types_2.rdl"
+  ],
+  "unitsTotal": 800,
+  "stages": {
+    "hashSeconds": 0.039,
+    "elaborateSeconds": 31.381,
+    "spliceSeconds": 0.711
+  },
+  "unitsRebuilt": 200,
+  "unitsReused": 600,
+  "rebuiltTypeCount": 160,
+  "rebuiltTypes": [
+    "blk_s10",
+    "blk_s102",
+    "blk_s106",
+    "blk_s110",
+    "blk_s114",
+    "blk_s118",
+    "blk_s122",
+    "blk_s126",
+    "blk_s130",
+    "blk_s134",
+    "blk_s138",
+    "blk_s14",
+    "blk_s142",
+    "blk_s146",
+    "blk_s150",
+    "blk_s154",
+    "blk_s158",
+    "blk_s18",
+    "blk_s2",
+    "blk_s22",
+    "..."
+  ],
+  "registerDelta": 0,
+  "totalSeconds": 32.164,
+  "result": "updated",
+  "peakRssBytes": 6219399168,
+  "timePeakRssBytes": 6219399168,
+  "editedFile": "/Users/christopher.mcdonald/Desktop/RagReview/fixtures/generated/800k_types_2.rdl",
+  "editSite": 7,
+  "timestamp": "2026-07-13T15:28:04+1000"
+}

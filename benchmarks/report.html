@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8">
+<title>RegReview benchmark report</title>
+<style>body{font:14px system-ui;margin:2rem auto;max-width:70rem;padding:0 1rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}
+th,td{border:1px solid #ccc;padding:4px 10px;text-align:left;font-variant-numeric:tabular-nums}
+th{background:#f0f4ff}</style>
+<h1>RegReview benchmark report</h1>
+<p>Generated from raw run records in <code>benchmarks/raw-results/</code>.
+Medians over successful runs; variance = (max−min)/median.</p>
+<h2>Build benchmarks (cold process, warm FS cache)</h2>
+<table><tr><th>Fixture</th><th>Registers</th><th>Tool</th><th>Wall (median)</th>
+<th>Var %</th><th>Peak RSS</th><th>Files</th><th>Output</th><th>OK</th></tr>
+<tr><td>1k</td><td>1,000</td><td>peakrdl-html</td><td>0.7s</td><td>12.0</td><td>78 MB</td><td>186</td><td>9 MB</td><td>7/7</td></tr><tr><td>1k</td><td>1,000</td><td>regreview</td><td>0.2s</td><td>16.5</td><td>66 MB</td><td>1</td><td>516 KB</td><td>7/7</td></tr><tr><td>10k</td><td>10,000</td><td>peakrdl-html</td><td>4.7s</td><td>2.1</td><td>376 MB</td><td>1136</td><td>20 MB</td><td>3/3</td></tr><tr><td>10k</td><td>10,000</td><td>regreview</td><td>2.2s</td><td>5.3</td><td>363 MB</td><td>1</td><td>4 MB</td><td>6/6</td></tr><tr><td>uniq10k</td><td>10,000</td><td>peakrdl-html</td><td>61.5s</td><td>0.4</td><td>4 GB</td><td>10078</td><td>130 MB</td><td>3/3</td></tr><tr><td>uniq10k</td><td>10,000</td><td>regreview</td><td>21.8s</td><td>1.0</td><td>4 GB</td><td>1</td><td>47 MB</td><td>3/3</td></tr><tr><td>100k</td><td>100,000</td><td>peakrdl-html</td><td>56.2s</td><td>3.2</td><td>3 GB</td><td>10603</td><td>137 MB</td><td>3/3</td></tr><tr><td>100k</td><td>100,000</td><td>regreview</td><td>18.7s</td><td>5.0</td><td>3 GB</td><td>1</td><td>40 MB</td><td>6/6</td></tr><tr><td>400k</td><td>400,000</td><td>peakrdl-html</td><td>435.4s</td><td>2.7</td><td>7 GB</td><td>42613</td><td>526 MB</td><td>3/3</td></tr><tr><td>400k</td><td>400,000</td><td>regreview</td><td>105.8s</td><td>8.5</td><td>7 GB</td><td>1</td><td>161 MB</td><td>3/3</td></tr><tr><td>800k</td><td>800,000</td><td>peakrdl-html</td><td>1389.6s</td><td>5.3</td><td>10 GB</td><td>85216</td><td>1 GB</td><td>3/3</td></tr><tr><td>800k</td><td>800,000</td><td>regreview</td><td>284.9s</td><td>5.5</td><td>10 GB</td><td>1</td><td>322 MB</td><td>3/3</td></tr></table>
+<h2>Interactive (existing index; p50 / p95 ms)</h2>
+<table><tr><th>Index</th><th>DB size</th><th>Server ready</th><th>First usable</th>
+<th>Exact lookup</th><th>Children page</th><th>Search</th><th>Addr range</th></tr>
+<tr><td>100k</td><td>40 MB</td><td>72 ms</td><td>74 ms</td><td>0.21 / 0.31</td><td>0.85 / 0.91</td><td>1.62 / 1.67</td><td>1.80 / 2.10</td></tr><tr><td>400k</td><td>161 MB</td><td>104 ms</td><td>106 ms</td><td>0.34 / 0.66</td><td>0.87 / 1.06</td><td>4.40 / 5.20</td><td>2.76 / 4.21</td></tr><tr><td>800k</td><td>322 MB</td><td>105 ms</td><td>107 ms</td><td>0.36 / 0.60</td><td>0.91 / 1.16</td><td>8.15 / 10.40</td><td>4.12 / 7.17</td></tr></table>

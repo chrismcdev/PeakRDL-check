@@ -8,7 +8,7 @@
       "title": "Reset value changed",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.051,
+      "diffSeconds": 0.023,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -34,7 +34,7 @@
       "title": "Register width increased",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.004,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -47,7 +47,7 @@
       "title": "Field volatility changed (hw write access dropped)",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.003,
+      "diffSeconds": 0.002,
       "totalChanges": 2,
       "summary": {
         "behavioural": 2
@@ -86,7 +86,7 @@
       "title": "Software access changed ambiguously (w to r)",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.001,
       "totalChanges": 1,
       "summary": {
         "uncertain": 1
@@ -99,7 +99,7 @@
       "title": "Interrupt behaviour enabled on a field",
       "category": "behavioural",
       "gitDiffLines": 9,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.001,
       "totalChanges": 1,
       "summary": {
         "behavioural": 1
@@ -151,7 +151,7 @@
       "title": "Register width reduced from 64 to 32 bits",
       "category": "breaking",
       "gitDiffLines": 13,
-      "diffSeconds": 0.003,
+      "diffSeconds": 0.007,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -242,7 +242,7 @@
       "title": "New register overlaps existing address space (systemrdl-compiler refuses to elaborate overlapping instances, so the head spec fails to compile and the engine emits SPEC-COMPILE-FAILED rather than REG-ADDED-OVERLAPPING/ADDR-OVERLAP-NEW)",
       "category": "breaking",
       "gitDiffLines": 10,
-      "diffSeconds": 0.007,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -255,7 +255,7 @@
       "title": "New field overlaps bits of existing fields (systemrdl-compiler refuses to elaborate overlapping fields, so the head spec fails to compile and the engine emits SPEC-COMPILE-FAILED rather than FIELD-ADDED-OVERLAPPING/FIELD-OVERLAP-NEW)",
       "category": "breaking",
       "gitDiffLines": 12,
-      "diffSeconds": 0.003,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -399,7 +399,7 @@
       "title": "Array dimensions changed on a register array",
       "category": "difficult",
       "gitDiffLines": 11,
-      "diffSeconds": 0.003,
+      "diffSeconds": 0.002,
       "totalChanges": 1,
       "summary": {
         "breaking": 1
@@ -479,7 +479,7 @@
       "title": "Large textual refactor (split, reorder, reformat, renumber) with zero semantic change",
       "category": "difficult",
       "gitDiffLines": 203,
-      "diffSeconds": 0.014,
+      "diffSeconds": 0.013,
       "totalChanges": 0,
       "summary": {},
       "failures": [],
@@ -514,7 +514,7 @@
       "title": "Comments added and changed only",
       "category": "neutral",
       "gitDiffLines": 17,
-      "diffSeconds": 0.003,
+      "diffSeconds": 0.002,
       "totalChanges": 0,
       "summary": {},
       "failures": [],
@@ -525,7 +525,7 @@
       "title": "Declarations reordered, addresses explicit and unchanged",
       "category": "neutral",
       "gitDiffLines": 17,
-      "diffSeconds": 0.002,
+      "diffSeconds": 0.003,
       "totalChanges": 0,
       "summary": {},
       "failures": [],
@@ -591,7 +591,7 @@
       "title": "Addresses and resets rewritten as equivalent expressions",
       "category": "neutral",
       "gitDiffLines": 11,
-      "diffSeconds": 0.003,
+      "diffSeconds": 0.002,
       "totalChanges": 0,
       "summary": {},
       "failures": [],

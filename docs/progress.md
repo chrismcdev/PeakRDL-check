@@ -53,10 +53,23 @@ Live checklist. Dates are completion dates.
       baseline methodology, problem reproduction, ecosystem review,
       ADRs 0001–0010, CONTRIBUTING, SECURITY, LICENSE, implementation plan
 
-## Remaining
+- [x] 2026-07-13 — Full benchmark matrix (Gate F): every fixture × tool cell,
+      3 runs each, all completed within timeout. Headlines at 800k:
+      regreview 285 s / 1 file / 338 MB vs peakrdl-html 1390 s / 85,216 files /
+      1.1 GB; interactive p95s 0.6–10.4 ms; incremental 32.2–32.9 s (3 runs);
+      source-location modes measured equal-cost (18.6–18.8 s at 100k);
+      browser first-page comparison recorded
+      (`benchmarks/raw-results/browser-comparison-800k.json`)
+- [x] 2026-07-13 — PROOF.md generated from raw results
+      (`scripts/build_proof.py`): **Claim 1 Supported, Claim 2 Supported** —
+      all 21 computed criteria PASS
+- [x] 2026-07-13 — README with machine-injected benchmark summary
+- [x] 2026-07-13 — 10 named fixture profiles generated + count-verified
+      (`fixtures/manifests/p1..p10`)
 
-- [ ] Full benchmark matrix run (`benchmarks/scripts/run_full_matrix.sh`: all
-      fixture × tool cells, 3 runs each, incl. peakrdl-html at 400k/800k with
-      timeouts recorded) — **Gate F**
-- [ ] PROOF.md (claims → evidence mapping from raw results)
-- [ ] README
+## Remaining (post-MVP)
+
+- [ ] Run the GitHub Action on a hosted runner (currently proven via local
+      simulation)
+- [ ] Submit the prepared systemrdl-compiler line-index patch upstream
+- [ ] Static (in-browser SQLite) delivery mode — ADR-0008
