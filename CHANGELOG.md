@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/chrismcdev/PeakRDL-check/compare/v0.1.1...v0.2.0) (2026-07-14)
+
+
+### Features
+
+* **viewer:** improve review workflow ([#7](https://github.com/chrismcdev/PeakRDL-check/issues/7)) ([8dc9643](https://github.com/chrismcdev/PeakRDL-check/commit/8dc964336a3154897785e3deb253d550a0806611))
+
+
+### Documentation
+
+* remove internal planning and legacy runtime references ([#10](https://github.com/chrismcdev/PeakRDL-check/issues/10)) ([cdd8aaa](https://github.com/chrismcdev/PeakRDL-check/commit/cdd8aaaa50aacc1bc7e4ecf08f7c85e7f8c1b068))
+* remove logo ([#8](https://github.com/chrismcdev/PeakRDL-check/issues/8)) ([5b40df6](https://github.com/chrismcdev/PeakRDL-check/commit/5b40df65134463e081e45f937ebdacf038ee9d4e))
+
 ## [0.1.1](https://github.com/chrismcdev/PeakRDL-check/compare/v0.1.0...v0.1.1) (2026-07-13)
 
 
