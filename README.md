@@ -4,10 +4,115 @@
 specifications. Detects firmware-breaking register changes, produces CI
 reports and provides scalable exploration of large register maps.**
 
-PeakRDL-check is local-first and complements — not replaces — your existing
+PeakRDL-check is local-first and complements your existing
 flow around `systemrdl-compiler` and PeakRDL: point it at the same `.rdl`
 sources, get an indexed, instantly searchable register map and a
 reviewer-grade semantic diff that classifies interface changes by impact.
+
+## Installation
+
+Install the command-line tool once:
+
+```bash
+pip install peakrdl-check
+```
+
+## Available commands
+
+### Build and serve register documentation
+
+Build a searchable index from your SystemRDL entry file, then serve the local
+documentation viewer:
+
+```bash
+peakrdl-check build design.rdl -o build/design
+peakrdl-check serve build/design
+```
+
+The server prints the local URL to open. It runs until you stop it with
+`Ctrl+C`.
+
+### Generate a diff report
+
+Compare the old (`--base`) and new (`--head`) specifications:
+
+```bash
+peakrdl-check diff --base old.rdl --head new.rdl
+```
+
+The report is printed in the terminal. Add `-o diff.txt` to save it, or use
+`--format markdown`, `json`, or `sarif` when another format is needed. `diff`
+does not fail just because it finds a breaking change.
+
+#### Browse a diff in the documentation viewer
+
+Build the new register map and save a JSON diff beside it:
+
+```bash
+peakrdl-check build new.rdl -o build/review
+peakrdl-check diff --base old.rdl --head new.rdl --format json -o build/review/changes.json
+peakrdl-check serve build/review
+```
+
+Open the printed URL and select the **Changes** tab. The server automatically
+finds `changes.json` in the index directory.
+
+### Run a CI gate
+
+Use `check` when breaking register-interface changes should fail a CI step:
+
+```bash
+peakrdl-check check --base old.rdl --head new.rdl
+```
+
+The command exits with status `1` when it finds a breaking change. Add
+`--fail-on behavioural` only if behavioural and uncertain changes should also
+fail the build.
+
+The reusable [GitHub Action](https://github.com/chrismcdev/PeakRDL-check/blob/main/action/action.yml)
+adds a Markdown report to the job summary, emits inline source annotations,
+uploads the JSON and Markdown reports as an artifact, and applies the selected
+failure threshold.
+
+## What a semantic diff looks like
+
+```text
+$ peakrdl-check diff --base main/uart.rdl --head pr/uart.rdl
+
+Semantic diff: 2 breaking, 1 documentation  (policy 1.0.0)
+
+✖ [BREAKING     ] REG-ADDRESS-CHANGED        uart.status
+    reg 'uart.status' address changed from 0x4 to 0x40.
+    before: 0x4    after: 0x40
+    at pr/uart.rdl:9
+✖ [BREAKING     ] ENUM-VALUE-CHANGED         uart.ctrl.baud
+    Enum member 'B115200' in field 'baud' changed value from 0x2 to 0x4;
+    existing encodings break.
+✎ [DOCUMENTATION] DESC-CHANGED               uart.ctrl
+    Description wording changed on 'uart.ctrl'.
+```
+
+The corpus in `diff-corpus/` demonstrates the other direction too: a 203-line
+textual refactor (file splits, reordering, hex renumbering, typedef
+extraction) that produces **zero** semantic changes, and a one-line parameter
+edit that changes hundreds of elaborated registers. Ambiguous renames are
+reported as `MATCH-UNCERTAIN` — the tool never silently guesses.
+
+## PeakRDL integration
+
+To use PeakRDL-check as a registered PeakRDL subcommand, install the optional
+host integration:
+
+```bash
+pip install "peakrdl-check[peakrdl]"
+peakrdl check pr/design.rdl --base main/design.rdl --fail-on breaking
+```
+
+For an editable source checkout, benchmark tooling, and the test suite, see
+[`CONTRIBUTING.md`](https://github.com/chrismcdev/PeakRDL-check/blob/main/CONTRIBUTING.md).
+
+An example GitHub Actions workflow is in
+[`examples/.github/workflows/register-review.yml`](https://github.com/chrismcdev/PeakRDL-check/blob/main/examples/.github/workflows/register-review.yml).
 
 ## Why PeakRDL-check
 
@@ -51,59 +156,6 @@ Semantic diff: 47/47 curated scenarios pass (12/12 breaking detected,
 10/10 formatting-only suppressed); 240 generated mutation trials at
 recall 1.0, precision 1.0.
 <!-- BENCH:END -->
-
-## What a semantic diff looks like
-
-```text
-$ peakrdl-check diff --base main/uart.rdl --head pr/uart.rdl
-
-Semantic diff: 2 breaking, 1 documentation  (policy 1.0.0)
-
-✖ [BREAKING     ] REG-ADDRESS-CHANGED        uart.status
-    reg 'uart.status' address changed from 0x4 to 0x40.
-    before: 0x4    after: 0x40
-    at pr/uart.rdl:9
-✖ [BREAKING     ] ENUM-VALUE-CHANGED         uart.ctrl.baud
-    Enum member 'B115200' in field 'baud' changed value from 0x2 to 0x4;
-    existing encodings break.
-✎ [DOCUMENTATION] DESC-CHANGED               uart.ctrl
-    Description wording changed on 'uart.ctrl'.
-```
-
-The corpus in `diff-corpus/` demonstrates the other direction too: a 203-line
-textual refactor (file splits, reordering, hex renumbering, typedef
-extraction) that produces **zero** semantic changes, and a one-line parameter
-edit that changes hundreds of elaborated registers. Ambiguous renames are
-reported as `MATCH-UNCERTAIN` — the tool never silently guesses.
-
-## Five-minute quick start
-
-```bash
-python -m pip install peakrdl-check
-
-# build an index and browse it
-peakrdl-check build your_design.rdl --output build/design
-peakrdl-check serve build/design         # opens http://127.0.0.1:<port>
-
-# review a change
-peakrdl-check diff --base main/design.rdl --head pr/design.rdl \
-    --format markdown --output diff.md
-
-# CI gate (exit 1 on breaking changes)
-peakrdl-check check --base main/design.rdl --head pr/design.rdl \
-    --fail-on breaking
-
-# optionally install the PeakRDL host and use the registered subcommand
-python -m pip install "peakrdl-check[peakrdl]"
-peakrdl check pr/design.rdl --base main/design.rdl --fail-on breaking
-```
-
-For an editable source checkout, benchmark tooling, and the test suite, see
-[`CONTRIBUTING.md`](https://github.com/chrismcdev/PeakRDL-check/blob/main/CONTRIBUTING.md).
-
-A reusable GitHub Action lives in [`action/`](https://github.com/chrismcdev/PeakRDL-check/blob/main/action/action.yml); an example
-workflow is in
-[`examples/.github/workflows/register-review.yml`](https://github.com/chrismcdev/PeakRDL-check/blob/main/examples/.github/workflows/register-review.yml).
 
 ## Supported input
 
