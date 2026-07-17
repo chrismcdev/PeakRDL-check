@@ -1,6 +1,6 @@
 """PeakRDL-check: local-first semantic review and large-scale browsing for hardware register specifications."""
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 # Version of the canonical model schema. Bump on any change to the canonical
 # entity representation or hashing scheme; cached artifacts are keyed on it.

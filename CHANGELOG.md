@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.1](https://github.com/chrismcdev/PeakRDL-check/compare/v0.2.0...v0.2.1) (2026-07-17)
+
+
+### Bug Fixes
+
+* **action:** compile once per file, cap annotations and job summary ([#14](https://github.com/chrismcdev/PeakRDL-check/issues/14)) ([0bad1be](https://github.com/chrismcdev/PeakRDL-check/commit/0bad1be068a9dca2bc343807ab1052563e843b93))
+* **viewer:** load large change sets quickly and reliably ([#13](https://github.com/chrismcdev/PeakRDL-check/issues/13)) ([1b62333](https://github.com/chrismcdev/PeakRDL-check/commit/1b623335979520ee20b0e61aecb13b3303600849))
+
+
+### Documentation
+
+* clarify core commands and review workflows ([#11](https://github.com/chrismcdev/PeakRDL-check/issues/11)) ([c47d742](https://github.com/chrismcdev/PeakRDL-check/commit/c47d742339b0b6e1beaf88afadd9809720cb4212))
+
 ## [0.2.0](https://github.com/chrismcdev/PeakRDL-check/compare/v0.1.1...v0.2.0) (2026-07-14)
 
 
