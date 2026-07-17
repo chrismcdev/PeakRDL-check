@@ -599,6 +599,23 @@ async function renderOverview() {
   d.appendChild(columns);
 }
 
+function headPathForChange(c) {
+  // Path the entity has in the SERVED (head) map, or null when it only
+  // exists in the base revision and cannot be revealed.
+  const rule = c.ruleId || "";
+  if (rule === "REG-REMOVED" || rule === "BLOCK-REMOVED" ||
+      rule === "MATCH-UNCERTAIN") return null;
+  if (rule === "REG-RENAMED" || rule === "BLOCK-RENAMED") {
+    const dot = c.entityKey.lastIndexOf(".");
+    return dot < 0 ? String(c.after) : c.entityKey.slice(0, dot + 1) + c.after;
+  }
+  // Rename-with-move records carry "new.path @ 0x…" in `after`.
+  if ((rule === "REG-MOVED-AND-RENAMED" || rule === "BLOCK-MOVED") &&
+      String(c.after || "").includes(" @ "))
+    return String(c.after).split(" @ ")[0];
+  return c.entityKey;
+}
+
 function showChangeDetail(c) {
   const d = document.getElementById("detail");
   d.replaceChildren();
@@ -617,19 +634,36 @@ function showChangeDetail(c) {
     ["Base location", c.baseLocation ? `${c.baseLocation.file}:${c.baseLocation.line ?? "?"}` : "—"],
     ["Head location", c.headLocation ? `${c.headLocation.file}:${c.headLocation.line ?? "?"}` : "—"],
   ];
+  if (c.candidates && c.candidates.length)
+    rows.push(["Candidates", c.candidates.join(", ")]);
   for (const [k, v] of rows) {
     const tr = el("tr"); tr.appendChild(el("th", "", k)); tr.appendChild(el("td", "mono", v ?? "—"));
     t.appendChild(tr);
   }
   d.appendChild(t);
+  const target = headPathForChange(c);
+  if (!target) {
+    d.appendChild(el("p", "desc", c.ruleId === "MATCH-UNCERTAIN"
+      ? "This entity belongs to the base revision (possible rename — see candidates); it has no hierarchy entry in the served map."
+      : "This entity was removed and is not present in the served register map."));
+    return;
+  }
   const link = el("a", "", "Open entity in hierarchy →");
-  link.href = "/r/" + encodeURIComponent(c.entityKey);
+  link.href = "/r/" + encodeURIComponent(target);
+  const note = el("span", "desc");
+  note.style.marginLeft = "8px";
   link.onclick = (e) => {
     e.preventDefault();
-    revealInHierarchy(c.entityKey).catch(err =>
-      statusDetail(`Could not reveal ${c.entityKey}: ${err.message}`, true));
+    note.textContent = "";
+    note.classList.remove("error");
+    // Keep the change detail on screen; failures report inline.
+    revealInHierarchy(target).catch(err => {
+      note.textContent = `${target}: ${err.message}`;
+      note.classList.add("error");
+    });
   };
   d.appendChild(link);
+  d.appendChild(note);
 }
 
 function changeState(c) {
