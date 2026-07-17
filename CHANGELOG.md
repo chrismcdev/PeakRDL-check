@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/chrismcdev/PeakRDL-check/compare/v0.2.1...v0.2.2) (2026-07-17)
+
+
+### Bug Fixes
+
+* **action:** diff entry files, not include fragments or self-comparisons ([#15](https://github.com/chrismcdev/PeakRDL-check/issues/15)) ([cec3165](https://github.com/chrismcdev/PeakRDL-check/commit/cec31652bfbf75fa59158fed98713e71149c2fcf))
+
 ## [0.2.1](https://github.com/chrismcdev/PeakRDL-check/compare/v0.2.0...v0.2.1) (2026-07-17)
 
 
