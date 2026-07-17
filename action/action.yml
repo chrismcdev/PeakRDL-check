@@ -26,6 +26,13 @@ inputs:
   policy:
     description: "Optional path to a severity policy JSON"
     default: ""
+  mode:
+    description: >
+      "review" (default) diffs base-ref..head-ref. "prime" builds and caches
+      an index for every entry file at head-ref without diffing — run it on
+      pushes to the default branch (with base-ref == head-ref == the pushed
+      sha) so pull-request reviews always start from a warm base index.
+    default: "review"
   python-version:
     description: "Python version for the toolchain"
     default: "3.12"
@@ -49,6 +56,16 @@ runs:
       shell: bash
       run: pip install "${{ github.action_path }}/.."
 
+    # Base indexes are immutable per (entry, base sha, storage schema): a
+    # warm cache means the review never recompiles the base revision, and
+    # the head revision is spliced incrementally on top. The "s2" segment is
+    # the storage schema version and must move with STORAGE_SCHEMA_VERSION.
+    - name: Restore base index cache
+      uses: actions/cache@v4
+      with:
+        path: peakrdl-check-index-cache
+        key: peakrdl-check-index-s2-${{ inputs.base-ref }}
+
     - name: Semantic review
       id: review
       shell: bash
@@ -58,6 +75,8 @@ runs:
         RDL_GLOB: ${{ inputs.rdl-glob }}
         FAIL_ON: ${{ inputs.fail-on }}
         POLICY: ${{ inputs.policy }}
+        MODE: ${{ inputs.mode }}
+        PEAKRDL_CHECK_INDEX_CACHE: peakrdl-check-index-cache
       run: python "${{ github.action_path }}/review.py"
 
     - name: Upload review artifacts

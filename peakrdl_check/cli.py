@@ -114,22 +114,32 @@ def cmd_inspect(args) -> int:
     return EXIT_OK
 
 
-def _diff_result(args):
-    """Compile base and head, run the semantic diff. Shared by diff/check."""
+def _load_diff_model(spec: str, top):
+    """Load one side of a diff: SystemRDL source, or a prebuilt index
+    (a register-map.sqlite file or the directory containing one)."""
+    path = Path(spec)
+    db = path / "register-map.sqlite" if path.is_dir() else path
+    if db.suffix == ".sqlite":
+        from .storage import model_from_index
+        return model_from_index(db)
     from .adapter import build_canonical
+    return build_canonical([spec], top=top, source_mode="all")
+
+
+def _diff_result(args):
+    """Load base and head (compiling if needed), run the semantic diff.
+    Shared by diff/check."""
     from .diff import compile_failed_result, diff_models
     from .policy import load_policy
     from systemrdl import RDLCompileError
 
     policy = load_policy(getattr(args, "policy", None))
     try:
-        base = build_canonical([args.base], top=getattr(args, "base_top", None),
-                               source_mode="all")
+        base = _load_diff_model(args.base, getattr(args, "base_top", None))
     except RDLCompileError as e:
         return compile_failed_result("base", str(e)), None
     try:
-        head = build_canonical([args.head], top=getattr(args, "head_top", None),
-                               source_mode="all")
+        head = _load_diff_model(args.head, getattr(args, "head_top", None))
     except RDLCompileError as e:
         return compile_failed_result("head", str(e)), None
     return diff_models(base, head, policy=policy,
@@ -352,8 +362,12 @@ def main(argv=None) -> int:
     i.set_defaults(func=cmd_inspect)
 
     d = sub.add_parser("diff", help="semantic diff between two specifications")
-    d.add_argument("--base", required=True)
-    d.add_argument("--head", required=True)
+    d.add_argument("--base", required=True,
+                   help="SystemRDL entry file, or a built index "
+                        "(.sqlite file or index directory)")
+    d.add_argument("--head", required=True,
+                   help="SystemRDL entry file, or a built index "
+                        "(.sqlite file or index directory)")
     d.add_argument("--base-top", default=None)
     d.add_argument("--head-top", default=None)
     d.add_argument("--format", choices=("text", "json", "markdown", "sarif"),

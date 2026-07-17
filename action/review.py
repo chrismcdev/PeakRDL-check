@@ -14,6 +14,9 @@ Environment:
     RDL_GLOB              entry-file glob (default **/*.rdl)
     FAIL_ON               breaking | behavioural | validation-error | none
     POLICY                optional policy JSON path
+    MODE                  review (default) | prime — prime builds and caches
+                          indexes for every entry at HEAD_REF without diffing
+    PEAKRDL_CHECK_INDEX_CACHE  directory persisted by actions/cache
     GITHUB_STEP_SUMMARY   job summary sink (provided by Actions)
     GITHUB_OUTPUT         step outputs sink (provided by Actions)
 """
@@ -114,6 +117,129 @@ def checkout_tree(ref: str, dest: Path) -> None:
     subprocess.run(["tar", "-x", "-C", str(dest)], input=p.stdout, check=True)
 
 
+def slugify(text: str) -> str:
+    return re.sub(r"[^A-Za-z0-9_.-]", "_", text)
+
+
+class SourceTree:
+    """One scratch checkout reused for base and head builds.
+
+    Index build manifests record absolute input paths, so the incremental
+    splicer only works when the head sources occupy the same paths the base
+    index was built from — hence a single tree that switches revisions.
+    """
+
+    def __init__(self, root: Path):
+        self.root = root
+        self._ref = None
+
+    def at(self, ref: str) -> Path:
+        if self._ref != ref:
+            import shutil
+            if self.root.exists():
+                shutil.rmtree(self.root)
+            checkout_tree(ref, self.root)
+            self._ref = ref
+        return self.root
+
+
+def entry_diff(entry: str, base: str, head: str, tree: SourceTree,
+               cache_root: Path, work_dir: Path, policy) -> dict:
+    """Diff one entry file via prebuilt indexes.
+
+    Base index: restored from cache_root (persisted across runs via
+    actions/cache) or built once from the base tree. Head index: a copy of
+    the base index incrementally re-spliced with the changed files — no full
+    recompile unless the incremental invariants don't hold.
+    """
+    import shutil
+
+    from systemrdl import RDLCompileError
+
+    from peakrdl_check.cli import _diff_result, main as cli_main
+    from peakrdl_check.diff import compile_failed_result
+    from peakrdl_check.incremental import FullRebuildRequired, incremental_build
+
+    slug = slugify(entry)
+    base_idx = cache_root / f"{slug}@{slugify(base)}"
+    if not (base_idx / "register-map.sqlite").is_file():
+        print(f"peakrdl-check: base index cache miss for {entry}@{base}; building")
+        try:
+            rc = cli_main(["build", str(tree.at(base) / entry), "-o",
+                           str(base_idx), "--source-locations", "all"])
+        except RDLCompileError as e:
+            return compile_failed_result("base", str(e))
+        if rc:
+            return compile_failed_result("base", f"build exited with {rc}")
+    else:
+        print(f"peakrdl-check: base index cache hit for {entry}@{base}")
+
+    head_idx = work_dir / f"head-index--{slug}"
+    head_idx.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(base_idx / "register-map.sqlite",
+                    head_idx / "register-map.sqlite")
+    tree.at(head)
+    try:
+        report = incremental_build([str(tree.root / entry)], head_idx,
+                                   None, "all")
+        print(f"peakrdl-check: incremental head index: "
+              f"{report.get('unitsRebuilt', 0)} unit(s) rebuilt, "
+              f"{report.get('unitsReused', 0)} reused "
+              f"in {report.get('totalSeconds')}s")
+    except FullRebuildRequired as e:
+        print(f"peakrdl-check: incremental splice unavailable ({e.reason}); "
+              f"full head build")
+        try:
+            rc = cli_main(["build", str(tree.root / entry), "-o",
+                           str(head_idx), "--source-locations", "all"])
+        except RDLCompileError as err:
+            return compile_failed_result("head", str(err))
+        if rc:
+            return compile_failed_result("head", f"build exited with {rc}")
+
+    result, _ = _diff_result(SimpleNamespace(
+        base=str(base_idx), head=str(head_idx), policy=policy))
+    return result
+
+
+def prime(head: str, glob: str, work_dir: Path, cache_root: Path,
+          emit_summary) -> int:
+    """Build and cache an index for every entry file at HEAD_REF.
+
+    Run on pushes to the default branch (base-ref == head-ref == the pushed
+    sha) so pull-request reviews always find a warm base index.
+    """
+    from systemrdl import RDLCompileError
+
+    from peakrdl_check.cli import main as cli_main
+
+    head_tree = work_dir / "prime-tree"
+    checkout_tree(head, head_tree)
+    entries = [e for e in sorted(entry_closures(head_tree))
+               if matches_glob(e, glob)]
+    tree = SourceTree(work_dir / "src-tree")
+    lines = [f"### PeakRDL-check index prime for `{head}`", ""]
+    failed = 0
+    for entry in entries:
+        idx_dir = cache_root / f"{slugify(entry)}@{slugify(head)}"
+        if (idx_dir / "register-map.sqlite").is_file():
+            lines.append(f"- `{entry}` — already cached")
+            continue
+        try:
+            rc = cli_main(["build", str(tree.at(head) / entry), "-o",
+                           str(idx_dir), "--source-locations", "all"])
+        except RDLCompileError as e:
+            rc = 1
+            print(f"peakrdl-check: prime build of {entry} failed: {e}")
+        if rc:
+            failed += 1
+            lines.append(f"- `{entry}` — **build failed**")
+        else:
+            lines.append(f"- `{entry}` — index built and cached")
+    emit_summary("\n".join(lines))
+    return 1 if failed else 0
+
+
 def annotate(change: dict) -> None:
     """Emit a GitHub source annotation for a change."""
     loc = change.get("headLocation") or change.get("baseLocation")
@@ -131,8 +257,12 @@ def main() -> int:
     fail_on = os.environ.get("FAIL_ON", "breaking")
     policy = os.environ.get("POLICY") or None
 
-    out_dir = Path("peakrdl-check-out")
+    out_dir = Path("peakrdl-check-out")          # uploaded as the artifact
     out_dir.mkdir(exist_ok=True)
+    work_dir = Path("peakrdl-check-work")        # scratch trees and indexes
+    work_dir.mkdir(exist_ok=True)
+    cache_root = Path(os.environ.get("PEAKRDL_CHECK_INDEX_CACHE")
+                      or (work_dir / "index-cache"))
 
     changed = changed_rdl_files(base, head)
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
@@ -151,13 +281,18 @@ def main() -> int:
                 f.write(f"breaking-count={breaking}\n")
                 f.write(f"report-path={report}\n")
 
+    if os.environ.get("MODE", "review") == "prime":
+        rc = prime(head, glob, work_dir, cache_root, emit_summary)
+        emit_outputs(0, "")
+        return rc
+
     if not changed:
         emit_summary("### PeakRDL-check\n\nNo SystemRDL changes detected.")
         emit_outputs(0, "")
         return 0
 
-    base_tree = out_dir / "base-tree"
-    head_tree = out_dir / "head-tree"
+    base_tree = work_dir / "base-tree"
+    head_tree = work_dir / "head-tree"
     checkout_tree(base, base_tree)
     checkout_tree(head, head_tree)
 
@@ -173,7 +308,7 @@ def main() -> int:
     combined = []
     all_changes = []
     summary_used = 0
-    from peakrdl_check.cli import _diff_result
+    tree = SourceTree(work_dir / "src-tree")
     from peakrdl_check.report import FORMATTERS
 
     for f in files:
@@ -192,10 +327,12 @@ def main() -> int:
             continue
         report_json = out_dir / (f.replace("/", "__") + ".diff.json")
         report_md = out_dir / (f.replace("/", "__") + ".diff.md")
-        # Compile base and head once per file; both report formats come from
-        # the same diff result (each compile can take minutes on large maps).
-        result, _ = _diff_result(SimpleNamespace(
-            base=str(bfile), head=str(hfile), policy=policy))
+        # Diff prebuilt indexes: the base index is cached across runs, the
+        # head index is an incremental splice of the changed files onto it.
+        # Compiling SystemRDL from scratch (minutes and ~10 GB at 800k
+        # registers) only happens on a cold cache or when the incremental
+        # invariants don't hold.
+        result = entry_diff(f, base, head, tree, cache_root, work_dir, policy)
         report_json.write_text(FORMATTERS["json"](result))
         md = FORMATTERS["markdown"](result)
         report_md.write_text(md)

@@ -1,7 +1,13 @@
 # SQLite storage
 
-`peakrdl_check/storage.py` implements storage schema v1: **one SQLite file per
+`peakrdl_check/storage.py` implements storage schema v2: **one SQLite file per
 specification** (`register-map.sqlite`), no file-per-entity anywhere.
+
+The index is also a complete diff input: `model_from_index()` reconstructs a
+canonical model (declarations, definition bodies with content hashes, source
+locations) so `peakrdl-check diff` can compare two indexes without
+recompiling any SystemRDL source. The GitHub Action relies on this to cache
+the base revision's index across runs.
 
 ## Schema
 
@@ -40,7 +46,8 @@ CREATE TABLE node (                   -- one row per declared instance, arrays f
     src_line     INTEGER,
     src_col      INTEGER,
     sort_key     INTEGER NOT NULL,
-    block_id     INTEGER              -- incremental unit (block-root node_id)
+    block_id     INTEGER,             -- incremental unit (block-root node_id)
+    is_alias     INTEGER NOT NULL DEFAULT 0  -- alias reg (shares primary's storage)
 );
 
 -- FTS (contentless; deletable rows for the incremental splicer)
@@ -117,5 +124,5 @@ subscripts raise `PathResolveError` (HTTP 400 at the API).
 ## Read side
 
 `RegIndex` opens the file read-only (`mode=ro` URI) and refuses databases whose
-`storage_schema_version` does not match `STORAGE_SCHEMA_VERSION` (currently 1).
+`storage_schema_version` does not match `STORAGE_SCHEMA_VERSION` (currently 2).
 All list queries are cursor-paginated with server-side clamps.
