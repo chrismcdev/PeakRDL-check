@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/chrismcdev/PeakRDL-check/compare/v0.2.2...v0.3.0) (2026-07-17)
+
+
+### Features
+
+* diff prebuilt indexes so large-map reviews avoid recompiling ([#17](https://github.com/chrismcdev/PeakRDL-check/issues/17)) ([6e68e06](https://github.com/chrismcdev/PeakRDL-check/commit/6e68e063cde55e6a4ed07272ff8e1f31adde36d3))
+
 ## [0.2.2](https://github.com/chrismcdev/PeakRDL-check/compare/v0.2.1...v0.2.2) (2026-07-17)
 
 
