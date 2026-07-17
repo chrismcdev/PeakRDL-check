@@ -260,7 +260,18 @@ async function childRowsThrough(parentId, targetPath, level) {
 }
 
 async function revealInHierarchy(path) {
-  const node = await api("/api/entities/" + encodeURIComponent(path));
+  let node, fieldName = null;
+  try {
+    node = await api("/api/entities/" + encodeURIComponent(path));
+  } catch (error) {
+    // Field-level change keys (reg.field) are not entities; reveal the
+    // register instead and highlight the field once its detail renders.
+    const dot = path.lastIndexOf(".");
+    if (dot < 0) throw error;
+    fieldName = path.slice(dot + 1);
+    path = path.slice(0, dot);
+    node = await api("/api/entities/" + encodeURIComponent(path));
+  }
   const parts = node.path.split(".");
   const prefixes = parts.map((_, i) => parts.slice(0, i + 1).join("."));
 
@@ -284,6 +295,7 @@ async function revealInHierarchy(path) {
   listEl.scrollTop = Math.max(0, selected * ROW_H - listEl.clientHeight / 2);
   renderWindow();
   await showDetail(path, node);
+  if (fieldName) focusField(fieldName);
 }
 
 async function toggle(i) {
@@ -401,30 +413,47 @@ function changeImpactForPath(path) {
   return changeImpactIndex.get(path) || null;
 }
 
+let changesProgress = null; // set by views that want per-page load feedback
+
 async function getChanges() {
   if (changesCache) return changesCache;
   if (!changesPromise) {
     changesPromise = (async () => {
       const pages = [];
       let cursor = 0;
+      let summary = {};
+      // 50 pages × 10k caps browser memory on pathological diffs; `truncated`
+      // lets views say so instead of silently under-reporting.
       for (let guard = 0; guard < 50 && cursor !== null; guard++) {
-        const res = await api(`/api/changes?cursor=${cursor}&limit=1000`);
+        const res = await api(`/api/changes?cursor=${cursor}&limit=10000`);
         pages.push(...res.items);
+        summary = res.summary || {};
         cursor = res.nextCursor;
-        changesCache = { items: pages, summary: res.summary };
+        if (changesProgress) changesProgress(pages.length);
       }
-      buildChangeImpactIndex(changesCache?.items || []);
+      // Cache is only ever set on a complete load: a failed page must not
+      // leave a partial list that every later view silently reuses.
+      changesCache = { items: pages, summary, truncated: cursor !== null };
+      buildChangeImpactIndex(pages);
       if (state.mode === "tree") renderWindow();
-      return changesCache || { items: [], summary: {} };
+      return changesCache;
     })();
+    changesPromise.catch(() => { changesPromise = null; });
   }
-  try { return await changesPromise; }
-  finally { changesPromise = null; }
+  return changesPromise;
 }
 
 async function loadChanges() {
   const filters = document.getElementById("filters");
-  await getChanges();
+  if (!changesCache) {
+    const loading = el("div", "status", "loading changes…");
+    document.getElementById("detail").replaceChildren(loading);
+    changesProgress = n => {
+      loading.textContent = `loading changes… (${n.toLocaleString()} so far)`;
+    };
+  }
+  try { await getChanges(); }
+  finally { changesProgress = null; }
   if (!state.severityFilter) state.severityFilter = new Set(CLASSES);
   filters.style.display = "flex";
   filters.replaceChildren();
@@ -446,7 +475,7 @@ async function loadChanges() {
 function renderChanges() {
   const items = changesCache.items.filter(c => state.severityFilter.has(c.classification));
   setRows(items.map(c => ({ change: c, level: 0 })));
-  statusDetail(`${items.length} changes shown (${changesCache.items.length} total)`);
+  statusDetail(`${items.length} changes shown (${changesCache.items.length}${changesCache.truncated ? "+" : ""} total)`);
 }
 
 function countsBy(items, keyFn) {
@@ -484,22 +513,38 @@ function appendMetric(card, value, label, color) {
 
 async function renderOverview() {
   const d = document.getElementById("detail");
-  d.replaceChildren(el("div", "status", "loading overview…"));
-  const data = await getChanges();
+  const loading = el("div", "status", "loading overview…");
+  d.replaceChildren(loading);
+  changesProgress = n => {
+    loading.textContent = `loading overview… (${n.toLocaleString()} changes)`;
+  };
+  let data;
+  try { data = await getChanges(); }
+  finally { changesProgress = null; }
   const items = data.items;
   setRows(items.map(change => ({ change, level: 0 })));
   d.replaceChildren();
 
+  // The server-side summary holds the true totals even when the loaded list
+  // is truncated.
+  const severityCounts = new Map(countsBy(items, item => item.classification));
+  for (const [cls, count] of Object.entries(data.summary || {}))
+    if (Number(count) > (severityCounts.get(cls) || 0)) severityCounts.set(cls, Number(count));
+  const totalCount = [...severityCounts.values()].reduce((a, b) => a + b, 0);
+
   const head = el("div", "overview-head");
   head.appendChild(el("h2", "", "Change overview"));
-  head.appendChild(el("span", "desc", items.length ? "Select a change to view its details" : "No semantic changes detected"));
+  head.appendChild(el("span", "desc", !items.length
+    ? "No semantic changes detected"
+    : data.truncated
+      ? `Loaded the first ${items.length.toLocaleString()} of ${totalCount.toLocaleString()} changes`
+      : "Select a change to view its details"));
   d.appendChild(head);
 
-  const severityCounts = new Map(countsBy(items, item => item.classification));
   const cards = el("div", "overview-grid");
   const total = el("button", "metric-card");
   total.type = "button";
-  appendMetric(total, items.length, "total changes", "var(--accent)");
+  appendMetric(total, totalCount, "total changes", "var(--accent)");
   total.onclick = () => openChangesWithFilter(null);
   cards.appendChild(total);
   for (const classification of CLASSES) {
@@ -1044,6 +1089,10 @@ function updateViewUrl(mode) {
 
 function setMode(mode) {
   state.mode = mode;
+  // Entering the tree directly (?view=hierarchy, /r/ deep link) must still
+  // load changes, or the impact badges never appear; getChanges re-renders
+  // the tree when it completes.
+  if (mode === "tree" && !changesCache) getChanges().catch(() => {});
   document.getElementById("filters").style.display = mode === "changes" ? "flex" : "none";
   for (const [id, m] of [["tab-overview", "overview"], ["tab-tree", "tree"], ["tab-results", "results"], ["tab-changes", "changes"]])
     document.getElementById(id).classList.toggle("active", m === mode);
