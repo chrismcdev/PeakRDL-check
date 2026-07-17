@@ -22,6 +22,14 @@ import os
 import subprocess
 import sys
 from pathlib import Path
+from types import SimpleNamespace
+
+# GitHub renders at most ~10 annotations per step and truncates huge logs;
+# an 800k-register diff can produce tens of thousands of changes.
+MAX_ANNOTATIONS = 30
+# GITHUB_STEP_SUMMARY is rejected above 1 MiB; leave headroom.
+SUMMARY_BUDGET = 800_000
+_ANNOTATION_PRIORITY = {"breaking": 0, "behavioural": 1, "uncertain": 2}
 
 
 def sh(*cmd, **kw):
@@ -85,32 +93,46 @@ def main() -> int:
 
     total_breaking = 0
     combined = []
-    from peakrdl_check.cli import main as cli_main
+    all_changes = []
+    summary_used = 0
+    from peakrdl_check.cli import _diff_result
+    from peakrdl_check.report import FORMATTERS
 
     for f in files:
         bfile, hfile = base_tree / f, head_tree / f
         report_json = out_dir / (f.replace("/", "__") + ".diff.json")
         report_md = out_dir / (f.replace("/", "__") + ".diff.md")
-        argv = ["diff",
-                "--base", str(bfile if bfile.exists() else hfile),
-                "--head", str(hfile if hfile.exists() else bfile),
-                "--format", "json", "--output", str(report_json)]
-        if policy:
-            argv += ["--policy", policy]
-        rc = cli_main(argv)
-        result = json.loads(report_json.read_text())
-        cli_main(["diff",
-                        "--base", str(bfile if bfile.exists() else hfile),
-                        "--head", str(hfile if hfile.exists() else bfile),
-                        "--format", "markdown", "--output", str(report_md)]
-                       + (["--policy", policy] if policy else []))
+        # Compile base and head once per file; both report formats come from
+        # the same diff result (each compile can take minutes on large maps).
+        result, _ = _diff_result(SimpleNamespace(
+            base=str(bfile if bfile.exists() else hfile),
+            head=str(hfile if hfile.exists() else bfile),
+            policy=policy))
+        report_json.write_text(FORMATTERS["json"](result))
+        md = FORMATTERS["markdown"](result)
+        report_md.write_text(md)
         combined.append({"file": f, "summary": result.get("summary", {}),
                          "changes": result.get("changes", [])})
         total_breaking += result.get("summary", {}).get("breaking", 0)
-        for c in result.get("changes", []):
-            annotate(c)
-        emit_summary(f"## `{f}`\n")
-        emit_summary(report_md.read_text())
+        all_changes.extend(result.get("changes", []))
+        # The job summary has a hard 1 MiB cap: oversized reports degrade to
+        # counts plus a pointer at the uploaded artifact.
+        entry = f"## `{f}`\n\n"
+        if summary_used + len(entry) + len(md) <= SUMMARY_BUDGET:
+            entry += md
+        else:
+            counts = ", ".join(f"{v} {k}" for k, v in result.get("summary", {}).items())
+            entry += (f"**{counts or 'no changes'}** — report too large for the "
+                      "job summary; see the `peakrdl-check-report` artifact.\n")
+        summary_used += len(entry)
+        emit_summary(entry)
+
+    all_changes.sort(key=lambda c: _ANNOTATION_PRIORITY.get(c["classification"], 3))
+    for c in all_changes[:MAX_ANNOTATIONS]:
+        annotate(c)
+    if len(all_changes) > MAX_ANNOTATIONS:
+        print(f"peakrdl-check: annotations capped at {MAX_ANNOTATIONS} "
+              f"({len(all_changes) - MAX_ANNOTATIONS} more in the report artifact)")
 
     (out_dir / "combined.json").write_text(json.dumps(combined, indent=2))
     if outputs_path:
