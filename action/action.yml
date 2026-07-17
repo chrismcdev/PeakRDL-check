@@ -16,7 +16,9 @@ inputs:
     description: "Head git ref/sha to compare to"
     required: true
   rdl-glob:
-    description: "Glob for SystemRDL entry files"
+    description: >
+      Glob for SystemRDL entry files. Changed `include fragments are diffed
+      through the entry files that include them, never standalone.
     default: "**/*.rdl"
   fail-on:
     description: "Severity threshold: breaking | behavioural | validation-error | none"
