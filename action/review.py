@@ -5,6 +5,10 @@ Runs inside the composite action (or the local simulator with the same
 environment variables). Requires no privileged token: it only reads the
 repository worktree and writes workflow files.
 
+Changed `include fragments are diffed through the entry files that include
+them, never standalone: fragments usually don't elaborate on their own, and
+the semantic change only exists in the context of a full register map.
+
 Environment:
     BASE_REF / HEAD_REF   git refs to compare
     RDL_GLOB              entry-file glob (default **/*.rdl)
@@ -19,6 +23,7 @@ from __future__ import annotations
 import fnmatch
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -32,14 +37,75 @@ SUMMARY_BUDGET = 800_000
 _ANNOTATION_PRIORITY = {"breaking": 0, "behavioural": 1, "uncertain": 2}
 
 
+_INCLUDE_RE = re.compile(r'^\s*`include\s+"([^"]+)"', re.MULTILINE)
+
+
 def sh(*cmd, **kw):
     return subprocess.run(cmd, capture_output=True, text=True, **kw)
 
 
-def changed_rdl_files(base: str, head: str, glob: str) -> list:
+def changed_rdl_files(base: str, head: str) -> list:
     out = sh("git", "diff", "--name-only", f"{base}...{head}").stdout
-    files = [l for l in out.splitlines() if l.strip()]
-    return [f for f in files if fnmatch.fnmatch(f, glob) or f.endswith(".rdl")]
+    return [l for l in out.splitlines() if l.strip().endswith(".rdl")]
+
+
+def matches_glob(rel: str, glob: str) -> bool:
+    # fnmatch's "**/" does not match files at the repo root; accept both.
+    return (fnmatch.fnmatch(rel, glob)
+            or (glob.startswith("**/") and fnmatch.fnmatch(rel, glob[3:])))
+
+
+def entry_closures(tree: Path) -> dict:
+    """Map each entry .rdl (not `include`d by another) to its include closure.
+
+    Paths are tree-relative POSIX strings. Includes are resolved relative to
+    the including file, matching the compiler's behaviour.
+    """
+    tree = tree.resolve()
+    files = {p.relative_to(tree).as_posix(): p for p in tree.rglob("*.rdl")}
+    direct = {}
+    for rel, p in files.items():
+        try:
+            text = p.read_text(errors="ignore")
+        except OSError:
+            text = ""
+        inc = set()
+        for name in _INCLUDE_RE.findall(text):
+            target = (p.parent / name).resolve()
+            try:
+                inc.add(target.relative_to(tree).as_posix())
+            except ValueError:
+                pass  # include outside the tree
+        direct[rel] = inc
+    included = set().union(*direct.values()) if direct else set()
+    closures = {}
+    for rel in files:
+        if rel in included:
+            continue
+        seen, stack = {rel}, [rel]
+        while stack:
+            for nxt in direct.get(stack.pop(), ()):
+                if nxt not in seen:
+                    seen.add(nxt)
+                    stack.append(nxt)
+        closures[rel] = seen
+    return closures
+
+
+def affected_entries(base_tree: Path, head_tree: Path, changed: list,
+                     glob: str) -> list:
+    """Entry files whose include closure intersects the changed files."""
+    base_c = entry_closures(base_tree)
+    head_c = entry_closures(head_tree)
+    changed_set = set(changed)
+    out = []
+    for rel in sorted(set(base_c) | set(head_c)):
+        if not matches_glob(rel, glob):
+            continue
+        closure = base_c.get(rel, set()) | head_c.get(rel, set())
+        if closure & changed_set:
+            out.append(rel)
+    return out
 
 
 def checkout_tree(ref: str, dest: Path) -> None:
@@ -68,7 +134,7 @@ def main() -> int:
     out_dir = Path("peakrdl-check-out")
     out_dir.mkdir(exist_ok=True)
 
-    files = changed_rdl_files(base, head, glob)
+    changed = changed_rdl_files(base, head)
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
     outputs_path = os.environ.get("GITHUB_OUTPUT")
 
@@ -79,17 +145,29 @@ def main() -> int:
         else:
             print(text)
 
-    if not files:
-        emit_summary("### PeakRDL-check\n\nNo SystemRDL changes detected.")
+    def emit_outputs(breaking: int, report: str):
         if outputs_path:
             with open(outputs_path, "a") as f:
-                f.write("breaking-count=0\nreport-path=\n")
+                f.write(f"breaking-count={breaking}\n")
+                f.write(f"report-path={report}\n")
+
+    if not changed:
+        emit_summary("### PeakRDL-check\n\nNo SystemRDL changes detected.")
+        emit_outputs(0, "")
         return 0
 
     base_tree = out_dir / "base-tree"
     head_tree = out_dir / "head-tree"
     checkout_tree(base, base_tree)
     checkout_tree(head, head_tree)
+
+    files = affected_entries(base_tree, head_tree, changed, glob)
+    if not files:
+        emit_summary("### PeakRDL-check\n\nChanged SystemRDL files "
+                     f"({', '.join(f'`{c}`' for c in changed)}) match no "
+                     f"entry file for glob `{glob}`.")
+        emit_outputs(0, "")
+        return 0
 
     total_breaking = 0
     combined = []
@@ -100,14 +178,24 @@ def main() -> int:
 
     for f in files:
         bfile, hfile = base_tree / f, head_tree / f
+        # An added or removed register map has nothing to diff against:
+        # compiling one side against itself costs two full compiles for a
+        # guaranteed-empty result (minutes and ~10 GB on very large maps).
+        if not (bfile.is_file() and hfile.is_file()):
+            state = "added" if hfile.is_file() else "removed"
+            combined.append({"file": f, "state": state, "summary": {},
+                             "changes": []})
+            entry = (f"## `{f}`\n\n**Register map {state}** — "
+                     "no base revision to compare against.\n")
+            summary_used += len(entry)
+            emit_summary(entry)
+            continue
         report_json = out_dir / (f.replace("/", "__") + ".diff.json")
         report_md = out_dir / (f.replace("/", "__") + ".diff.md")
         # Compile base and head once per file; both report formats come from
         # the same diff result (each compile can take minutes on large maps).
         result, _ = _diff_result(SimpleNamespace(
-            base=str(bfile if bfile.exists() else hfile),
-            head=str(hfile if hfile.exists() else bfile),
-            policy=policy))
+            base=str(bfile), head=str(hfile), policy=policy))
         report_json.write_text(FORMATTERS["json"](result))
         md = FORMATTERS["markdown"](result)
         report_md.write_text(md)
@@ -135,10 +223,7 @@ def main() -> int:
               f"({len(all_changes) - MAX_ANNOTATIONS} more in the report artifact)")
 
     (out_dir / "combined.json").write_text(json.dumps(combined, indent=2))
-    if outputs_path:
-        with open(outputs_path, "a") as f:
-            f.write(f"breaking-count={total_breaking}\n")
-            f.write(f"report-path={out_dir / 'combined.json'}\n")
+    emit_outputs(total_breaking, str(out_dir / "combined.json"))
 
     fail_sets = {"breaking": ("breaking",),
                  "behavioural": ("breaking", "behavioural", "uncertain"),
