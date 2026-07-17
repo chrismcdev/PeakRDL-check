@@ -63,7 +63,8 @@ CREATE TABLE node (
     src_line     INTEGER,
     src_col      INTEGER,
     sort_key     INTEGER NOT NULL,
-    block_id     INTEGER
+    block_id     INTEGER,
+    is_alias     INTEGER NOT NULL DEFAULT 0
 );
 """
 
@@ -222,7 +223,7 @@ class IndexWriter:
             dims, stride, d.reg_count,
             files.get(d.src_file) if d.src_file else None,
             d.src_offset, d.src_line, d.src_col,
-            d.sort_key, block_id,
+            d.sort_key, block_id, 1 if d.is_alias else 0,
         )
         fts = (d.decl_id, d.name, d.path.replace(".", " "),
                desc_by_hash.get(d.def_hash, ""))
@@ -232,7 +233,7 @@ class IndexWriter:
         if not batch:
             return
         self.con.executemany(
-            "INSERT INTO node VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", batch)
+            "INSERT INTO node VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", batch)
         self.con.executemany(
             "INSERT INTO search(rowid, name, path, desc) VALUES (?,?,?,?)", fts_batch)
         self._rows_written += len(batch)
@@ -458,3 +459,64 @@ def _sanitize_fts(query: str) -> str:
     if not tokens:
         raise ValueError("no searchable tokens")
     return " ".join(f'"{t}"*' for t in tokens)
+
+
+class IndexModel:
+    """Canonical model reconstructed from an index; diff-compatible."""
+
+    def __init__(self, decls, definitions, top_name, source_mode):
+        self.decls = decls
+        self.definitions = definitions
+        self.top_name = top_name
+        self.source_mode = source_mode
+
+
+def model_from_index(db_path: Path) -> IndexModel:
+    """Load a diff-ready canonical model from a built index.
+
+    The index stores everything the semantic diff reads (declarations with
+    addresses/geometry/source locations, deduplicated definition bodies with
+    content hashes), so two indexes can be diffed without recompiling any
+    SystemRDL source.
+    """
+    from .canonical import Definition
+
+    db_path = Path(db_path)
+    if not db_path.is_file():
+        raise FileNotFoundError(db_path)
+    con = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+    con.row_factory = sqlite3.Row
+    try:
+        meta = {k: v for k, v in con.execute("SELECT key, value FROM meta")}
+        found = meta.get("storage_schema_version")
+        if found != str(STORAGE_SCHEMA_VERSION):
+            raise RuntimeError(
+                f"unsupported storage schema version {found or 'missing'} "
+                f"(this build of peakrdl-check supports {STORAGE_SCHEMA_VERSION})")
+        definitions: dict[str, Definition] = {}
+        hash_by_id: dict[int, str] = {}
+        for r in con.execute("SELECT * FROM definition"):
+            definitions[r["hash"]] = Definition(
+                kind=r["kind"], type_name=r["type_name"],
+                body=json.loads(r["body"]), hash=r["hash"])
+            hash_by_id[r["def_id"]] = r["hash"]
+        src = {r["file_id"]: r["path"] for r in con.execute("SELECT * FROM src_file")}
+        decls = []
+        for r in con.execute("SELECT * FROM node ORDER BY node_id"):
+            decls.append(Decl(
+                decl_id=r["node_id"], parent_id=r["parent_id"], kind=r["kind"],
+                name=r["name"], path=r["path"], def_hash=hash_by_id[r["def_id"]],
+                addr=hex_to_addr(r["addr"]), offset=hex_to_addr(r["offset"]),
+                size=hex_to_addr(r["size"]),
+                array_dims=json.loads(r["array_dims"]) if r["array_dims"] else None,
+                array_stride=hex_to_addr(r["array_stride"]) if r["array_stride"] else None,
+                reg_count=r["reg_count"],
+                src_file=src.get(r["src_file_id"]),
+                src_offset=r["src_offset"], src_line=r["src_line"],
+                src_col=r["src_col"], sort_key=r["sort_key"],
+                is_alias=bool(r["is_alias"]), block_id=r["block_id"]))
+    finally:
+        con.close()
+    return IndexModel(decls=decls, definitions=definitions,
+                      top_name=meta.get("top_name", ""),
+                      source_mode=meta.get("source_mode", ""))

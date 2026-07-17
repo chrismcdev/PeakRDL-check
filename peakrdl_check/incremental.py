@@ -334,11 +334,11 @@ class _Splicer:
                 format(d.array_stride, "x") if d.array_stride else None,
                 d.reg_count,
                 self._file_id(d.src_file), d.src_offset, d.src_line, d.src_col,
-                nid, root_id,
+                nid, root_id, 1 if d.is_alias else 0,
             ))
             fts.append((nid, d.name, path.replace(".", " "),
                         desc_by_hash.get(d.def_hash, "")))
-        con.executemany("INSERT INTO node VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        con.executemany("INSERT INTO node VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                         rows)
         con.executemany("INSERT INTO search(rowid, name, path, desc) VALUES (?,?,?,?)",
                         fts)

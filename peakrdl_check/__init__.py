@@ -7,7 +7,7 @@ __version__ = "0.2.2"
 CANONICAL_SCHEMA_VERSION = 1
 
 # Version of the SQLite storage schema. Bump on any table/index change.
-STORAGE_SCHEMA_VERSION = 1
+STORAGE_SCHEMA_VERSION = 2
 
 # Version of the semantic-diff severity policy.
 POLICY_VERSION = "1.0.0"
