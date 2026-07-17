@@ -96,8 +96,9 @@ def cmd_serve(args) -> int:
 
     p = Path(args.index)
     db = p / "register-map.sqlite" if p.is_dir() else p
-    changes = Path(args.changes) if args.changes else (
-        db.parent / "changes.json" if (db.parent / "changes.json").is_file() else None)
+    # The default path is passed even if the file doesn't exist yet: the
+    # handler re-checks per request, so a diff written after startup is served.
+    changes = Path(args.changes) if args.changes else db.parent / "changes.json"
     serve(db, host=args.host, port=args.port, changes_path=changes,
           verbose=args.verbose)
     return EXIT_OK
@@ -141,8 +142,13 @@ def cmd_diff(args) -> int:
     result, _ = _diff_result(args)
     text = FORMATTERS[args.format](result)
     if args.output:
-        Path(args.output).parent.mkdir(parents=True, exist_ok=True)
-        Path(args.output).write_text(text)
+        out = Path(args.output)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        # Atomic replace: a viewer serving the previous file must never read
+        # a half-written one.
+        tmp = out.with_name(out.name + ".tmp")
+        tmp.write_text(text)
+        tmp.replace(out)
         print(f"wrote {args.output} ({result['totalChanges']} changes)")
     else:
         sys.stdout.write(text)

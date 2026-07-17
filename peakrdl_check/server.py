@@ -48,6 +48,10 @@ class _Handler(BaseHTTPRequestHandler):
     changes_path: Path = None
     ready_at: float = 0.0
 
+    # (mtime_ns, size) -> parsed changes.json. The viewer pages through the
+    # change list, so without this every page request re-parses the full file.
+    _changes_cache = None
+
     def log_message(self, fmt, *args):  # quiet by default
         if getattr(self.server, "verbose", False):
             super().log_message(fmt, *args)
@@ -67,6 +71,19 @@ class _Handler(BaseHTTPRequestHandler):
 
     def _err(self, status, msg):
         self._json({"error": msg}, status=status)
+
+    def _load_changes(self):
+        path = self.changes_path
+        if not (path and path.is_file()):
+            return None
+        st = path.stat()
+        key = (st.st_mtime_ns, st.st_size)
+        cached = type(self)._changes_cache
+        if cached and cached[0] == key:
+            return cached[1]
+        data = json.loads(path.read_text())
+        type(self)._changes_cache = (key, data)
+        return data
 
     # ---- routing ----
 
@@ -143,18 +160,18 @@ class _Handler(BaseHTTPRequestHandler):
                 return self._err(404, "not found")
             return self._json(node)
         if route == "/api/changes":
-            if self.changes_path and self.changes_path.is_file():
-                data = json.loads(self.changes_path.read_text())
-                offset = qint("cursor", 0)
-                limit = qint("limit", 200, 1, 1000)
-                changes = data.get("changes", [])
-                page = changes[offset:offset + limit]
-                return self._json({
-                    "summary": data.get("summary", {}),
-                    "items": page,
-                    "nextCursor": offset + limit if offset + limit < len(changes) else None,
-                })
-            return self._json({"summary": {}, "items": [], "nextCursor": None})
+            data = self._load_changes()
+            if data is None:
+                return self._json({"summary": {}, "items": [], "nextCursor": None})
+            offset = qint("cursor", 0)
+            limit = qint("limit", 200, 1, 10000)
+            changes = data.get("changes", [])
+            page = changes[offset:offset + limit]
+            return self._json({
+                "summary": data.get("summary", {}),
+                "items": page,
+                "nextCursor": offset + limit if offset + limit < len(changes) else None,
+            })
         return self._err(404, "unknown endpoint")
 
     def _static(self, route):
